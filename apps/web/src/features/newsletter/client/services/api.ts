@@ -4,7 +4,7 @@
  * Handles HTTP communication with the backend API.
  */
 
-import { NewsletterSubscribeRequest, NewsletterSubscribeResponse } from "@logistic-landscape/types";
+import { NewsletterSubscribeRequest, NewsletterSubscribeResponse } from "@/shared/types/api";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 

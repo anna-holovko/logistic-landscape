@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { config } from "@logistic-landscape/config";
-import "@logistic-landscape/design-system/styles.css";
+import { config } from "@/shared/config";
+import "@/shared/styles/globals.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

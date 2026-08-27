@@ -7,8 +7,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { emailSchema } from "@logistic-landscape/validation";
-import { NewsletterSubscribeResponse } from "@logistic-landscape/types";
+import { emailSchema } from "@/shared/validation/newsletter";
+import { NewsletterSubscribeResponse } from "@/shared/types/api";
 import { apiClient } from "../services/api";
 
 interface FormState {
@@ -80,7 +80,7 @@ export function useNewsletterForm(): UseNewsletterFormReturn {
           success: false,
         }));
       }
-    } catch (error) {
+    } catch {
       setState((prev) => ({
         ...prev,
         isLoading: false,

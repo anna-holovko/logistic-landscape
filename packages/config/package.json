@@ -1,15 +1,22 @@
 {
   "name": "@logistic-landscape/config",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc",
-    "typecheck": "tsc --noEmit",
-    "dev": "tsc --watch"
+    "build": "../../node_modules/.bin/tsc",
+    "typecheck": "../../node_modules/.bin/tsc --noEmit",
+    "dev": "../../node_modules/.bin/tsc --watch"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
   }
 }

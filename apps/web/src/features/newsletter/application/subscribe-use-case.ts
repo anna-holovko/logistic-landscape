@@ -7,7 +7,7 @@
 
 import { Email } from "../model/email";
 import { NewsletterRepository } from "../model/repository";
-import { SubscriptionResult, NewsletterErrorCode } from "../model/types";
+import { NewsletterErrorCode } from "../model/types";
 
 export interface SubscribeDTO {
   email: string;

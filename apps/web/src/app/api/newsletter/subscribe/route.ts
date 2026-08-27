@@ -5,8 +5,8 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { newsletterSubscribeRequestSchema } from "@logistic-landscape/validation";
-import { NewsletterSubscribeResponse, ERROR_STATUS_CODE_MAP } from "@logistic-landscape/types";
+import { newsletterSubscribeRequestSchema } from "@/shared/validation/newsletter";
+import { NewsletterSubscribeResponse, ERROR_STATUS_CODE_MAP } from "@/shared/types/api";
 import { InMemoryNewsletterRepository } from "@/features/newsletter";
 import { SubscribeNewsletterUseCase } from "@/features/newsletter";
 
@@ -40,8 +40,8 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     const result = await useCase.execute(validation.data);
 
     if (!result.success) {
-      const statusCode = result.error?.code
-        ? ERROR_STATUS_CODE_MAP[result.error.code] || 400
+      const statusCode = result.error && result.error.code
+        ? ERROR_STATUS_CODE_MAP[result.error.code as keyof typeof ERROR_STATUS_CODE_MAP] || 400
         : 400;
 
       return NextResponse.json(
@@ -81,10 +81,3 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     );
   }
 }
-
-// Disable body parser for performance
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};

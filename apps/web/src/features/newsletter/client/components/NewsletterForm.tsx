@@ -8,7 +8,7 @@
 "use client";
 
 import { FormEvent, useEffect } from "react";
-import { Button, Input } from "@logistic-landscape/design-system";
+import { Button, Input } from "@/shared/components";
 import { useNewsletterForm } from "../hooks/useNewsletterForm";
 
 interface NewsletterFormProps {
@@ -25,6 +25,7 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
       const timer = setTimeout(reset, 3000);
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [success, onSuccess, reset]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

@@ -1,19 +1,28 @@
 {
   "name": "@logistic-landscape/design-system",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./tokens": "./dist/tokens/index.js",
-    "./components": "./dist/components/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "default": "./dist/tokens/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "default": "./dist/components/index.js"
+    },
     "./styles.css": "./src/styles/globals.css"
   },
   "scripts": {
-    "build": "tsc",
-    "typecheck": "tsc --noEmit",
-    "dev": "tsc --watch"
+    "build": "../../node_modules/.bin/tsc",
+    "typecheck": "../../node_modules/.bin/tsc --noEmit",
+    "dev": "../../node_modules/.bin/tsc --watch"
   },
   "dependencies": {
     "react": "^18.3.0",

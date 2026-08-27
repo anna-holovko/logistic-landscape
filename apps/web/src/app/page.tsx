@@ -7,7 +7,7 @@ export const metadata: Metadata = (() => {
   return {
     title: seo.title,
     description: seo.description,
-    canonicalUrl: seo.canonical,
+    canonical: seo.canonical,
     robots: seo.robots,
     openGraph: {
       type: seo.ogType as "website" | "article",
@@ -44,11 +44,7 @@ export default function Home() {
               <h1>Logistic Landscape</h1>
               <p>Stay updated with the latest insights from the logistics industry.</p>
 
-              <NewsletterForm
-                onSuccess={() => {
-                  console.log("Newsletter subscription successful!");
-                }}
-              />
+              <NewsletterForm />
             </div>
           </div>
         </section>

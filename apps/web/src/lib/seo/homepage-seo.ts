@@ -4,8 +4,8 @@
  * SEO metadata for the homepage/newsletter page.
  */
 
-import { config } from "@logistic-landscape/config";
-import { PageSeo, WebSiteSchema } from "@logistic-landscape/types";
+import { config } from "@/shared/config";
+import { PageSeo, WebSiteSchema } from "@/shared/types/seo";
 
 export function getHomepageSeo(): PageSeo {
   const siteUrl = config.site.url;
