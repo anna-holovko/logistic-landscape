@@ -1,0 +1,56 @@
+/**
+ * App-specific Global Styles
+ */
+
+/* Suppress default button and form styling for consistent design-system application */
+button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  all: unset;
+  display: block;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utility classes for component styling */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.newsletter-form__field {
+  width: 100%;
+}
+
+.newsletter-form__actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.newsletter-form__success {
+  padding: var(--space-4);
+  background-color: var(--color-success);
+  color: white;
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .newsletter-form {
+    gap: var(--space-3);
+  }
+}
