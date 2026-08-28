@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint src/",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "build": "../../node_modules/.bin/next build",
+    "start": "../../node_modules/.bin/next start",
+    "lint": "../../node_modules/.bin/eslint src/",
+    "typecheck": "../../node_modules/.bin/tsc --noEmit",
+    "test": "../../node_modules/.bin/vitest"
   },
   "dependencies": {
     "react": "^18.3.0",
