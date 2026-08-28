@@ -292,6 +292,8 @@ textarea {
 /* Responsive utilities */
 @media (max-width: 768px) {
   .newsletter-section {
+    background: linear-gradient(135deg, rgba(21, 42, 49, 0.85) 0%, rgba(30, 60, 69, 0.85) 100%),
+                url('/assets/bg-image-2.png') center / cover no-repeat;
     padding: var(--space-6) var(--space-4);
   }
 
