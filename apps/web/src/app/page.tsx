@@ -41,8 +41,12 @@ export default function Home() {
         <section className="newsletter-section">
           <div className="newsletter-container">
             <div className="newsletter-content">
-              <h1>Logistic Landscape</h1>
-              <p>Stay updated with the latest insights from the logistics industry.</p>
+              <h1>Logistics, decoded.</h1>
+              <p>
+                A monthly newsletter for logistics professionals navigating the U.S. market. Understand
+                how the logistics landscape really works: from transportation modes and technologies to
+                the companies shaping the industry.
+              </p>
 
               <NewsletterForm />
             </div>

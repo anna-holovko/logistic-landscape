@@ -8,27 +8,42 @@
  */
 
 export const colors = {
-  // Placeholder values — will be replaced with Figma colors
-  primary: "#000000",
-  secondary: "#666666",
-  tertiary: "#999999",
+  // Primary brand colors from Figma Design System
+  primary: "#152A31", // Navy Main
+  secondary: "#1E3C45", // Water
+  tertiary: "#666666",
   background: "#FFFFFF",
   surface: "#F9F9F9",
   border: "#E0E0E0",
   text: {
-    primary: "#000000",
-    secondary: "#666666",
+    primary: "#152A31", // Navy Main
+    secondary: "#1E3C45", // Water
     tertiary: "#999999",
   },
   error: "#DC2626",
   success: "#16A34A",
   warning: "#EA580C",
   info: "#0284C7",
+
+  // Figma design tokens
+  navy: "#152A31", // Navy Main - headings, primary text
+  water: "#1E3C45", // Water - secondary text, subheadings
+  brick: "#BE5B3F", // Brick - buttons, accents
+  gold: "#C79A3E", // Gold - decorative accents
+  paper: "#EFE6D3", // Paper - backgrounds, alt text
+
+  // Hero section colors
+  hero: {
+    background: "#152A31",
+    text: "#EFE6D3",
+    button: "#BE5B3F",
+  },
 };
 
 export const typography = {
   fontFamily: {
     base: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif",
+    display: "'Petrona', serif",
     monospace: "'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
   },
   fontSize: {
@@ -40,6 +55,8 @@ export const typography = {
     "2xl": "24px",
     "3xl": "30px",
     "4xl": "36px",
+    "5xl": "48px",
+    "6xl": "80px",
   },
   fontWeight: {
     thin: 100,

@@ -24,11 +24,70 @@ textarea {
   font-size: inherit;
 }
 
+/* Page Layout */
+.page-newsletter {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero/Newsletter Section */
+.newsletter-section {
+  background: linear-gradient(rgba(21, 42, 49, 0.85), rgba(21, 42, 49, 0.85)),
+              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23152a31" width="1920" height="1080"/></svg>');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-hero-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.newsletter-container {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.newsletter-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.newsletter-content h1 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-6xl);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.8px;
+  color: var(--color-hero-text);
+  margin: 0;
+}
+
+.newsletter-content > p {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: var(--color-hero-text);
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Utility classes for component styling */
+/* Newsletter Form Styling */
 .newsletter-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: var(--space-6);
 }
 
 .newsletter-form__field {
@@ -38,18 +97,114 @@ textarea {
 .newsletter-form__actions {
   display: flex;
   gap: var(--space-3);
+  flex-direction: column;
+}
+
+/* Form Input Styling - Dark Background */
+.newsletter-section .input-label {
+  color: var(--color-hero-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.newsletter-section .input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(239, 230, 211, 0.3);
+  color: var(--color-hero-text);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+}
+
+.newsletter-section .input::placeholder {
+  color: rgba(239, 230, 211, 0.6);
+}
+
+.newsletter-section .input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-hero-text);
+  box-shadow: 0 0 0 3px rgba(239, 230, 211, 0.2);
+}
+
+.newsletter-section .input--error {
+  border-color: var(--color-error);
+}
+
+.newsletter-section .input-error {
+  color: #ff9999;
+  font-size: var(--font-size-sm);
+}
+
+/* Button Styling */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background-color: #BE5B3F;
+  color: white;
+}
+
+.button--primary:hover:not(:disabled) {
+  background-color: #a84a32;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.newsletter-section .button--primary {
+  background-color: #BE5B3F;
+  color: white;
+}
+
+.newsletter-section .button--primary:hover:not(:disabled) {
+  background-color: #a84a32;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(190, 91, 63, 0.4);
+}
+
+.newsletter-section .button--primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.newsletter-section .button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .newsletter-form__success {
   padding: var(--space-4);
-  background-color: var(--color-success);
-  color: white;
+  background-color: rgba(22, 163, 74, 0.2);
+  border: 1px solid var(--color-success);
+  color: #90ee90;
   border-radius: var(--radius-lg);
   text-align: center;
 }
 
 /* Responsive utilities */
 @media (max-width: 768px) {
+  .newsletter-section {
+    padding: var(--space-6);
+    min-height: auto;
+  }
+
+  .newsletter-content h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .newsletter-content > p {
+    font-size: var(--font-size-base);
+  }
+
   .newsletter-form {
     gap: var(--space-3);
   }
