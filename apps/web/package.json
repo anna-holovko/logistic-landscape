@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "../../node_modules/.bin/next build",
-    "start": "../../node_modules/.bin/next start",
-    "lint": "../../node_modules/.bin/eslint src/",
-    "typecheck": "../../node_modules/.bin/tsc --noEmit",
-    "test": "../../node_modules/.bin/vitest"
+    "build": "npx next build",
+    "start": "npx next start",
+    "lint": "npx eslint src/",
+    "typecheck": "npx tsc --noEmit",
+    "test": "npx vitest"
   },
   "dependencies": {
     "react": "^18.3.0",
