@@ -149,7 +149,8 @@ textarea {
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  padding: 0 80px;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .newsletter-form__field {
