@@ -179,12 +179,11 @@ textarea {
 }
 
 .newsletter-logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-2);
   color: var(--color-hero-text);
   animation: kf_128_190_scale_0 3.871649s linear,
              kf_128_190_translate_0 3.871649s linear;
@@ -195,7 +194,7 @@ textarea {
   height: 100%;
 }
 
-.newsletter-content h1 {
+.newsletter-header h1 {
   font-family: var(--font-family-display);
   font-size: 80px;
   font-weight: 600;
@@ -206,7 +205,7 @@ textarea {
   max-width: 780px;
 }
 
-.newsletter-content > p {
+.newsletter-header p {
   font-family: var(--font-family-body);
   font-size: 20px;
   font-weight: 500;
