@@ -275,6 +275,7 @@ textarea {
 .newsletter-form__agreement label {
   cursor: pointer;
   flex: 1;
+  text-align: left;
 }
 
 .newsletter-form__agreement a {
@@ -388,6 +389,7 @@ textarea {
   gap: 10px;
   position: relative;
   overflow: visible;
+  box-sizing: border-box;
 }
 
 .button-decoration {
@@ -415,6 +417,25 @@ textarea {
   background-color: #a84a32;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(190, 91, 63, 0.5);
+}
+
+@keyframes ellipse-expand {
+  from {
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+  }
+  to {
+    width: 316px;
+    height: 316px;
+    left: -150px;
+    top: -160px;
+  }
+}
+
+.button--primary:hover:not(:disabled) .button-decoration {
+  animation: ellipse-expand 0.2s ease-in-out forwards;
 }
 
 .button--primary:active:not(:disabled) {
@@ -446,16 +467,21 @@ textarea {
   display: flex;
   justify-content: center;
   gap: 75px;
-  margin-top: var(--space-6);
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(239, 230, 211, 0.15);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 40px;
+  padding-top: 20px;
   height: 24px;
+  z-index: 1;
 }
 
 .newsletter-footer a {
   color: var(--color-hero-text);
   font-size: 16px;
   font-weight: 500;
+  font-style: italic;
   text-decoration: none;
   transition: opacity 0.2s ease;
   text-align: center;

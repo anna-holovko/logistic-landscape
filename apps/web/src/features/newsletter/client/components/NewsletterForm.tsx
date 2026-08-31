@@ -50,50 +50,53 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="newsletter-form" noValidate>
-      <div className="newsletter-form__field">
-        <Input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          error={error || undefined}
-          disabled={isLoading}
-          required
-          autoComplete="email"
-        />
-      </div>
+    <>
+      <form onSubmit={handleSubmit} className="newsletter-form" noValidate>
+        <div className="newsletter-form__field">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            error={error || undefined}
+            disabled={isLoading}
+            required
+            autoComplete="email"
+          />
+        </div>
 
-      <div className="newsletter-form__agreement">
-        <input
-          type="checkbox"
-          id="agree-terms"
-          checked={agreed}
-          onChange={(e) => setAgreed(e.target.checked)}
-          disabled={isLoading}
-          required
-        />
-        <label htmlFor="agree-terms">
-          By signing up, you agree to receiving marketing emails from us. Your information is stored
-          securely and used in accordance with our{" "}
-          <a href="/privacy" target="_blank" rel="noopener noreferrer">
-            Privacy Policy
-          </a>
-          .
-        </label>
-      </div>
+        <div className="newsletter-form__agreement">
+          <input
+            type="checkbox"
+            id="agree-terms"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            disabled={isLoading}
+            required
+          />
+          <label htmlFor="agree-terms">
+            By signing up, you agree to receiving marketing emails from us. Your information is stored
+            securely and used in accordance with our{" "}
+            <a href="/privacy" target="_blank" rel="noopener noreferrer">
+              Privacy Policy
+            </a>
+            .
+          </label>
+        </div>
+      </form>
 
       <div className="newsletter-form__actions">
         <Button
-          type="submit"
+          type="button"
           variant="primary"
           size="lg"
           isLoading={isLoading}
           disabled={isLoading || !email || !agreed}
+          onClick={() => handleSubmit({ preventDefault: () => {} } as any)}
         >
           {isLoading ? "SUBSCRIBING..." : "SUBSCRIBE"}
         </Button>
       </div>
-    </form>
+    </>
   );
 }
