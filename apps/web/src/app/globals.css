@@ -137,21 +137,16 @@ textarea {
 }
 
 .newsletter-container {
-  width: 800px;
+  width: auto;
   position: absolute;
-  left: calc(50% + 10px);
+  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%) translateY(-50%);
   text-align: center;
   z-index: 2;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.newsletter-container.visible {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .newsletter-content {
@@ -168,6 +163,7 @@ textarea {
   gap: 40px;
   align-items: center;
   width: 100%;
+  max-width: 800px;
 }
 
 .newsletter-header {
@@ -223,8 +219,9 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
-  padding: 0 80px;
+  width: 650px;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .newsletter-form__field {
@@ -234,23 +231,47 @@ textarea {
 .newsletter-form__agreement {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  font-size: var(--font-size-sm);
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--color-hero-text);
-  width: 100%;
+  width: 650px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.32px;
 }
 
 .newsletter-form__agreement input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  margin-top: 4px;
   cursor: pointer;
-  accent-color: #BE5B3F;
-  border: 1px solid rgba(239, 230, 211, 0.3);
+  appearance: none;
+  background-color: rgba(239, 230, 211, 0.2);
+  border: 1px solid #efe6d3;
   border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.newsletter-form__agreement input[type="checkbox"]:checked {
+  background-color: rgba(239, 230, 211, 0.2);
+  border-color: #efe6d3;
+}
+
+.newsletter-form__agreement input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #c79a3e;
+  border-radius: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .newsletter-form__agreement label {
@@ -274,12 +295,13 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 650px;
 }
 
 /* Form Input Styling - Dark Background */
 .newsletter-section .input-wrapper {
   display: block;
+  width: 650px;
 }
 
 .newsletter-section .input-label {
@@ -287,19 +309,25 @@ textarea {
 }
 
 .newsletter-section .input {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(239, 230, 211, 0.25);
+  background-color: transparent;
+  border: 1px solid #efe6d3;
   color: var(--color-hero-text);
   padding: 20px 100px;
-  font-size: var(--font-size-base);
+  font-size: 16px;
   border-radius: 8px;
-  width: 100%;
+  width: 650px;
   transition: all 0.3s ease;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.32px;
 }
 
 .newsletter-section .input::placeholder {
   color: rgba(239, 230, 211, 0.5);
   font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.32px;
 }
 
 .newsletter-section .input:focus {
@@ -326,9 +354,9 @@ textarea {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: var(--font-family-base);
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: var(--space-4) var(--space-8);
@@ -351,8 +379,29 @@ textarea {
   padding: 20px 50px;
   font-size: 25px;
   letter-spacing: 2.5px;
-  height: 38px;
+  height: 78px;
   width: 262px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.button-decoration {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.button-decoration img {
+  width: 100%;
+  height: 100%;
 }
 
 .button--primary {
@@ -377,7 +426,8 @@ textarea {
 }
 
 .newsletter-section .button--primary {
-  width: 100%;
+  width: 262px;
+  margin-top: 0;
 }
 
 .newsletter-form__success {
@@ -419,7 +469,7 @@ textarea {
 /* Responsive utilities */
 @media (max-width: 768px) {
   .newsletter-section {
-    padding: var(--space-6) var(--space-4);
+    padding: var(--space-4) var(--space-4);
   }
 
   .newsletter-logo {
@@ -427,21 +477,35 @@ textarea {
     height: 60px;
   }
 
-  .newsletter-content h1 {
-    font-size: var(--font-size-4xl);
+  .newsletter-header h1 {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: 0.48px;
   }
 
-  .newsletter-content > p {
-    font-size: var(--font-size-sm);
+  .newsletter-header p {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.28px;
   }
 
   .newsletter-form {
-    gap: var(--space-4);
+    width: 90vw;
     max-width: 100%;
   }
 
+  .newsletter-section .input {
+    width: 100%;
+    padding: 16px 20px;
+  }
+
   .newsletter-form__agreement {
-    font-size: var(--font-size-xs);
+    width: 90vw;
+    font-size: 14px;
+  }
+
+  .newsletter-form__actions {
+    width: 90vw;
   }
 
   .newsletter-footer {
@@ -455,6 +519,10 @@ textarea {
   }
 
   .button--lg {
-    padding: var(--space-4) var(--space-6);
+    padding: 16px 40px;
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    height: 60px;
+    width: auto;
   }
 }

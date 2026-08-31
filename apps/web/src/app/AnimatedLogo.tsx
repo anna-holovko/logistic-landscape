@@ -3,17 +3,29 @@
 import { motion } from "motion/react";
 
 export function AnimatedLogo() {
-  const DURATION = 2;
+  const DURATION = 3.872;
 
   return (
     <motion.div
       className="newsletter-logo"
-      initial={{ scaleX: 0, scaleY: 0 }}
-      animate={{ scaleX: 1, scaleY: 1 }}
+      initial={{ scaleX: 0, scaleY: 0, y: 280 }}
+      animate={{ scaleX: [0, 1, 1], scaleY: [0, 1, 1], y: [280, 280, 0, 0] }}
       transition={{
-        duration: DURATION,
-        times: [0, 0.147, 1],
-        ease: [[0.5, 0, 0.5, 1], "linear"],
+        scaleX: {
+          duration: DURATION,
+          times: [0, 0.0759, 1],
+          ease: [[0.5, 0, 0.5, 1], "linear"],
+        },
+        scaleY: {
+          duration: DURATION,
+          times: [0, 0.0759, 1],
+          ease: [[0.5, 0, 0.5, 1], "linear"],
+        },
+        y: {
+          duration: DURATION,
+          times: [0, 0.6767, 0.7335, 1],
+          ease: ["linear", [0, 0, 0.414, 1], "linear"],
+        },
       }}
     >
       <svg
@@ -33,7 +45,7 @@ export function AnimatedLogo() {
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1", "0 1"] }}
           transition={{
             duration: DURATION,
-            times: [0, 0.13167, 0.48367, 1],
+            times: [0, 0.068, 0.25, 1],
             ease: ["linear", "easeOut", "linear"],
           }}
         />
@@ -46,7 +58,7 @@ export function AnimatedLogo() {
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1", "0 1"] }}
           transition={{
             duration: DURATION,
-            times: [0, 0.33258, 0.68738, 1],
+            times: [0, 0.276, 0.458, 1],
             ease: ["linear", "easeOut", "linear"],
           }}
         />
@@ -59,7 +71,7 @@ export function AnimatedLogo() {
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1", "0 1"] }}
           transition={{
             duration: DURATION,
-            times: [0, 0.53467, 0.8869, 1],
+            times: [0, 0.172, 0.355, 1],
             ease: ["linear", "easeOut", "linear"],
           }}
         />
@@ -72,7 +84,7 @@ export function AnimatedLogo() {
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1"] }}
           transition={{
             duration: DURATION,
-            times: [0, 0.73217, 1],
+            times: [0, 0.378, 0.517],
             ease: ["linear", "easeOut"],
           }}
         />

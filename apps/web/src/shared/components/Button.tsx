@@ -11,6 +11,8 @@ export interface ButtonProps
   children: React.ReactNode;
 }
 
+const ellipseImage = "https://www.figma.com/api/mcp/asset/31b2bc51-bc52-4a11-80d5-f1f450bcdaf3.svg";
+
 /**
  * Button Component
  *
@@ -27,6 +29,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading ? "Loading..." : children}
+        {variant === "primary" && size === "lg" && !isLoading && (
+          <div className="button-decoration">
+            <img alt="" src={ellipseImage} />
+          </div>
+        )}
       </button>
     );
   }

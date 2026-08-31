@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { AnimatedLogo } from "./AnimatedLogo";
 import { NewsletterForm } from "@/features/newsletter";
 
@@ -12,11 +13,11 @@ export default function HomeClient() {
   useEffect(() => {
     const timeline = {
       intro: 0,
-      logoEntrance: 300,
-      logoAnimation: 2300,
-      transition: 2800,
-      formEntrance: 3300,
-      complete: 3800,
+      logoEntrance: 100,
+      logoAnimation: 200,
+      transition: 2795,
+      formEntrance: 3295,
+      complete: 3872,
     };
 
     const timers = Object.entries(timeline).map(([state, delay]) =>
@@ -43,7 +44,38 @@ export default function HomeClient() {
         )}
 
         {/* Main Content Container */}
-        <div className={`newsletter-container ${animationState === "complete" ? "visible" : ""}`}>
+        <motion.div
+          className="newsletter-container"
+          initial={{ opacity: 0, scaleX: 0, scaleY: 0, y: 231 }}
+          animate={{
+            opacity: animationState === "complete" ? [0, 0, 1, 1] : 0,
+            scaleX: animationState === "complete" ? [0, 0, 1, 1] : 0,
+            scaleY: animationState === "complete" ? [0, 0, 1, 1] : 0,
+            y: animationState === "complete" ? [231, 231, 0, 0] : 231,
+          }}
+          transition={{
+            opacity: {
+              duration: 3.872,
+              times: [0, 0.7686, 0.8352, 1],
+              ease: ["linear", [0.5, 0, 0.5, 1], "linear"],
+            },
+            scaleX: {
+              duration: 3.872,
+              times: [0, 0.7206, 0.8352, 1],
+              ease: ["linear", [0.5, 0, 0.5, 1], "linear"],
+            },
+            scaleY: {
+              duration: 3.872,
+              times: [0, 0.7206, 0.8352, 1],
+              ease: ["linear", [0.5, 0, 0.5, 1], "linear"],
+            },
+            y: {
+              duration: 3.872,
+              times: [0, 0.7206, 0.8352, 1],
+              ease: "linear",
+            },
+          }}
+        >
           <div className="newsletter-content">
             {/* Animated Logo in Final Position */}
             {!logoInViewport && <AnimatedLogo />}
@@ -76,7 +108,7 @@ export default function HomeClient() {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </main>
   );
