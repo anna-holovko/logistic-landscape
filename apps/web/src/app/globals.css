@@ -86,10 +86,12 @@ textarea {
 }
 
 .newsletter-container {
-  width: 100%;
-  max-width: 1000px;
+  width: 800px;
+  position: absolute;
+  left: calc(50% + 10px);
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  position: relative;
   z-index: 2;
 }
 
@@ -276,7 +278,7 @@ textarea {
   padding: 20px 50px;
   font-size: 16px;
   height: 38px;
-  min-width: 174px;
+  width: 262px;
 }
 
 .button--primary {
