@@ -349,7 +349,8 @@ textarea {
 
 .button--lg {
   padding: 20px 50px;
-  font-size: 16px;
+  font-size: 25px;
+  letter-spacing: 2.5px;
   height: 38px;
   width: 262px;
 }
