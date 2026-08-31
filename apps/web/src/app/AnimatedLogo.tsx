@@ -3,52 +3,78 @@
 import { motion } from "motion/react";
 
 export function AnimatedLogo() {
+  const DURATION = 2;
+
   return (
     <motion.div
       className="newsletter-logo"
       initial={{ scaleX: 0, scaleY: 0 }}
-      animate={{ scaleX: [0, 1, 1], scaleY: [0, 1, 1] }}
+      animate={{ scaleX: 1, scaleY: 1 }}
       transition={{
-        scaleX: { duration: 2, times: [0, 0.147, 1], ease: [[0.5, 0, 0.5, 1], "linear"] },
-        scaleY: { duration: 2, times: [0, 0.147, 1], ease: [[0.5, 0, 0.5, 1], "linear"] },
+        duration: DURATION,
+        times: [0, 0.147, 1],
+        ease: [[0.5, 0, 0.5, 1], "linear"],
       }}
     >
-      <svg preserveAspectRatio="none" overflow="visible" style={{ display: "block" }} viewBox="0 0 100.5 100.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        preserveAspectRatio="none"
+        overflow="visible"
+        style={{ display: "block" }}
+        viewBox="0 0 100.5 100.5"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <motion.path
           d="M8.78599e-06 0L100.5 8.78599e-06V4.54688L95.8037 5.03809C95.8369 5.35474 95.638 6.39101 93.8701 8.0254C92.2258 9.54528 89.7247 11.0906 86.7158 12.3594C80.58 14.9464 73.3951 15.9655 68.5381 14.3037C61.4506 11.8787 52.5859 8.23214 44.2354 6.8584C35.744 5.46186 26.8585 6.2431 20.1035 13.4717C13.7035 20.3211 10.5329 30.9916 9.03809 41.1182C7.52573 51.3642 7.64262 61.6696 8.2793 68.3643C8.83257 74.1812 7.26781 80.3547 4.18164 84.5107C2.99389 86.1102 1.60001 87.3997 1.06897e-06 88.2725L8.78599e-06 0Z"
           fill="currentColor"
           stroke="currentColor"
           strokeWidth="0"
-          initial={{ strokeDasharray: "1 1", strokeDashoffset: 0 }}
+          strokeDasharray="1 1"
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1", "0 1"] }}
-          transition={{ duration: 2, ease: ["linear", "easeOut", "linear"], times: [0, 0.132, 0.484, 1] }}
+          transition={{
+            duration: DURATION,
+            times: [0, 0.13167, 0.48367, 1],
+            ease: ["linear", "easeOut", "linear"],
+          }}
         />
         <motion.path
           d="M4.75361e-07 95.0625C3.7486 93.8865 6.87333 91.4216 9.22559 88.2539C13.36 82.6855 15.2128 74.9142 14.5332 67.7695C13.9371 61.502 13.8221 51.7105 15.25 42.0361C16.6958 32.2414 19.6378 23.1673 24.6914 17.7588C29.3904 12.7304 35.6957 11.8176 43.2168 13.0547C50.8795 14.3153 58.855 17.6268 66.5078 20.2451C73.4429 22.6173 82.3448 21.0185 89.1543 18.1475C92.6173 16.6874 95.8049 14.794 98.1338 12.6416C98.9885 11.8515 99.8205 10.9352 100.5 9.91505V38.0313C95.8528 41.4583 90.3078 43.2546 84.7588 42.0918C80.5559 41.2108 76.2841 39.3913 71.959 37.2578C67.7512 35.1822 63.2414 32.6671 59.0947 30.7178C50.7309 26.7861 42.0384 24.2108 34.4307 30.1211C28.2912 34.8919 25.4922 40.6931 24.7598 46.8379C24.036 52.9121 25.3359 59.2486 27.2061 65.1738C29.0649 71.063 31.5882 76.8241 33.3408 81.4971C34.2328 83.8753 34.9311 85.9778 35.3096 87.7754C35.6941 89.6017 35.7056 90.9226 35.416 91.8301C34.0205 96.2027 32.1909 98.8651 30.2354 100.5H0L4.75361e-07 95.0625Z"
           fill="currentColor"
           stroke="currentColor"
           strokeWidth="0"
-          initial={{ strokeDasharray: "1 1", strokeDashoffset: 0 }}
+          strokeDasharray="1 1"
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1", "0 1"] }}
-          transition={{ duration: 2, ease: ["linear", "easeOut", "linear"], times: [0, 0.333, 0.687, 1] }}
+          transition={{
+            duration: DURATION,
+            times: [0, 0.33258, 0.68738, 1],
+            ease: ["linear", "easeOut", "linear"],
+          }}
         />
         <motion.path
           d="M34.5547 100.5C36.0733 98.5473 37.3764 96.0195 38.4092 92.7832C38.9457 91.1003 38.8047 89.1373 38.3818 87.1289C37.9528 85.0911 37.1897 82.8068 36.2842 80.3926C34.4418 75.4804 32.0349 70.0279 30.2041 64.2275C28.3846 58.4628 27.2328 52.6282 27.8789 47.207C28.517 41.8565 30.9099 36.8315 36.3545 32.6006C42.3725 27.9243 49.4039 29.637 57.7549 33.5625C61.9655 35.5419 66.0615 37.8511 70.5703 40.0752C74.9614 42.2412 79.5179 44.2024 84.1152 45.166C89.9902 46.397 95.6852 44.8312 100.5 41.8223L100.5 61.668C98.926 62.1744 97.4176 62.177 95.915 61.6318C89.5305 59.3136 81.2736 55.1649 73.3242 51.5791C69.4323 49.8235 65.6282 48.2113 62.3262 47.1357C60.6732 46.5974 59.0732 46.1701 57.6064 45.9326C56.1779 45.7015 54.6579 45.6143 53.2539 45.9277C49.9484 46.6657 47.2049 47.9924 45.1621 49.9482C43.0924 51.9303 41.9092 54.401 41.5068 57.1035C40.7263 62.3481 42.8837 68.2663 46.4805 73.7637C49.8486 78.9114 53.6519 85.3572 56.5928 91.7012C58.0273 94.7958 59.2075 97.7718 60.0459 100.5L34.5547 100.5Z"
           fill="currentColor"
           stroke="currentColor"
           strokeWidth="0"
-          initial={{ strokeDasharray: "1 1", strokeDashoffset: 0 }}
+          strokeDasharray="1 1"
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1", "0 1"] }}
-          transition={{ duration: 2, ease: ["linear", "easeOut", "linear"], times: [0, 0.535, 0.887, 1] }}
+          transition={{
+            duration: DURATION,
+            times: [0, 0.53467, 0.8869, 1],
+            ease: ["linear", "easeOut", "linear"],
+          }}
         />
         <motion.path
           d="M83.9932 85.6543C81.0815 87.9253 75.9735 87.3759 72.6973 83.1758C71.008 81.0101 69.8112 78.0627 69.5303 75.3652C69.2418 72.595 69.9521 70.8397 71.0273 70.001C71.8053 69.3942 72.2736 69.291 72.5342 69.2744C72.8251 69.256 73.2781 69.3203 74.0664 69.7149C74.8859 70.125 75.8344 70.77 77.1055 71.6973C78.3154 72.58 79.802 73.7068 81.4668 74.8359C83.9934 76.5499 85.2895 78.8751 85.5967 80.9385C85.9046 83.0079 85.238 84.6832 83.9932 85.6543Z"
           fill="currentColor"
           stroke="currentColor"
           strokeWidth="0"
-          initial={{ strokeDasharray: "1 1", strokeDashoffset: 0 }}
+          strokeDasharray="1 1"
           animate={{ strokeDasharray: ["1 1", "1 1", "0 1"] }}
-          transition={{ duration: 2, ease: ["linear", "easeOut"], times: [0, 0.732, 1] }}
+          transition={{
+            duration: DURATION,
+            times: [0, 0.73217, 1],
+            ease: ["linear", "easeOut"],
+          }}
         />
         <path
           fillRule="evenodd"
