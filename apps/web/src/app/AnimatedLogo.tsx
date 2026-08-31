@@ -28,15 +28,15 @@ export function AnimatedLogo() {
         },
       }}
     >
-      <div
-        style={{
-          width: "100px",
-          height: "100px",
-          backgroundColor: "#EFE6D3",
-          borderRadius: "31.406px",
-          display: "block",
-        }}
-      />
+      <video
+        autoPlay
+        muted
+        playsInline
+        className="w-[100px] h-[100px] rounded-[31.406px] overflow-hidden object-cover"
+        style={{ display: "block" }}
+      >
+        <source src="/assets/logo-animation.mp4" type="video/mp4" />
+      </video>
     </motion.div>
   );
 }
