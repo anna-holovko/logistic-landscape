@@ -40,6 +40,20 @@ export default function Home() {
 
       <main className="page-newsletter">
         <section className="newsletter-section">
+          {/* Background Video */}
+          <video
+            className="newsletter-bg-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/assets/video/background.mp4" type="video/mp4" />
+          </video>
+
+          {/* Overlay Gradient */}
+          <div className="newsletter-overlay" />
+
           <div className="newsletter-container">
             <div className="newsletter-content">
               {/* Logo */}
