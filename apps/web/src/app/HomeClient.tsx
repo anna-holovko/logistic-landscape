@@ -46,33 +46,21 @@ export default function HomeClient() {
         {/* Main Content Container */}
         <motion.div
           className="newsletter-container"
-          initial={{ opacity: 0, scaleX: 0, scaleY: 0, y: 231 }}
+          initial={{ opacity: 0, y: 100 }}
           animate={{
-            opacity: animationState === "complete" ? [0, 0, 1, 1] : 0,
-            scaleX: animationState === "complete" ? [0, 0, 1, 1] : 0,
-            scaleY: animationState === "complete" ? [0, 0, 1, 1] : 0,
-            y: animationState === "complete" ? [231, 231, 0, 0] : 231,
+            opacity: animationState === "complete" ? 1 : 0,
+            y: animationState === "complete" ? 0 : 100,
           }}
           transition={{
             opacity: {
-              duration: 3.872,
-              times: [0, 0.7686, 0.8352, 1],
-              ease: ["linear", [0.5, 0, 0.5, 1], "linear"],
-            },
-            scaleX: {
-              duration: 3.872,
-              times: [0, 0.7206, 0.8352, 1],
-              ease: ["linear", [0.5, 0, 0.5, 1], "linear"],
-            },
-            scaleY: {
-              duration: 3.872,
-              times: [0, 0.7206, 0.8352, 1],
-              ease: ["linear", [0.5, 0, 0.5, 1], "linear"],
+              duration: 0.6,
+              delay: 3.1,
+              ease: "easeOut",
             },
             y: {
-              duration: 3.872,
-              times: [0, 0.7206, 0.8352, 1],
-              ease: "linear",
+              duration: 0.8,
+              delay: 3.0,
+              ease: [0.25, 0.46, 0.45, 0.94],
             },
           }}
         >
