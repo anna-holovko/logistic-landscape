@@ -32,8 +32,14 @@ export function AnimatedLogo() {
         autoPlay
         muted
         playsInline
-        className="w-[100px] h-[100px] rounded-[31.406px] overflow-hidden object-cover"
-        style={{ display: "block" }}
+        style={{
+          width: "100px",
+          height: "100px",
+          borderRadius: "31.406px",
+          display: "block",
+          objectFit: "cover",
+          overflow: "hidden",
+        }}
       >
         <source src="/assets/logo-animation.mp4" type="video/mp4" />
       </video>
