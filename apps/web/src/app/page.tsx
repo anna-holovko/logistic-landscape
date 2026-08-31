@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import { AnimatedLogo } from "./AnimatedLogo";
 import { NewsletterForm } from "@/features/newsletter";
 import { getHomepageSeo } from "@/lib/seo/homepage-seo";
