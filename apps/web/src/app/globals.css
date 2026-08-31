@@ -406,12 +406,14 @@ textarea {
     top: 31px;
     width: 16px;
     height: 16px;
+    opacity: 1;
   }
   to {
     left: -27px;
     top: -119px;
     width: 316px;
     height: 316px;
+    opacity: 1;
   }
 }
 
