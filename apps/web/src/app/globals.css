@@ -138,10 +138,7 @@ textarea {
 
 .newsletter-container {
   width: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  position: relative;
   text-align: center;
   z-index: 2;
   display: flex;
