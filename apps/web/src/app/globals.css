@@ -159,6 +159,23 @@ textarea {
   flex-direction: column;
   gap: 60px;
   align-items: center;
+  width: 100%;
+}
+
+.newsletter-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+}
+
+.newsletter-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
 }
 
 .newsletter-logo {

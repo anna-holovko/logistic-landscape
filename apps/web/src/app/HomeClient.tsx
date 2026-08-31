@@ -48,26 +48,33 @@ export default function HomeClient() {
             {/* Animated Logo in Final Position */}
             {!logoInViewport && <AnimatedLogo />}
 
-            <h1>Logistics, decoded.</h1>
+            {/* Main Content Wrapper (40px gap from logo, 40px gap to form) */}
+            <div className="newsletter-main-content">
+              {/* Header Text (20px gap between h1 and p) */}
+              <div className="newsletter-header">
+                <h1>Logistics, decoded.</h1>
 
-            <p>
-              A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
-              markets. Understand how the logistics landscape really works: from transportation
-              modes and technologies to the companies shaping the industry.
-            </p>
+                <p>
+                  A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
+                  markets. Understand how the logistics landscape really works: from transportation
+                  modes and technologies to the companies shaping the industry.
+                </p>
+              </div>
 
-            {showForm && (
-              <>
-                <NewsletterForm />
+              {/* Sign Up Form and Footer */}
+              {showForm && (
+                <>
+                  <NewsletterForm />
 
-                {/* Footer Links */}
-                <footer className="newsletter-footer">
-                  <a href="/terms">Terms &amp; Conditions</a>
-                  <a href="/privacy">Privacy Policy</a>
-                  <a href="/cookies">Cookie Policy</a>
-                </footer>
-              </>
-            )}
+                  {/* Footer Links */}
+                  <footer className="newsletter-footer">
+                    <a href="/terms">Terms &amp; Conditions</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/cookies">Cookie Policy</a>
+                  </footer>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>
