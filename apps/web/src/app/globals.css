@@ -380,66 +380,26 @@ textarea {
 .button--lg {
   padding: 20px 50px;
   font-size: 25px;
-  letter-spacing: 2.5px;
-  height: 78px;
-  width: 262px;
+  letter-spacing: 0.1em;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   position: relative;
-  overflow: visible;
   box-sizing: border-box;
 }
 
-.button-decoration {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.button-decoration img {
-  width: 100%;
-  height: 100%;
-}
 
 .button--primary {
   background-color: #BE5B3F;
-  color: white;
-  box-shadow: 0 4px 15px rgba(190, 91, 63, 0.3);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .button--primary:hover:not(:disabled) {
-  background-color: #a84a32;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(190, 91, 63, 0.5);
-}
-
-@keyframes ellipse-expand {
-  from {
-    width: 16px;
-    height: 16px;
-    left: 0;
-    top: 0;
-  }
-  to {
-    width: 316px;
-    height: 316px;
-    left: -150px;
-    top: -160px;
-  }
-}
-
-.button--primary:hover:not(:disabled) .button-decoration {
-  animation: ellipse-expand 0.2s ease-in-out forwards;
-}
-
-.button--primary:active:not(:disabled) {
-  transform: translateY(0);
+  background-color: #C79A3E;
 }
 
 .button:disabled {
@@ -449,7 +409,6 @@ textarea {
 
 .newsletter-section .button--primary {
   width: 262px;
-  margin-top: 0;
 }
 
 .newsletter-form__success {
