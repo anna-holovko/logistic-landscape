@@ -145,10 +145,9 @@ textarea {
 .newsletter-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   width: 100%;
-  max-width: 262px;
-  margin: 0 auto;
+  padding: 0 80px;
 }
 
 .newsletter-form__field {
@@ -161,7 +160,7 @@ textarea {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: var(--space-3);
+  gap: 10px;
   font-size: var(--font-size-sm);
   line-height: 1.6;
   color: var(--color-hero-text);
@@ -216,7 +215,7 @@ textarea {
   background-color: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(239, 230, 211, 0.25);
   color: var(--color-hero-text);
-  padding: var(--space-4) var(--space-5);
+  padding: 20px 100px;
   font-size: var(--font-size-base);
   border-radius: 8px;
   width: 100%;
