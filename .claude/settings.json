@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(pnpm install *)",
-      "Bash(pnpm typecheck *)"
+      "Bash(pnpm typecheck *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit -m 'fix: restore input visibility by removing excessive padding *)"
     ]
   }
 }
