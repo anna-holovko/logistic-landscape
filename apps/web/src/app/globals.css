@@ -208,14 +208,11 @@ textarea {
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
+  padding: 0 80px;
 }
 
 .newsletter-form__field {
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .newsletter-form__agreement {
