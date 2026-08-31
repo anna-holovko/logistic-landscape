@@ -426,6 +426,7 @@ textarea {
   left: 123px;
   top: 31px;
   z-index: 1;
+  opacity: 0;
 }
 
 .button-decoration img {
