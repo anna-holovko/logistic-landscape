@@ -153,15 +153,19 @@ textarea {
 
 .newsletter-form__field {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .newsletter-form__agreement {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: var(--space-3);
   font-size: var(--font-size-sm);
   line-height: 1.6;
   color: var(--color-hero-text);
+  width: 100%;
 }
 
 .newsletter-form__agreement input[type="checkbox"] {
@@ -194,6 +198,9 @@ textarea {
   display: flex;
   gap: var(--space-3);
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Form Input Styling - Dark Background */
