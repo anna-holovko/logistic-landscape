@@ -10,6 +10,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Button, Input } from "@/shared/components";
 import { useNewsletterForm } from "../hooks/useNewsletterForm";
+import { SubscriptionConfirmation } from "./SubscriptionConfirmation";
 
 interface NewsletterFormProps {
   onSuccess?: () => void;
@@ -40,14 +41,6 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
     }
     await submit(email);
   };
-
-  if (success) {
-    return (
-      <div className="newsletter-form__success" role="status">
-        <p>Thank you for subscribing! Check your email for confirmation.</p>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -97,6 +90,12 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
           {isLoading ? "SUBSCRIBING..." : "SUBSCRIBE"}
         </Button>
       </div>
+
+      {success && (
+        <div role="status">
+          <SubscriptionConfirmation />
+        </div>
+      )}
     </>
   );
 }
