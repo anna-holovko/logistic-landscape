@@ -9,14 +9,14 @@ export default function HomeClient() {
       <section className="newsletter-section">
         <div className="newsletter-overlay" />
 
-        {/* Form container with logo and content inside */}
+        {/* Logo - animates from center upward */}
+        <div className="newsletter-logo-center">
+          <AnimatedLogo />
+        </div>
+
+        {/* Form container */}
         <div className="newsletter-container">
           <div className="newsletter-content">
-
-            {/* Logo - animates from center upward */}
-            <div className="newsletter-logo-center">
-              <AnimatedLogo />
-            </div>
 
             <div className="newsletter-header">
               <h1>Logistics, decoded.</h1>
@@ -31,7 +31,7 @@ export default function HomeClient() {
           </div>
         </div>
 
-        {/* Footer outside container - fixed at bottom */}
+        {/* Footer - outside container */}
         <footer className="newsletter-footer">
           <a href="/terms">Terms &amp; Conditions</a>
           <a href="/privacy">Privacy Policy</a>

@@ -3,20 +3,28 @@
  */
 
 /* Logo Animations */
-/* Logo in normal flow above title */
+/* Logo animates from center upward */
 .newsletter-logo-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  opacity: 0;
-  animation: logoAppear 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: moveLogoUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 3.2s;
+  animation-fill-mode: both;
 }
 
-@keyframes logoAppear {
-  to {
-    opacity: 1;
+@keyframes moveLogoUp {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 180px;
   }
 }
 
@@ -55,11 +63,17 @@ textarea {
 
 /* Form reveal animation */
 .newsletter-container {
+  width: auto;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
   transform: translateY(80px);
   animation: revealForm 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 4.8s;
-  padding-bottom: 40px;
 }
 
 @keyframes revealForm {
@@ -77,6 +91,7 @@ textarea {
   color: var(--color-hero-text);
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--space-8) var(--space-6);
@@ -92,16 +107,6 @@ textarea {
   background: #152A31;
   mix-blend-mode: hard-light;
   z-index: 1;
-}
-
-.newsletter-container {
-  width: auto;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .newsletter-content {
@@ -460,6 +465,24 @@ textarea {
     padding: var(--space-4) var(--space-4);
   }
 
+  .newsletter-logo-center {
+    top: 140px !important;
+  }
+
+  .newsletter-logo-center video {
+    width: 60px;
+    height: 60px;
+  }
+
+  @keyframes moveLogoUp {
+    0% {
+      top: 50%;
+    }
+    100% {
+      top: 140px;
+    }
+  }
+
   .newsletter-logo {
     width: 60px;
     height: 60px;
@@ -469,6 +492,10 @@ textarea {
     font-size: 48px;
     line-height: 56px;
     letter-spacing: 0.48px;
+  }
+
+  .newsletter-header {
+    margin-top: -40px;
   }
 
   .newsletter-header p {
