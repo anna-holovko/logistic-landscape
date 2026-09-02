@@ -499,6 +499,8 @@ textarea {
   }
 
   .newsletter-section .input {
+    width: 100%;
+    max-width: 100%;
     padding: 16px 20px;
   }
 
