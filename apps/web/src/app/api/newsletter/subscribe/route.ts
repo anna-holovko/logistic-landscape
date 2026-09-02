@@ -40,6 +40,22 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     const result = await useCase.execute(validation.data);
 
     if (!result.success) {
+      // For security: treat duplicate subscriptions as success
+      // This prevents email enumeration attacks
+      if (result.error?.code === "DUPLICATE_SUBSCRIPTION") {
+        return NextResponse.json(
+          {
+            success: true,
+            message: "Thanks for subscribing! Check your email for updates.",
+            data: {
+              email: validation.data.email,
+              subscribedAt: new Date().toISOString(),
+            },
+          },
+          { status: 200 }
+        );
+      }
+
       const statusCode = result.error && result.error.code
         ? ERROR_STATUS_CODE_MAP[result.error.code as keyof typeof ERROR_STATUS_CODE_MAP] || 400
         : 400;
