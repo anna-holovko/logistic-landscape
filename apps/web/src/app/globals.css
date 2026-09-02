@@ -439,6 +439,12 @@ textarea {
    ======================================== */
 
 @media (max-width: 768px) {
+  /* Content wrapper */
+  .newsletter-content-wrapper {
+    width: calc(100% - 64px);
+    max-width: 100%;
+  }
+
   /* Section */
   .newsletter-section {
     padding: var(--space-4) 32px;
@@ -475,6 +481,7 @@ textarea {
   .newsletter-header p {
     width: 100%;
     max-width: 100%;
+    padding: 0 16px;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.28px;
