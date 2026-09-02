@@ -481,7 +481,8 @@ textarea {
   .newsletter-header p {
     width: 100vw;
     max-width: 100%;
-    padding: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.28px;
@@ -493,7 +494,7 @@ textarea {
   .newsletter-form {
     width: 100vw;
     max-width: 100%;
-    padding: 0 32px;
+    padding: 0 20px;
     box-sizing: border-box;
   }
 
@@ -510,6 +511,7 @@ textarea {
     max-width: 100%;
     padding: 16px 20px;
     box-sizing: border-box;
+    display: block;
   }
 
   /* Form agreement */
