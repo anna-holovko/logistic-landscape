@@ -3,10 +3,12 @@
 import { motion } from "motion/react";
 import { AnimatedLogo } from "./AnimatedLogo";
 import { NewsletterForm } from "@/features/newsletter";
+import { TopographicBackground } from "./components/TopographicBackground";
 
 export default function HomeClient() {
   return (
     <main className="page-newsletter">
+      <TopographicBackground />
       <section className="newsletter-section">
         <div className="newsletter-overlay" />
 
