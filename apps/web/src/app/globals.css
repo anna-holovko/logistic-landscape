@@ -3,6 +3,13 @@
  */
 
 /* ========================================
+   FONT IMPORTS
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Petrona:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,500&display=swap');
+
+/* ========================================
    RESET & DEFAULTS
    ======================================== */
 
@@ -293,8 +300,8 @@ textarea {
 }
 
 .newsletter-form__agreement input[type="checkbox"]:checked {
-  background-color: rgba(239, 230, 211, 0.2);
-  border-color: #efe6d3;
+  background-color: #C79A3E;
+  border-color: #C79A3E;
 }
 
 .newsletter-form__agreement input[type="checkbox"]:checked::after {
