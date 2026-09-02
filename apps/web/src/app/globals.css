@@ -498,10 +498,19 @@ textarea {
     box-sizing: border-box;
   }
 
+  .newsletter-form__field {
+    box-sizing: border-box;
+  }
+
+  .newsletter-section .input-wrapper {
+    box-sizing: border-box;
+  }
+
   .newsletter-section .input {
     width: 100%;
     max-width: 100%;
     padding: 16px 32px;
+    box-sizing: border-box;
   }
 
   /* Form agreement */
