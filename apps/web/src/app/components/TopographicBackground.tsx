@@ -101,9 +101,6 @@ export function TopographicBackground() {
 
       // Draw contours with progressive reveal
       const revealDuration = 3000;
-      const revealProgress = prefersReducedMotion
-        ? 1
-        : Math.min(elapsed / revealDuration, 1);
 
       contours.forEach((contour, idx) => {
         if (!contour || contour.length === 0) return;

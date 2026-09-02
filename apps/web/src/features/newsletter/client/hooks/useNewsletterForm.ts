@@ -1,15 +1,8 @@
-/**
- * useNewsletterForm Hook
- *
- * Manages newsletter subscription form state and submission.
- */
-
 "use client";
 
 import { useState, useCallback } from "react";
 import { emailSchema } from "@/shared/validation/newsletter";
-import { NewsletterSubscribeResponse } from "@/shared/types/api";
-import { apiClient } from "../services/api";
+import { subscribeToNewsletter } from "../../newsletter-service";
 
 interface FormState {
   email: string;
@@ -63,7 +56,7 @@ export function useNewsletterForm(): UseNewsletterFormReturn {
     }));
 
     try {
-      const response: NewsletterSubscribeResponse = await apiClient.subscribe(email);
+      const response = await subscribeToNewsletter(email);
 
       if (response.success) {
         setState({
@@ -94,7 +87,7 @@ export function useNewsletterForm(): UseNewsletterFormReturn {
     setState((prev) => ({
       ...prev,
       email,
-      error: null, // Clear error when user starts typing
+      error: null,
     }));
   }, []);
 

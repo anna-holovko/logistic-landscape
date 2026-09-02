@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getHomepageSeo } from "@/lib/seo/homepage-seo";
+import { getHomepageSeo } from "@/shared/seo/homepage-seo";
 import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = (() => {

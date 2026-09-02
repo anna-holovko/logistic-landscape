@@ -1,26 +1,14 @@
-/**
- * POST /api/newsletter/subscribe
- *
- * Newsletter subscription endpoint.
- */
-
 import { NextRequest, NextResponse } from "next/server";
 import { newsletterSubscribeRequestSchema } from "@/shared/validation/newsletter";
-import { NewsletterSubscribeResponse, ERROR_STATUS_CODE_MAP } from "@/shared/types/api";
-import { InMemoryNewsletterRepository } from "@/features/newsletter";
-import { SubscribeNewsletterUseCase } from "@/features/newsletter";
+import { NewsletterSubscribeResponse } from "@/shared/types/api";
 
-// Initialize repository and use case
-const repository = new InMemoryNewsletterRepository();
-const useCase = new SubscribeNewsletterUseCase(repository);
+const subscribers = new Set<string>();
 
 export async function POST(request: NextRequest): Promise<NextResponse<NewsletterSubscribeResponse>> {
   try {
-    // Parse request body
     const body = await request.json().catch(() => ({}));
-
-    // Validate request
     const validation = newsletterSubscribeRequestSchema.safeParse(body);
+
     if (!validation.success) {
       const message = validation.error.errors[0]?.message || "Invalid email format";
       return NextResponse.json(
@@ -36,47 +24,32 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
       );
     }
 
-    // Execute use case
-    const result = await useCase.execute(validation.data);
+    const email = validation.data.email.toLowerCase().trim();
 
-    if (!result.success) {
-      // For security: treat duplicate subscriptions as success
-      // This prevents email enumeration attacks
-      if (result.error?.code === "DUPLICATE_SUBSCRIPTION") {
-        return NextResponse.json(
-          {
-            success: true,
-            message: "Thanks for subscribing! Check your email for updates.",
-            data: {
-              email: validation.data.email,
-              subscribedAt: new Date().toISOString(),
-            },
-          },
-          { status: 200 }
-        );
-      }
-
-      const statusCode = result.error && result.error.code
-        ? ERROR_STATUS_CODE_MAP[result.error.code as keyof typeof ERROR_STATUS_CODE_MAP] || 400
-        : 400;
-
+    // Security: treat duplicate subscriptions as success to prevent email enumeration
+    if (subscribers.has(email)) {
       return NextResponse.json(
         {
-          success: false,
-          message: result.message,
-          error: result.error,
+          success: true,
+          message: "Thanks for subscribing! Check your email for updates.",
+          data: {
+            email,
+            subscribedAt: new Date().toISOString(),
+          },
         },
-        { status: statusCode }
+        { status: 200 }
       );
     }
+
+    subscribers.add(email);
 
     return NextResponse.json(
       {
         success: true,
-        message: result.message,
+        message: "Thanks for subscribing! Check your email for updates.",
         data: {
-          email: result.email || "",
-          subscribedAt: result.subscribedAt || new Date().toISOString(),
+          email,
+          subscribedAt: new Date().toISOString(),
         },
       },
       { status: 200 }
