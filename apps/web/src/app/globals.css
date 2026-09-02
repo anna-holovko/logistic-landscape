@@ -508,13 +508,15 @@ textarea {
   .newsletter-section .input {
     width: 100vw;
     max-width: 100%;
-    padding: 0;
+    padding: 16px 20px;
+    box-sizing: border-box;
   }
 
   /* Form agreement */
   .newsletter-form__agreement {
     width: 100vw;
-    padding: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
     font-size: 14px;
   }
 
