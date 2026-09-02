@@ -479,9 +479,10 @@ textarea {
   }
 
   .newsletter-header p {
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
-    padding: 0 16px;
+    padding: 0 32px;
+    box-sizing: border-box;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.28px;
