@@ -481,7 +481,7 @@ textarea {
   .newsletter-header p {
     width: 100vw;
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0;
     box-sizing: border-box;
     font-size: 14px;
     line-height: 21px;
@@ -494,8 +494,7 @@ textarea {
   .newsletter-form {
     width: 100vw;
     max-width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
+    padding: 0;
   }
 
   .newsletter-form__field {
@@ -509,7 +508,7 @@ textarea {
   .newsletter-section .input {
     width: 100vw;
     max-width: 100%;
-    padding: 16px 20px;
+    padding: 16px 0;
     box-sizing: border-box;
     display: block;
   }
@@ -517,7 +516,7 @@ textarea {
   /* Form agreement */
   .newsletter-form__agreement {
     width: 100vw;
-    padding: 0 20px;
+    padding: 0;
     box-sizing: border-box;
     font-size: 14px;
   }
