@@ -76,20 +76,19 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
             .
           </label>
         </div>
-      </form>
 
-      <div className="newsletter-form__actions">
-        <Button
-          type="button"
-          variant="primary"
-          size="lg"
-          isLoading={isLoading}
-          disabled={isLoading || !email || !agreed}
-          onClick={() => handleSubmit({ preventDefault: () => {} } as any)}
-        >
-          {isLoading ? "SUBSCRIBING..." : "SUBSCRIBE"}
-        </Button>
-      </div>
+        <div className="newsletter-form__actions">
+          <Button
+            type="submit"
+            variant="primary"
+            size="lg"
+            isLoading={isLoading}
+            disabled={isLoading || !email || !agreed}
+          >
+            {isLoading ? "SUBSCRIBING..." : "SUBSCRIBE"}
+          </Button>
+        </div>
+      </form>
 
       {success && (
         <div role="status">
