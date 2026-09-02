@@ -479,9 +479,10 @@ textarea {
   }
 
   .newsletter-header p {
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
-    padding: 0;
+    padding: 0 32px;
+    box-sizing: border-box;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.28px;
@@ -499,16 +500,14 @@ textarea {
 
   .newsletter-form__field {
     width: 100%;
-    box-sizing: border-box;
   }
 
   .newsletter-section .input-wrapper {
     width: 100%;
-    box-sizing: border-box;
   }
 
   .newsletter-section .input {
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
     padding: 16px 32px;
     box-sizing: border-box;
