@@ -499,10 +499,12 @@ textarea {
   }
 
   .newsletter-form__field {
+    width: 100%;
     box-sizing: border-box;
   }
 
   .newsletter-section .input-wrapper {
+    width: 100%;
     box-sizing: border-box;
   }
 
