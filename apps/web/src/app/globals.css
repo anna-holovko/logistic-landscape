@@ -441,7 +441,7 @@ textarea {
 @media (max-width: 768px) {
   /* Content wrapper */
   .newsletter-content-wrapper {
-    width: calc(100% - 64px);
+    width: 100vw;
     max-width: 100%;
   }
 
