@@ -1,0 +1,103 @@
+/* Subscription Confirmation Modal Styles */
+
+.subscription-confirmation-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+  backdrop-filter: blur(2px);
+}
+
+.subscription-confirmation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+.subscription-confirmation-card {
+  background-color: #efe6d3;
+  border: 1px solid #e2d4b7;
+  border-radius: 8px;
+  padding: 40px;
+  width: 550px;
+  max-width: 90vw;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.subscription-confirmation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.subscription-confirmation-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.subscription-confirmation-title {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+  color: #152a31;
+}
+
+.subscription-confirmation-subtitle {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+  color: #152a31;
+}
+
+.subscription-confirmation-link {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+  color: #be5b3f;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.subscription-confirmation-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .subscription-confirmation-card {
+    padding: 32px;
+    width: calc(100vw - 40px);
+  }
+
+  .subscription-confirmation-content {
+    gap: 24px;
+  }
+
+  .subscription-confirmation-title {
+    font-size: 22px;
+  }
+
+  .subscription-confirmation-subtitle {
+    font-size: 14px;
+  }
+
+  .subscription-confirmation-link {
+    font-size: 14px;
+  }
+}
