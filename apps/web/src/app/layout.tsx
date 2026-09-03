@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { Petrona, IBM_Plex_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { config } from "@/shared/config";
 import "@/shared/styles/globals.css";
 import "./globals.css";
 
-const petrona = Petrona({
-  subsets: ["latin"],
-  weight: ["600"],
+const petrona = localFont({
+  src: "./fonts/petrona-600.woff2",
+  weight: "600",
+  style: "normal",
   variable: "--font-petrona",
   display: "swap",
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  style: ["normal", "italic"],
+const ibmPlexSans = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-sans.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-sans.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/ibm-plex-sans.woff2", weight: "700", style: "normal" },
+    {
+      path: "./fonts/ibm-plex-sans-italic-500.woff2",
+      weight: "500",
+      style: "italic",
+    },
+  ],
   variable: "--font-ibm-plex-sans",
   display: "swap",
 });
