@@ -36,8 +36,8 @@
   /* Typography */
   --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Helvetica Neue', sans-serif;
-  --font-family-display: 'Petrona', serif;
-  --font-family-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family-display: var(--font-petrona), serif;
+  --font-family-body: var(--font-ibm-plex-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   --font-family-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 
   --font-size-xs: 12px;

@@ -51,7 +51,7 @@
 
 .subscription-confirmation-title {
   margin: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-family-body);
   font-weight: 500;
   font-size: 25px;
   letter-spacing: 0.5px;
@@ -60,7 +60,7 @@
 
 .subscription-confirmation-subtitle {
   margin: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-family-body);
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.32px;
@@ -68,7 +68,7 @@
 }
 
 .subscription-confirmation-link {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-family-body);
   font-weight: 500;
   font-style: italic;
   font-size: 16px;

@@ -43,8 +43,8 @@ export const colors = {
 export const typography = {
   fontFamily: {
     base: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif",
-    display: "'Petrona', serif",
-    body: "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif",
+    display: "var(--font-petrona), serif",
+    body: "var(--font-ibm-plex-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif",
     monospace: "'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
   },
   fontSize: {

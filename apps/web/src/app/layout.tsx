@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
+import { Petrona, IBM_Plex_Sans } from "next/font/google";
 import { config } from "@/shared/config";
 import "@/shared/styles/globals.css";
 import "./globals.css";
+
+const petrona = Petrona({
+  subsets: ["latin"],
+  weight: ["600"],
+  variable: "--font-petrona",
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-ibm-plex-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${petrona.variable} ${ibmPlexSans.variable}`}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
