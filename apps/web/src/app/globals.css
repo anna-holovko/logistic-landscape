@@ -450,6 +450,7 @@ textarea {
   /* Section */
   .newsletter-section {
     padding: 0 32px;
+    background-attachment: scroll;
   }
 
   /* Logo animation */
