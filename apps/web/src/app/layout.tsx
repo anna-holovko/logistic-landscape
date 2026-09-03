@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { config } from "@/shared/config";
 import "@/shared/styles/globals.css";
@@ -46,6 +46,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#152A31",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -55,11 +62,6 @@ export default function RootLayout({
     <html lang="en" className={`${petrona.variable} ${ibmPlexSans.variable}`}>
       <head>
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-        <meta name="theme-color" content="#152A31" />
       </head>
       <body>{children}</body>
     </html>
