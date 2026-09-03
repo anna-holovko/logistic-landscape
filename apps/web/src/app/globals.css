@@ -449,7 +449,7 @@ textarea {
 
   /* Section */
   .newsletter-section {
-    padding: var(--space-4) 0;
+    padding: 0 32px;
   }
 
   /* Logo animation */
