@@ -74,13 +74,18 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
 
     if (error) {
       console.error("Supabase error:", error);
+      console.error("Error details:", {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+      });
       return NextResponse.json(
         {
           success: false,
           message: "Failed to process subscription",
           error: {
             code: "PROVIDER_ERROR",
-            message: "An unexpected error occurred. Please try again later.",
+            message: error.message || "An unexpected error occurred. Please try again later.",
           },
         },
         { status: 500 }
@@ -100,6 +105,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     );
   } catch (error: unknown) {
     console.error("Subscription error:", error);
+    console.error("Error stack:", error instanceof Error ? error.stack : "No stack");
     const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
 
     return NextResponse.json(
@@ -108,7 +114,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
         message: errorMessage,
         error: {
           code: "INTERNAL_ERROR",
-          message: "An unexpected error occurred. Please try again later.",
+          message: errorMessage || "An unexpected error occurred. Please try again later.",
         },
       },
       { status: 500 }
