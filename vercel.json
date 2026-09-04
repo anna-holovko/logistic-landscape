@@ -1,7 +1,8 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "pnpm build",
   "framework": "nextjs",
   "rootDirectory": "apps/web",
+  "installCommand": "pnpm install",
   "git": {
     "deploymentEnabled": {
       "main": true,
