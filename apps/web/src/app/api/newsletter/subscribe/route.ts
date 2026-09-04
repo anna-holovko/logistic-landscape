@@ -81,6 +81,11 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
 
     if (error) {
       console.error("Supabase error:", error);
+      console.error("Error details:", {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+      });
       return NextResponse.json(
         {
           success: false,
@@ -107,6 +112,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     );
   } catch (error: unknown) {
     console.error("Subscription error:", error);
+    console.error("Error stack:", error instanceof Error ? error.stack : "No stack");
 
     return NextResponse.json(
       {
