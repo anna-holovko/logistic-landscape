@@ -106,7 +106,7 @@ textarea {
 .newsletter-overlay {
   position: absolute;
   inset: 0;
-  background: #152A31;
+  background: var(--color-hero-background);
   mix-blend-mode: hard-light;
   z-index: 1;
 }
@@ -196,7 +196,7 @@ textarea {
   max-width: 800px;
   padding: 20px 100px;
   background-color: transparent;
-  border: 1px solid #efe6d3;
+  border: 1px solid var(--color-paper);
   border-radius: 8px;
   color: var(--color-hero-text);
   font-family: var(--font-family-body);
@@ -209,7 +209,7 @@ textarea {
 }
 
 .newsletter-section .input::placeholder {
-  color: rgba(239, 230, 211, 0.5);
+  color: rgb(239 230 211 / 0.5);
   font-weight: 500;
   font-style: italic;
   font-size: 16px;
@@ -219,19 +219,19 @@ textarea {
 
 .newsletter-section .input:focus {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(239, 230, 211, 0.5);
-  box-shadow: 0 0 0 4px rgba(190, 91, 63, 0.15);
+  background-color: rgb(255 255 255 / 0.08);
+  border-color: rgb(239 230 211 / 0.5);
+  box-shadow: 0 0 0 4px rgb(190 91 63 / 0.15);
 }
 
 .newsletter-section .input--error {
-  border-color: #ff7b7b;
+  border-color: var(--color-error-light);
 }
 
 .newsletter-section .input-error {
   display: block;
   margin-top: var(--space-2);
-  color: #ffb3b3;
+  color: var(--color-error-lighter);
   font-size: var(--font-size-sm);
 }
 
@@ -292,8 +292,8 @@ textarea {
   min-width: 16px;
   margin-top: 4px;
   appearance: none;
-  background-color: rgba(239, 230, 211, 0.2);
-  border: 1px solid #efe6d3;
+  background-color: rgb(239 230 211 / 0.2);
+  border: 1px solid var(--color-paper);
   border-radius: 4px;
   cursor: pointer;
   position: relative;
@@ -301,8 +301,8 @@ textarea {
 }
 
 .newsletter-form__agreement input[type="checkbox"]:checked {
-  background-color: #C79A3E;
-  border-color: #C79A3E;
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
 }
 
 .newsletter-form__agreement input[type="checkbox"]:checked::after {
@@ -311,7 +311,7 @@ textarea {
   inset: 50% auto auto 50%;
   width: 10px;
   height: 10px;
-  background-color: #c79a3e;
+  background-color: var(--color-gold);
   border-radius: 2px;
   transform: translate(-50%, -50%);
 }
@@ -373,8 +373,8 @@ textarea {
 
 .button--primary {
   overflow: hidden;
-  background-color: #BE5B3F;
-  color: #FFFFFF;
+  background-color: var(--color-hero-button);
+  color: #ffffff;
 }
 
 .button-decoration {

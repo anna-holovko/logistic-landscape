@@ -3,7 +3,19 @@
 import { motion } from "motion/react";
 import "./subscription-confirmation.css";
 
-export function SubscriptionConfirmation() {
+export interface SubscriptionConfirmationProps {
+  title?: string;
+  subtitle?: string;
+  ctaLink?: string;
+  ctaText?: string;
+}
+
+export function SubscriptionConfirmation({
+  title = "Thanks for subscribing!",
+  subtitle = "Your first issue lands in your inbox this week. Keep an eye out.",
+  ctaLink = "/articles",
+  ctaText = "Browse recent articles",
+}: SubscriptionConfirmationProps = {}) {
   return (
     <>
       {/* Backdrop */}
@@ -26,19 +38,19 @@ export function SubscriptionConfirmation() {
             {/* Text Group */}
             <div className="subscription-confirmation-text-group">
               <p className="subscription-confirmation-title">
-                Thanks for subscribing!
+                {title}
               </p>
               <p className="subscription-confirmation-subtitle">
-                Your first issue lands in your inbox this week. Keep an eye out.
+                {subtitle}
               </p>
             </div>
 
             {/* Browse Link */}
             <a
-              href="/articles"
+              href={ctaLink}
               className="subscription-confirmation-link"
             >
-              Browse recent articles
+              {ctaText}
             </a>
           </div>
         </div>

@@ -5,20 +5,8 @@
  * Both must validate against these same structures.
  */
 
-// Newsletter Domain
-export interface NewsletterSubscribeRequest {
-  email: string;
-}
-
-export interface NewsletterSubscribeResponse {
-  success: boolean;
-  message: string;
-  data?: {
-    email: string;
-    subscribedAt: string;
-  };
-  error?: NewsletterErrorResponse;
-}
+// Newsletter Domain - imported from validation package
+export type { NewsletterSubscribeRequest, NewsletterSubscribeResponse } from '@logistic-landscape/validation';
 
 export interface NewsletterErrorResponse {
   code: NewsletterErrorCode;

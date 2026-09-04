@@ -2,6 +2,8 @@ const tsPlugin = require("@typescript-eslint/eslint-plugin");
 const tsParser = require("@typescript-eslint/parser");
 const reactPlugin = require("eslint-plugin-react");
 const reactHooksPlugin = require("eslint-plugin-react-hooks");
+// Note: @next/eslint-plugin-next to be installed in next step
+// const nextPlugin = require("@next/eslint-plugin-next");
 
 module.exports = [
   {
@@ -28,6 +30,7 @@ module.exports = [
       "@typescript-eslint": tsPlugin,
       react: reactPlugin,
       "react-hooks": reactHooksPlugin,
+      // "@next/next": nextPlugin,  // To be enabled after package installation
     },
     rules: {
       "no-unused-vars": "off",
@@ -42,6 +45,8 @@ module.exports = [
       "@typescript-eslint/no-explicit-any": "warn",
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      // "@next/next/no-html-link-for-pages": "error",  // To be enabled after plugin installation
+      // "@next/next/no-img-element": "warn",  // To be enabled after plugin installation
     },
     settings: {
       react: {

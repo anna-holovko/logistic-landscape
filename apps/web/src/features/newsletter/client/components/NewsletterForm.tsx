@@ -19,6 +19,7 @@ interface NewsletterFormProps {
 export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
   const { email, isLoading, error, success, setEmail, submit, reset } = useNewsletterForm();
   const [agreed, setAgreed] = useState(false);
+  const [agreementError, setAgreementError] = useState<string | null>(null);
 
   useEffect(() => {
     if (success) {
@@ -27,6 +28,7 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
       const timer = setTimeout(() => {
         reset();
         setAgreed(false);
+        setAgreementError(null);
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -36,9 +38,10 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!agreed) {
-      alert("Please agree to the terms to continue");
+      setAgreementError("Please agree to the terms to continue");
       return;
     }
+    setAgreementError(null);
     await submit(email);
   };
 
@@ -63,7 +66,12 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
             type="checkbox"
             id="agree-terms"
             checked={agreed}
-            onChange={(e) => setAgreed(e.target.checked)}
+            onChange={(e) => {
+              setAgreed(e.target.checked);
+              if (e.target.checked) {
+                setAgreementError(null);
+              }
+            }}
             disabled={isLoading}
             required
           />
@@ -76,6 +84,7 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
             .
           </label>
         </div>
+        {agreementError && <span className="input-error">{agreementError}</span>}
 
         <div className="newsletter-form__actions">
           <Button

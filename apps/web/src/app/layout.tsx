@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { config } from "@/shared/config";
+import { themeConfig } from "@/shared/tokens";
 import "@/shared/styles/globals.css";
 import "./globals.css";
 
@@ -55,7 +56,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#152A31",
+  themeColor: themeConfig.primaryColor,
 };
 
 export default function RootLayout({

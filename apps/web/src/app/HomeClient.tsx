@@ -52,9 +52,7 @@ export default function HomeClient() {
 
         {/* Footer */}
         <footer className="newsletter-footer">
-          <a href="/terms">Terms &amp; Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/cookies">Cookie Policy</a>
+          <p>&copy; 2024 Logistic Landscape. All rights reserved.</p>
         </footer>
       </section>
     </main>
