@@ -34,10 +34,18 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
 
     const email = validation.data.email.toLowerCase().trim();
 
-    // Upsert subscriber - if exists, update the timestamp; if not, insert
+    // Upsert subscriber - if exists, update the status; if not, insert
     const { data, error } = await supabase
-      .from("newsletters")
-      .upsert({ email, agreed_to_terms: true, subscribed_at: new Date().toISOString() }, { onConflict: "email" })
+      .from("newsletter_subscribers")
+      .upsert(
+        {
+          email,
+          status: "subscribed",
+          agreed_to_terms: true,
+          subscribed_at: new Date().toISOString(),
+        },
+        { onConflict: "email" }
+      )
       .select()
       .single();
 
