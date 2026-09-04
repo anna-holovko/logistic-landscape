@@ -124,6 +124,7 @@ textarea {
   max-width: 100%;
   padding: 0 var(--space-6);
   box-sizing: border-box;
+  flex: 1;
 }
 
 .newsletter-logo-center {
