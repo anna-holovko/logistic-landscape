@@ -48,7 +48,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
           success: false,
           message: "Failed to process subscription",
           error: {
-            code: "DATABASE_ERROR",
+            code: "PROVIDER_ERROR",
             message: "An unexpected error occurred. Please try again later.",
           },
         },
