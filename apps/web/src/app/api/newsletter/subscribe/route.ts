@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 import { newsletterSubscribeRequestSchema } from "@/shared/validation/newsletter";
 import { NewsletterSubscribeResponse } from "@/shared/types/api";
 
-const subscribers = new Set<string>();
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceKey) {
+  throw new Error("Missing Supabase environment variables");
+}
+
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 export async function POST(request: NextRequest): Promise<NextResponse<NewsletterSubscribeResponse>> {
   try {
@@ -26,22 +34,27 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
 
     const email = validation.data.email.toLowerCase().trim();
 
-    // Security: treat duplicate subscriptions as success to prevent email enumeration
-    if (subscribers.has(email)) {
+    // Upsert subscriber - if exists, update the timestamp; if not, insert
+    const { data, error } = await supabase
+      .from("newsletters")
+      .upsert({ email, agreed_to_terms: true, subscribed_at: new Date().toISOString() }, { onConflict: "email" })
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Supabase error:", error);
       return NextResponse.json(
         {
-          success: true,
-          message: "Thanks for subscribing! Check your email for updates.",
-          data: {
-            email,
-            subscribedAt: new Date().toISOString(),
+          success: false,
+          message: "Failed to process subscription",
+          error: {
+            code: "DATABASE_ERROR",
+            message: "An unexpected error occurred. Please try again later.",
           },
         },
-        { status: 200 }
+        { status: 500 }
       );
     }
-
-    subscribers.add(email);
 
     return NextResponse.json(
       {
@@ -49,12 +62,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
         message: "Thanks for subscribing! Check your email for updates.",
         data: {
           email,
-          subscribedAt: new Date().toISOString(),
+          subscribedAt: data.subscribed_at,
         },
       },
       { status: 200 }
     );
   } catch (error) {
+    console.error("Subscription error:", error);
     const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
 
     return NextResponse.json(
