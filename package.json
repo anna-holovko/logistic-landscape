@@ -4,7 +4,8 @@
   "description": "Logistic Landscape - A public logistics platform",
   "private": true,
   "workspaces": [
-    "apps/web"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "dev": "cd apps/web && npm run dev",
@@ -14,11 +15,13 @@
     "test": "cd apps/web && npm run test"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^5.0.0",
+    "pg": "^8.23.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0"
   },

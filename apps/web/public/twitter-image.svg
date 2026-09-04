@@ -1,0 +1,18 @@
+<svg width="506" height="506" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="506" height="506" fill="url(#bgRadial)"/>
+  <text x="253" y="220" font-size="48" font-weight="bold" fill="white" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Logistic
+  </text>
+  <text x="253" y="280" font-size="48" font-weight="bold" fill="white" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Landscape
+  </text>
+  <text x="253" y="350" font-size="20" fill="#9ca3af" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Monthly Newsletter
+  </text>
+</svg>

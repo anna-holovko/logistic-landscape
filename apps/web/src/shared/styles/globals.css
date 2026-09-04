@@ -17,6 +17,8 @@
   --color-text-secondary: #efe6d3;
   --color-text-tertiary: #999999;
   --color-error: #dc2626;
+  --color-error-light: #ff7b7b;
+  --color-error-lighter: #ffb3b3;
   --color-success: #16a34a;
   --color-warning: #ea580c;
   --color-info: #0284c7;
@@ -32,6 +34,7 @@
   --color-brick: #be5b3f;
   --color-gold: #c79a3e;
   --color-paper: #efe6d3;
+  --color-paper-border: #e2d4b7;
 
   /* Typography */
   --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI',

@@ -9,20 +9,20 @@ export const metadata: Metadata = (() => {
     description: seo.description,
     canonical: seo.canonical,
     robots: seo.robots,
-    openGraph: {
-      type: seo.ogType as "website" | "article",
+    openGraph: seo.ogType ? {
+      type: seo.ogType,
       title: seo.ogTitle || seo.title,
       description: seo.ogDescription || seo.description,
       url: seo.canonical,
       images: seo.ogImage ? [{ url: seo.ogImage }] : undefined,
       siteName: seo.siteName,
-    },
-    twitter: {
-      card: seo.twitterCard as "summary" | "summary_large_image" | "app" | "player",
+    } : undefined,
+    twitter: seo.twitterCard ? {
+      card: seo.twitterCard,
       title: seo.twitterTitle,
       description: seo.twitterDescription,
       images: seo.twitterImage ? [seo.twitterImage] : undefined,
-    },
+    } : undefined,
   };
 })();
 
