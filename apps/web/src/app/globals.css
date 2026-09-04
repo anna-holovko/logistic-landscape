@@ -120,6 +120,10 @@ textarea {
   align-items: center;
   justify-content: center;
   width: 800px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 var(--space-6);
+  box-sizing: border-box;
 }
 
 .newsletter-logo-center {
