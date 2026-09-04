@@ -450,7 +450,7 @@ textarea {
 @media (max-width: 768px) {
   /* Content wrapper */
   .newsletter-content-wrapper {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
   }
 
@@ -467,13 +467,6 @@ textarea {
   }
 
   /* Header content */
-  .newsletter-content {
-    width: 100%;
-    max-width: calc(100% - 64px);
-    margin: 0 32px;
-    box-sizing: border-box;
-  }
-
   .newsletter-header {
     margin-top: -40px;
   }
@@ -489,9 +482,10 @@ textarea {
   }
 
   .newsletter-header p {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-size: 14px;
     line-height: 21px;
@@ -502,7 +496,7 @@ textarea {
 
   /* Form inputs */
   .newsletter-form {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
     padding: 0;
   }
@@ -516,7 +510,7 @@ textarea {
   }
 
   .newsletter-section .input {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
     padding: 16px 32px;
     box-sizing: border-box;
@@ -525,16 +519,16 @@ textarea {
 
   /* Form agreement */
   .newsletter-form__agreement {
-    width: 100vw;
-    padding: 0 32px;
+    width: 100%;
+    padding: 0;
     box-sizing: border-box;
     font-size: 14px;
   }
 
   /* Form actions (buttons) */
   .newsletter-form__actions {
-    width: 100vw;
-    padding: 0 32px;
+    width: 100%;
+    padding: 0;
     box-sizing: border-box;
   }
 
