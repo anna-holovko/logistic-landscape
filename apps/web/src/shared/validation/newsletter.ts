@@ -13,9 +13,11 @@ import { z } from "zod";
 
 export const emailSchema = z
   .string()
+  .trim()
   .min(1, "Email is required")
   .email("Please enter a valid email address")
-  .max(254, "Email must be less than 254 characters");
+  .max(254, "Email must be less than 254 characters")
+  .transform((email) => email.toLowerCase());
 
 export const newsletterSubscribeRequestSchema = z.object({
   email: emailSchema,

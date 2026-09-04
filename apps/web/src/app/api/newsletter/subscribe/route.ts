@@ -5,14 +5,20 @@ import { NewsletterSubscribeResponse } from "@/shared/types/api";
 import { getNewsletterTable } from "@/services/newsletter";
 import { createRateLimiter } from "@/services/rateLimit";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Created lazily inside the handler (not at module scope) so a missing env
+// var surfaces as a normal request-time error instead of failing the whole
+// route's build/static analysis.
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables");
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error("Missing Supabase environment variables");
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey);
 }
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 const rateLimiter = createRateLimiter(60 * 60 * 1000, 5);
 
 export async function POST(request: NextRequest): Promise<NextResponse<NewsletterSubscribeResponse>> {
@@ -56,6 +62,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
 
     const email = validation.data.email.toLowerCase().trim();
     const table = getNewsletterTable();
+    const supabase = getSupabaseClient();
 
     // Upsert subscriber - if exists, update the status; if not, insert
     const { data, error } = await supabase
@@ -100,12 +107,11 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     );
   } catch (error: unknown) {
     console.error("Subscription error:", error);
-    const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
 
     return NextResponse.json(
       {
         success: false,
-        message: errorMessage,
+        message: "An unexpected error occurred. Please try again later.",
         error: {
           code: "INTERNAL_ERROR",
           message: "An unexpected error occurred. Please try again later.",
