@@ -8,15 +8,19 @@ import { createRateLimiter } from "@/services/rateLimit";
 // Created lazily inside the handler (not at module scope) so a missing env
 // var surfaces as a normal request-time error instead of failing the whole
 // route's build/static analysis.
+//
+// Uses the service role key, not the public anon key: this route is the
+// only writer this table needs, so RLS can deny all public access and this
+// key (server-only, never sent to the client) bypasses RLS entirely.
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!supabaseUrl || !supabaseAnonKey) {
+  if (!supabaseUrl || !serviceRoleKey) {
     throw new Error("Missing Supabase environment variables");
   }
 
-  return createClient(supabaseUrl, supabaseAnonKey);
+  return createClient(supabaseUrl, serviceRoleKey);
 }
 
 const rateLimiter = createRateLimiter(60 * 60 * 1000, 5);
