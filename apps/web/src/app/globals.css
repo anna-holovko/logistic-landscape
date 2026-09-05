@@ -103,6 +103,41 @@ textarea {
   color: var(--color-hero-text);
 }
 
+/*
+ * background.webp's source animation isn't a true loop -- its last frame
+ * doesn't match its first (confirmed: pixel diff at the loop point is ~7x
+ * a normal frame-to-frame step), so the browser's loop restart is a visible
+ * jump. There's no JS event for "an animated background-image just looped"
+ * (unlike <video>, animated images expose no timing API at all), so this
+ * masks the seam with a static copy of frame 1, cross-dissolved in right at
+ * the loop boundary using the animation's exact, fixed duration
+ * (240 frames x 42ms = 10080ms). It's invisible for the rest of the loop.
+ */
+.newsletter-loop-mask {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/video/background-loop-seam.webp') center / cover no-repeat;
+  z-index: 0;
+  opacity: 0;
+  animation: newsletter-loop-seam-mask 10080ms linear infinite;
+  pointer-events: none;
+}
+
+@keyframes newsletter-loop-seam-mask {
+  0% {
+    opacity: 1;
+  }
+  1.5% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .newsletter-overlay {
   position: absolute;
   inset: 0;

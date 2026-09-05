@@ -8,6 +8,7 @@ export default function HomeClient() {
   return (
     <main className="page-newsletter">
       <section className="newsletter-section">
+        <div className="newsletter-loop-mask" />
         <div className="newsletter-overlay" />
 
         <div className="newsletter-content-wrapper">
