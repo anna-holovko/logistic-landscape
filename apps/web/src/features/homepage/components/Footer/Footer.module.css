@@ -1,0 +1,271 @@
+/* ========================================
+   FOOTER SECTION
+   ======================================== */
+
+.footer {
+  background-color: #152a31;
+  border-top: 1px solid var(--color-secondary-border);
+  padding: 50px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 320px;
+  gap: 70px;
+}
+
+/* ========================================
+   LEFT SECTION - Logo + Newsletter
+   ======================================== */
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 290px;
+  flex-shrink: 0;
+}
+
+.logoGroup {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoIcon img {
+  width: 34px;
+  height: 34px;
+}
+
+.logoGroup img:last-child {
+  width: 242px;
+  height: 28px;
+}
+
+.newsletterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.newsletterTitle {
+  font-family: var(--font-family-body);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  letter-spacing: 0.36px;
+  color: #f4ede0;
+  margin: 0;
+}
+
+.newsletterDescription {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  color: #f4ede0;
+  margin: 0;
+}
+
+.newsletterForm {
+  display: flex;
+  align-items: center;
+  background-color: #1e3c45;
+  border: 1px solid var(--color-secondary-border);
+  border-radius: 8px;
+  padding-left: 20px;
+  padding-right: 10px;
+  height: auto;
+}
+
+.emailInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  color: var(--color-secondary-border);
+  outline: none;
+  padding: 10px 0;
+}
+
+.emailInput::placeholder {
+  color: var(--color-secondary-border);
+}
+
+.subscribeButton {
+  background-color: var(--color-brick);
+  color: #f7f2e9;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.subscribeButton:hover {
+  opacity: 0.9;
+}
+
+/* ========================================
+   RIGHT SECTION - Menu Links
+   ======================================== */
+
+.rightSection {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.menuColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuLink {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  color: #f4ede0;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  height: 24px;
+}
+
+.menuLink::after {
+  content: "";
+  width: 0;
+  height: 1px;
+  background-color: var(--color-brick);
+  transition: width 0.2s ease;
+}
+
+.menuLink:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (max-width: 1024px)
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 100px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .rightSection {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (max-width: 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 30px;
+  }
+
+  .container {
+    padding: 0 32px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .leftSection {
+    width: 100%;
+  }
+
+  .logoGroup {
+    gap: 10px;
+  }
+
+  .logoIcon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logoGroup img:last-child {
+    width: 172px;
+    height: 20px;
+  }
+
+  .newsletterSection {
+    gap: 15px;
+  }
+
+  .newsletterTitle {
+    font-size: 16px;
+  }
+
+  .newsletterDescription {
+    font-size: 14px;
+  }
+
+  .newsletterForm {
+    padding-left: 16px;
+    padding-right: 8px;
+  }
+
+  .emailInput {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  .subscribeButton {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .rightSection {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .menuLink {
+    font-size: 14px;
+  }
+}

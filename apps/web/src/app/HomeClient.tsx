@@ -5,12 +5,13 @@ import { Header } from "@/features/homepage/components/Header";
 import { Hero } from "@/features/homepage/components/Hero";
 import { LogisticsVisualization } from "@/features/homepage/components/LogisticsVisualization";
 import { FounderCard } from "@/features/homepage/components/FounderCard";
+import { Footer } from "@/features/homepage/components/Footer";
 import "./homepage.css";
 
 export default function HomeClient() {
   return (
     <div className="homepage">
-      <Header menuItems={["Company", "dfsf", "Company"]} />
+      <Header menuItems={["Company", "Articles", "Newsletter"]} />
 
       <Hero />
 
@@ -276,6 +277,8 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

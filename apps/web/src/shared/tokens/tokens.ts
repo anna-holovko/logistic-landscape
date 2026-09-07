@@ -42,10 +42,13 @@ export const colors = {
   water: "#1e3c45",
   brick: "#be5b3f",
   gold: "#c79a3e",
-  paper: "#efe6d3",
+  paper: "#f4ede0",
 
   // Borders
   paperBorder: "#e2d4b7",
+  secondaryBorder: "#86918c",
+  tertiaryBorder: "#c5c4b7",
+  paperLight: "#f7f2e9",
 } as const;
 
 export const typography = {
