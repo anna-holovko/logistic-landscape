@@ -1,0 +1,284 @@
+/* ========================================
+   COMPANIES SECTION
+   ======================================== */
+
+.section {
+  padding: 80px 0;
+  background-color: rgba(239, 230, 211, 0.9);
+  border-top: 1px solid var(--color-paper-border);
+  border-bottom: 1px solid var(--color-paper-border);
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 320px;
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: 40px;
+  font-weight: var(--font-weight-normal);
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  color: var(--color-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.subtitle {
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.4px;
+  color: var(--color-water);
+  margin: var(--space-3) 0 0;
+}
+
+.grid {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.featuredCompany {
+  position: relative;
+  flex: 0 0 auto;
+  width: 737px;
+  background-color: var(--color-water);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  color: var(--color-paper);
+}
+
+.companyBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-water);
+  background-image: url("/assets/preview/frame-4.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  mix-blend-mode: lighten;
+  z-index: 0;
+}
+
+.companyContent {
+  position: relative;
+  z-index: 1;
+}
+
+.companyHeader {
+  margin-bottom: 30px;
+}
+
+.badge {
+  font-family: var(--font-family-body);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.36px;
+  color: var(--color-secondary-border);
+  margin-bottom: var(--space-3);
+  text-transform: none;
+}
+
+.title {
+  font-family: var(--font-family-display);
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--color-paper);
+  margin: 0;
+}
+
+.attributes {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.attribute {
+  background-color: var(--color-water);
+  border: 1px solid var(--color-paper);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  flex: 1;
+}
+
+.attributeLabel {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-secondary-border);
+  margin-bottom: var(--space-1);
+}
+
+.attributeValue {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-paper);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.description p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-paper);
+  margin: 0;
+}
+
+.companiesList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.companyCard {
+  background-color: #f7f2e9;
+  border: 1px solid var(--color-paper-border);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardHeader {
+  margin-bottom: 0;
+}
+
+.companyCard h4 {
+  font-family: var(--font-family-display);
+  font-size: 25px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.5px;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-1);
+}
+
+.companyCard p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-secondary-border);
+  margin: 0;
+}
+
+.link {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-brick);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.link img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (max-width: 1024px)
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 100px;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .featuredCompany {
+    width: 100%;
+  }
+
+  .companiesList {
+    flex-direction: row;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (max-width: 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0 50px;
+  }
+
+  .container {
+    padding: 0 32px;
+  }
+
+  .heading {
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: 0.28px;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .featuredCompany {
+    width: 100%;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .attributes {
+    flex-direction: column;
+  }
+
+  .companiesList {
+    flex-direction: column;
+  }
+}

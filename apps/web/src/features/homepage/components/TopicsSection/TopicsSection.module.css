@@ -1,0 +1,134 @@
+.section {
+  padding: 80px 0;
+  background-color: var(--color-paper);
+  border-top: 1px solid var(--color-paper-border);
+  border-bottom: 1px solid var(--color-paper-border);
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 320px;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: 40px;
+  font-weight: var(--font-weight-normal);
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  color: var(--color-text-primary);
+  margin: 0 0 40px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 25px 25px;
+}
+
+.card {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card h3 {
+  font-family: var(--font-family-display);
+  font-size: 40px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  letter-spacing: 0.8px;
+  color: var(--color-text-primary);
+  margin: 0;
+  min-width: 100%;
+  width: min-content;
+}
+
+.card p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-secondary-border);
+  margin: 0;
+  width: 192px;
+}
+
+.lg h3 {
+  font-size: 80px;
+}
+
+.lg p {
+  width: 251px;
+}
+
+.xl h3 {
+  font-size: 70px;
+}
+
+.xl p {
+  width: 302px;
+}
+
+.highlight h3 {
+  color: var(--color-brick);
+}
+
+.lg2 {
+  grid-column: 2 / span 2;
+}
+
+.lg2 h3 {
+  font-size: 70px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 100px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg2 {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0 50px;
+  }
+
+  .container {
+    padding: 0 32px;
+  }
+
+  .heading {
+    font-size: 28px;
+    letter-spacing: 0.28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card h3 {
+    font-size: 32px;
+  }
+
+  .lg h3,
+  .xl h3,
+  .lg2 h3 {
+    font-size: 32px;
+  }
+}
