@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
@@ -30,7 +29,7 @@ export function Hero() {
           <p className={styles.description}>
             Companies, business models, transportation modes, technologies, and the connections between them — explained in plain English.
           </p>
-          <Link href="/newsletter" className={styles.subscribeButton}>
+          <a href="https://test-logistics-landscape.com.pl/" target="_blank" rel="noopener noreferrer" className={styles.subscribeButton}>
             <span>Subscribe to our weekly landscape</span>
             <Image
               src="/assets/preview/arrow-right.svg"
@@ -38,7 +37,7 @@ export function Hero() {
               width={16}
               height={16}
             />
-          </Link>
+          </a>
         </div>
       </div>
     </section>
