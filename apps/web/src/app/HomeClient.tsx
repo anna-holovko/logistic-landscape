@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Hero } from "@/features/homepage/components/Hero";
 import "./homepage.css";
 
 export default function HomeClient() {
@@ -34,37 +35,7 @@ export default function HomeClient() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="section-bg" />
-        <div className="container hero-content">
-          <h1 className="h1">What do you want to understand?</h1>
-          <div className="search-box">
-            <input
-              type="text"
-              placeholder="Search companies, topics and terms"
-              className="search-input"
-            />
-            <div className="search-icon">
-              <Image
-                src="/assets/preview/search-icon.svg"
-                alt="Search"
-                width={24}
-                height={24}
-              />
-            </div>
-          </div>
-          <div className="newsletter-link">
-            <span>Subscribe to our weekly landscape</span>
-            <Image
-              src="/assets/preview/arrow-right.svg"
-              alt="Arrow"
-              width={16}
-              height={16}
-            />
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Built from inside the industry */}
       <section className="founder">
