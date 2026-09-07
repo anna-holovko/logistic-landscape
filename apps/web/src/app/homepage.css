@@ -114,57 +114,6 @@
   align-items: flex-end;
 }
 
-.founder-card {
-  position: relative;
-  flex: 0 0 auto;
-  max-width: 360px;
-  background-color: var(--color-water);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  padding: 30px;
-  padding-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: center;
-  justify-content: flex-end;
-  height: 525px;
-  color: var(--color-paper);
-}
-
-.founder-card img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-  margin-bottom: auto;
-}
-
-.founder-info {
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.founder-info h3 {
-  font-family: var(--font-family-body);
-  font-size: 25px;
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-normal);
-  letter-spacing: 0.5px;
-  color: var(--color-paper);
-  margin: var(--space-1) 0;
-}
-
-.founder-info p {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  font-style: italic;
-  line-height: var(--line-height-normal);
-  letter-spacing: 0.32px;
-  color: var(--color-paper);
-  margin: 0;
-}
 
 .stats-grid {
   flex: 1;
@@ -173,7 +122,7 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 0;
   min-width: 0;
-  height: 525px;
+  height: 360px;
 }
 
 .stat-item {

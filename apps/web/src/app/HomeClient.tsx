@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Hero } from "@/features/homepage/components/Hero";
+import { FounderCard } from "@/features/homepage/components/FounderCard";
 import "./homepage.css";
 
 export default function HomeClient() {
@@ -42,18 +43,12 @@ export default function HomeClient() {
         <div className="container">
           <h2 className="h2">Built from inside the industry</h2>
           <div className="founder-grid">
-            <div className="founder-card">
-              <Image
-                src="/assets/preview/frame-15.png"
-                alt="Max Drozhzhin"
-                width={184}
-                height={184}
-              />
-              <div className="founder-info">
-                <h3>Max Drozhzhin</h3>
-                <p>Founder and CEO, Expedite All</p>
-              </div>
-            </div>
+            <FounderCard
+              name="Max Drozhzhin"
+              title="Founder and CEO, Expedite All"
+              imageSrc="/assets/preview/frame-15.png"
+              imageAlt="Max Drozhzhin"
+            />
             <div className="stats-grid">
               <div className="stat-item">
                 <div className="stat-value">12,000+</div>
