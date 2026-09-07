@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Header } from "@/features/homepage/components/Header";
 import { Hero } from "@/features/homepage/components/Hero";
+import { LogisticsVisualization } from "@/features/homepage/components/LogisticsVisualization";
 import { FounderCard } from "@/features/homepage/components/FounderCard";
 import "./homepage.css";
 
@@ -12,6 +13,8 @@ export default function HomeClient() {
       <Header menuItems={["Company", "dfsf", "Company"]} />
 
       <Hero />
+
+      <LogisticsVisualization />
 
       {/* Built from inside the industry */}
       <section className="founder">
