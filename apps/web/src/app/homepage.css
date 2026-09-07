@@ -790,6 +790,19 @@
 .newsletter {
   padding: 80px 0;
   background-color: var(--color-water);
+  position: relative;
+}
+
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #152a31;
+  opacity: 0.7;
+  z-index: 0;
 }
 
 .newsletter-content {
@@ -797,6 +810,8 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .newsletter .h2 {
