@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Header } from "@/features/homepage/components/Header";
 import { Hero } from "@/features/homepage/components/Hero";
 import { FounderCard } from "@/features/homepage/components/FounderCard";
 import "./homepage.css";
@@ -8,33 +9,7 @@ import "./homepage.css";
 export default function HomeClient() {
   return (
     <div className="homepage">
-      {/* Menu */}
-      <header className="header">
-        <div className="container">
-          <div className="logo-group">
-            <div className="logo-icon">
-              <Image
-                src="/assets/preview/frame-83.svg"
-                alt="Logo"
-                width={24}
-                height={24}
-                priority
-              />
-            </div>
-            <Image
-              src="/assets/preview/logistic-landscape.svg"
-              alt="Logistic Landscape"
-              width={173}
-              height={20}
-            />
-          </div>
-          <nav className="menu">
-            <div className="menu-item">Company</div>
-            <div className="menu-item">dfsf</div>
-            <div className="menu-item">Company</div>
-          </nav>
-        </div>
-      </header>
+      <Header menuItems={["Company", "dfsf", "Company"]} />
 
       <Hero />
 
