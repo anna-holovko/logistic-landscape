@@ -16,12 +16,12 @@ export default function HomeClient() {
     <div className="homepage">
       <Header menuItems={["Company", "Articles", "Newsletter"]} />
       <Hero />
-      <LogisticsVisualization />
       <FounderSection />
       <CompaniesSection />
       <ArticlesSection />
       <TopicsSection />
       <NewsletterSection />
+      <LogisticsVisualization />
       <Footer />
     </div>
   );
