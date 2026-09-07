@@ -120,6 +120,10 @@
   flex: 1;
 }
 
+.attribute:first-child {
+  flex: 0 0 277px;
+}
+
 .attributeLabel {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
