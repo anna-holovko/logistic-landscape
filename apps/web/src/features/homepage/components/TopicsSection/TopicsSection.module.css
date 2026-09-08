@@ -139,7 +139,7 @@
   position: absolute;
   font-family: var(--font-family-display);
   font-size: 33.61px;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   color: var(--color-water);
   left: 346.8px;
   top: 0;

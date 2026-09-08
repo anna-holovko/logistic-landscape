@@ -57,7 +57,7 @@
 .heading {
   font-family: var(--font-family-display);
   font-size: 60px;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   line-height: 1.2;
   letter-spacing: 0.6px;
   color: var(--color-paper);
