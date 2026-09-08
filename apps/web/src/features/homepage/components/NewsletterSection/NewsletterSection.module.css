@@ -1,22 +1,10 @@
 .section {
   padding: 80px 0;
   background-color: var(--color-water);
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /></filter></defs><rect width="100" height="100" fill="%231e3c45" filter="url(%23noise)" opacity="0.2" /></svg>');
+  background-image: url("/assets/preview/frame-4.png");
   background-size: cover;
-  background-attachment: fixed;
+  background-position: center;
   position: relative;
-}
-
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(21, 42, 49, 0.7), rgba(30, 60, 69, 0));
-  pointer-events: none;
-  z-index: 0;
 }
 
 .container {
