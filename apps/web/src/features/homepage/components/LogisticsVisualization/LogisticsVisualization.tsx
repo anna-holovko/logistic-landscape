@@ -30,8 +30,8 @@ export function LogisticsVisualization() {
             <svg
               className={styles.vector}
               style={{
-                left: "555px",
-                top: "211px",
+                left: "556px",
+                top: "272.88px",
                 width: "549px",
                 height: "121.244px",
                 transform: "scaleX(-1)",
