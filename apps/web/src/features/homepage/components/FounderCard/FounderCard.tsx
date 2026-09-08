@@ -11,12 +11,15 @@ interface FounderCardProps {
 export function FounderCard({ name, title, imageSrc, imageAlt }: FounderCardProps) {
   return (
     <div className={styles.card}>
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        fill
-        className={styles.background}
-      />
+      <div className={styles.background}>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          width={200}
+          height={200}
+          className={styles.backgroundImage}
+        />
+      </div>
       <div className={styles.overlay} />
       <div className={styles.content}>
         <h3 className={styles.name}>{name}</h3>
