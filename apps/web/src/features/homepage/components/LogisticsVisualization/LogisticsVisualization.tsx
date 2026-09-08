@@ -31,11 +31,11 @@ export function LogisticsVisualization() {
               className={styles.vectorWrapper}
               style={{
                 left: "8px",
-                top: "211px",
+                top: "331.54px",
                 width: "549px",
                 height: "121.244px",
-                transform: "rotate(90deg)",
-                transformOrigin: "549px 181.162px",
+                transform: "rotate(-90deg)",
+                transformOrigin: "549px 0px",
               }}
             >
               <div className={styles.vectorInset}>
