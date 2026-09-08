@@ -59,6 +59,8 @@
   display: block;
   position: relative;
   z-index: 3;
+  opacity: 1;
+  visibility: visible;
 }
 
 .grid {
