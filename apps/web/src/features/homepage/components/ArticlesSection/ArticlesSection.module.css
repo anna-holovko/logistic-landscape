@@ -60,7 +60,7 @@
 
 .badge {
   background-color: var(--color-brick);
-  color: #f7f2e9;
+  color: var(--color-paper-light);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-base);
   font-family: var(--font-family-body);

@@ -6,8 +6,8 @@
   position: relative;
   padding: 80px 0;
   background-color: var(--color-water);
-  border-top: 1px solid #86918c;
-  border-bottom: 1px solid #86918c;
+  border-top: 1px solid var(--color-secondary-border);
+  border-bottom: 1px solid var(--color-secondary-border);
   overflow: hidden;
 }
 
@@ -35,7 +35,7 @@
   font-style: italic;
   line-height: 1.5;
   letter-spacing: 0.4px;
-  color: #f4ede0;
+  color: var(--color-paper);
   text-align: center;
   margin: 0;
   width: 100%;
@@ -47,7 +47,7 @@
   font-weight: var(--font-weight-normal);
   line-height: 1.5;
   letter-spacing: 0.4px;
-  color: #f4ede0;
+  color: var(--color-paper);
   text-align: center;
   margin: 0;
   width: 100%;

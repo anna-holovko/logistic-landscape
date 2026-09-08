@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #152a31;
+  background-color: var(--color-navy);
   opacity: 0.7;
   z-index: 0;
 }
@@ -39,7 +39,7 @@
   font-style: italic;
   line-height: 1.5;
   letter-spacing: 0.4px;
-  color: #f4ede0;
+  color: var(--color-paper);
   text-align: center;
   margin: 0;
 }
@@ -61,7 +61,7 @@
   align-items: center;
   gap: 0;
   background-color: var(--color-water);
-  border: 1px solid #f4ede0;
+  border: 1px solid var(--color-paper);
   border-radius: var(--radius-lg);
   height: 70px;
   width: 600px;
@@ -90,7 +90,7 @@
 
 .button {
   background-color: var(--color-brick);
-  color: #f7f2e9;
+  color: var(--color-paper-light);
   border: none;
   border-radius: var(--radius-lg);
   padding: var(--space-2) var(--space-5);

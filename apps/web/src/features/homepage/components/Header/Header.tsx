@@ -8,7 +8,7 @@ interface HeaderProps {
   menuItems?: string[];
 }
 
-export function Header({ menuItems = ["Company", "dfsf", "Company"] }: HeaderProps) {
+export function Header({ menuItems = ["Company", "Articles", "Newsletter"] }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

@@ -60,7 +60,7 @@
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.6px;
-  color: #f4ede0;
+  color: var(--color-paper);
   text-align: center;
   margin: 0;
   max-width: 100%;
@@ -71,7 +71,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-water);
-  border: 1px solid #f4ede0;
+  border: 1px solid var(--color-paper);
   border-radius: var(--radius-lg);
   height: 70px;
   padding: 0 var(--space-5);
@@ -89,12 +89,12 @@
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
   letter-spacing: 0.32px;
-  color: #f4ede0;
+  color: var(--color-paper);
   outline: none;
 }
 
 .searchInput::placeholder {
-  color: #f4ede0;
+  color: var(--color-paper);
 }
 
 .searchIcon {
@@ -126,7 +126,7 @@
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
   letter-spacing: 0.32px;
-  color: #f4ede0;
+  color: var(--color-paper);
   text-align: center;
   margin: 0;
 }
