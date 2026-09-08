@@ -29,7 +29,7 @@ export function LogisticsVisualization() {
 
             <svg
               className={styles.vector}
-              style={{ left: "557px", top: "331.54px", width: "549px", height: "121.244px" }}
+              style={{ left: "557px", top: "210px", width: "549px", height: "121.244px", transform: "scaleX(-1) scaleY(-1)" }}
               viewBox="0 0 549.5 123.244"
             >
               <image href="/assets/preview/vector-71.svg" width="100%" height="100%" />
