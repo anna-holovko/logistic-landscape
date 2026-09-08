@@ -42,7 +42,8 @@
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
-  align-items: flex-end;
+  align-items: center;
+  height: 360px;
 }
 
 
@@ -53,7 +54,8 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 0;
   min-width: 0;
-  height: 360px;
+  height: 100%;
+  width: 100%;
 }
 
 .stat-item {
@@ -182,13 +184,14 @@
   position: relative;
   flex: 0 0 auto;
   width: 737px;
+  height: auto;
   background-color: var(--color-water);
   border-radius: var(--radius-lg);
   overflow: hidden;
   padding: 40px 30px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   color: var(--color-paper);
 }
 
@@ -292,6 +295,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 
 .company-card {
@@ -350,7 +354,7 @@
   padding: var(--space-5);
   display: flex;
   gap: 35px;
-  align-items: stretch;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -360,6 +364,7 @@
   height: 150px;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .article-image img {
@@ -580,7 +585,7 @@
 .newsletter-form {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 10px;
   background-color: var(--color-water);
   border: 1px solid var(--color-paper);
   border-radius: var(--radius-lg);
@@ -589,6 +594,7 @@
   max-width: 100%;
   box-sizing: border-box;
   padding: var(--space-5);
+  justify-content: space-between;
 }
 
 .newsletter-input {
