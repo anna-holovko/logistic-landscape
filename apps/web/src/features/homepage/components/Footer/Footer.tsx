@@ -1,11 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { AnimatePresence } from "motion/react";
+import { useNewsletterForm } from "@/features/newsletter/client/hooks/useNewsletterForm";
+import { SubscriptionConfirmation } from "@/features/newsletter/client/components/SubscriptionConfirmation";
 import styles from "./Footer.module.css";
 
 export function Footer() {
+  const { email, setEmail, success, submit } = useNewsletterForm();
+  const [isOpen, setIsOpen] = useState(false);
   const companyLinks = ["Company", "Articles", "Newsletter"];
   const legalLinks = ["Contact Us", "Privacy Policy", "Terms & Conditions"];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await submit(email);
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <footer className={styles.footer}>
@@ -37,15 +53,18 @@ export function Footer() {
             Get weekly logistics articles, videos, and company insights straight to your inbox with our newsletter.
           </p>
 
-          <div className={styles.newsletterForm}>
+          <form className={styles.newsletterForm} onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="email.example@gmail.com"
               className={styles.emailInput}
               aria-label="Email for newsletter subscription"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <button className={styles.subscribeButton}>Subscribe</button>
-          </div>
+            <button type="submit" className={styles.subscribeButton}>Subscribe</button>
+          </form>
         </div>
 
         {/* Links Section */}
@@ -67,6 +86,14 @@ export function Footer() {
           </nav>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isOpen && success && (
+          <div onClick={handleCloseModal}>
+            <SubscriptionConfirmation />
+          </div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }
