@@ -23,8 +23,8 @@ export default function HomeClient() {
       <CompaniesSection />
       <ArticlesSection />
       <TopicsSection />
-      <NewsletterSection />
       <LogisticsVisualization />
+      <NewsletterSection />
       <Footer />
     </div>
   );
