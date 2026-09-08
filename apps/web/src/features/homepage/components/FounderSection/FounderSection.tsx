@@ -21,7 +21,7 @@ export function FounderSection() {
       : value;
 
     return (
-      <div ref={ref} className={`${styles.statItem} stat-container`}>
+      <div ref={ref} className={`${styles.statItem} stat-container`} suppressHydrationWarning>
         <div className={styles.statValue}>
           {displayText}
           {isNumeric && typeof value === 'number' && value > 100 ? '+' : ''}
