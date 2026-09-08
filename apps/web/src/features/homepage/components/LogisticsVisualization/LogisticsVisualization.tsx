@@ -35,7 +35,6 @@ export function LogisticsVisualization() {
               <image href="/assets/preview/vector-71.svg" width="100%" height="100%" />
             </svg>
           </div>
-          </div>
 
           {/* Gradient overlays */}
           <div
