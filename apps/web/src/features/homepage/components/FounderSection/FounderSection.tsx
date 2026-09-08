@@ -1,46 +1,60 @@
 "use client";
 
 import Image from "next/image";
+import { useNumberCounter } from "@/shared/hooks/useNumberCounter";
+import { useScrollReveal } from "@/shared/hooks/useScrollReveal";
 import { FounderCard } from "../FounderCard";
 import styles from "./FounderSection.module.css";
 
 export function FounderSection() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.heading}>Built from inside the industry</h2>
+  const scrollRevealRef = useScrollReveal();
 
-        <div className={styles.grid}>
-          <FounderCard
-            name="Max Drozhzhin"
-            title="Founder and CEO, Expedite All"
-            imageSrc="/assets/preview/frame-15.png"
-            imageAlt="Max Drozhzhin"
-          />
+  // Counter component for numeric values
+  function StatItem({ value, label, isNumeric }: { value: number | string; label: string; isNumeric?: boolean }) {
+    const [displayValue, ref] = useNumberCounter(
+      typeof value === 'number' ? value : parseInt(value.toString()),
+      1500
+    );
+
+    const displayText = isNumeric && typeof value === 'number'
+      ? displayValue.toLocaleString()
+      : value;
+
+    return (
+      <div ref={ref} className={`${styles.statItem} stat-container`}>
+        <div className={styles.statValue}>
+          {displayText}
+          {isNumeric && typeof value === 'number' && value > 100 ? '+' : ''}
+        </div>
+        <div className={styles.statLabel}>{label}</div>
+      </div>
+    );
+  }
+
+  return (
+    <section className={styles.section} ref={scrollRevealRef}>
+      <div className={styles.container}>
+        <h2 className={`${styles.heading} scroll-reveal`}>Built from inside the industry</h2>
+
+        <div className={`${styles.grid} scroll-reveal-group`}>
+          <div className="scroll-reveal-stagger">
+            <FounderCard
+              name="Max Drozhzhin"
+              title="Founder and CEO, Expedite All"
+              imageSrc="/assets/preview/frame-15.png"
+              imageAlt="Max Drozhzhin"
+            />
+          </div>
 
           <div className={styles.statsGrid}>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>12,000+</div>
-              <div className={styles.statLabel}>GPS-Monitored Trucks</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>11,6k+</div>
-              <div className={styles.statLabel}>LinkedIn Community</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>CEO</div>
-              <div className={styles.statLabel}>Founder of Expedite All</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>US + EU</div>
-              <div className={styles.statLabel}>
-                Companies built across North America & Europe
-              </div>
-            </div>
+            <StatItem value={12000} label="GPS-Monitored Trucks" isNumeric />
+            <StatItem value={11600} label="LinkedIn Community" isNumeric />
+            <StatItem value="CEO" label="Founder of Expedite All" isNumeric={false} />
+            <StatItem value="US + EU" label="Companies built across North America & Europe" isNumeric={false} />
           </div>
         </div>
 
-        <div className={styles.description}>
+        <div className={`${styles.description} scroll-reveal`}>
           <p>
             Logistic Landscape was founded by Max Drozhzhin, CEO of Expedite
             All and an operator who has built and scaled logistics companies

@@ -1,0 +1,247 @@
+/**
+ * Premium Animation System
+ *
+ * Modern, polished animations for Logistic Landscape.
+ * Selective, intentional, supports content hierarchy.
+ * Respects prefers-reduced-motion for accessibility.
+ */
+
+/* ========================================
+   ANIMATION TOKENS
+   ======================================== */
+
+:root {
+  /* Duration tokens */
+  --animation-duration-fast: 300ms;
+  --animation-duration-normal: 500ms;
+  --animation-duration-slow: 700ms;
+
+  /* Easing curves */
+  --animation-easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --animation-easing-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Stagger timing */
+  --animation-stagger: 100ms;
+
+  /* Movement distance */
+  --animation-reveal-distance: 20px;
+}
+
+/* ========================================
+   KEYFRAMES - ENTRANCE ANIMATIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animation-reveal-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animation-reveal-distance)) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   KEYFRAMES - INTERACTIVE ANIMATIONS
+   ======================================== */
+
+@keyframes hover-lift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes subtle-shadow {
+  from {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  to {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* ========================================
+   HERO SECTION - LOAD-TIME ENTRANCE
+   ======================================== */
+
+.hero-heading {
+  animation: fadeInUp var(--animation-duration-fast) var(--animation-easing-smooth) forwards;
+}
+
+.hero-search {
+  animation: fadeInUp var(--animation-duration-fast) var(--animation-easing-smooth)
+    var(--animation-stagger) forwards;
+  opacity: 0;
+}
+
+.hero-description {
+  animation: fadeInUp var(--animation-duration-fast) var(--animation-easing-smooth)
+    calc(var(--animation-stagger) * 2) forwards;
+  opacity: 0;
+}
+
+.hero-cta {
+  animation: fadeInUp var(--animation-duration-fast) var(--animation-easing-smooth)
+    calc(var(--animation-stagger) * 3) forwards;
+  opacity: 0;
+}
+
+.hero-bg {
+  animation: fadeIn var(--animation-duration-normal) var(--animation-easing-smooth) forwards;
+}
+
+/* ========================================
+   CARD HOVER ANIMATIONS
+   ======================================== */
+
+.card-interactive {
+  transition: all var(--animation-duration-fast) var(--animation-easing-smooth);
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-image-animated {
+  transition: transform var(--animation-duration-normal) var(--animation-easing-smooth);
+}
+
+.card-interactive:hover .card-image-animated {
+  transform: scale(1.02);
+}
+
+/* ========================================
+   SCROLL-TRIGGERED ANIMATIONS
+   Applied via JavaScript with Intersection Observer
+   ======================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(var(--animation-reveal-distance));
+  transition: opacity var(--animation-duration-normal) var(--animation-easing-smooth),
+    transform var(--animation-duration-normal) var(--animation-easing-smooth);
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveals for element groups */
+.scroll-reveal-stagger {
+  opacity: 0;
+  transform: translateY(var(--animation-reveal-distance));
+  transition: opacity var(--animation-duration-normal) var(--animation-easing-smooth),
+    transform var(--animation-duration-normal) var(--animation-easing-smooth);
+}
+
+.scroll-reveal-stagger.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply stagger delays */
+.scroll-reveal-group .scroll-reveal-stagger:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.scroll-reveal-group .scroll-reveal-stagger:nth-child(2) {
+  transition-delay: var(--animation-stagger);
+}
+
+.scroll-reveal-group .scroll-reveal-stagger:nth-child(3) {
+  transition-delay: calc(var(--animation-stagger) * 2);
+}
+
+.scroll-reveal-group .scroll-reveal-stagger:nth-child(4) {
+  transition-delay: calc(var(--animation-stagger) * 3);
+}
+
+/* ========================================
+   STATISTICS COUNTER ANIMATION
+   ======================================== */
+
+.stat-counter {
+  font-variant-numeric: tabular-nums;
+  transition: opacity var(--animation-duration-normal) var(--animation-easing-smooth);
+}
+
+.stat-container {
+  opacity: 0;
+  transform: translateY(var(--animation-reveal-distance));
+  transition: opacity var(--animation-duration-normal) var(--animation-easing-smooth),
+    transform var(--animation-duration-normal) var(--animation-easing-smooth);
+}
+
+.stat-container.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPECT PREFERS-REDUCED-MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-heading,
+  .hero-search,
+  .hero-description,
+  .hero-cta,
+  .hero-bg {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal-stagger,
+  .stat-container {
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal.in-view,
+  .scroll-reveal-stagger.in-view,
+  .stat-container.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card-interactive:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
