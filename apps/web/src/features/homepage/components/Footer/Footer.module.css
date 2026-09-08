@@ -3,7 +3,7 @@
    ======================================== */
 
 .footer {
-  background-color: var(--color-navy-main);
+  background-color: var(--color-navy);
   padding: 50px 0;
   position: relative;
   z-index: 1;
