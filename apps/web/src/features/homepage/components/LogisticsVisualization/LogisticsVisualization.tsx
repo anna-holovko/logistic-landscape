@@ -27,19 +27,27 @@ export function LogisticsVisualization() {
               <image href="/assets/preview/vector-70.svg" width="100%" height="100%" />
             </svg>
 
-            <svg
-              className={styles.vector}
+            <div
+              className={styles.vectorWrapper}
               style={{
-                left: "556px",
-                top: "0",
-                width: "121.244px",
-                height: "667px",
+                left: "555px",
+                top: "211px",
+                width: "549px",
+                height: "121.244px",
                 transform: "rotate(90deg)",
               }}
-              viewBox="0 0 549 121.244"
             >
-              <image href="/assets/preview/vector-71.svg" width="100%" height="100%" />
-            </svg>
+              <div className={styles.vectorInset}>
+                <svg
+                  className={styles.vector}
+                  viewBox="0 0 549 121.244"
+                  width="100%"
+                  height="100%"
+                >
+                  <image href="/assets/preview/vector-71.svg" width="100%" height="100%" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           {/* Gradient overlays */}
