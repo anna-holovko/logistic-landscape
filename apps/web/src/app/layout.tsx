@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { config } from "@/shared/config";
 import { themeConfig } from "@/shared/tokens";
 import "@/shared/styles/globals.css";
+import "@/shared/styles/text-animations.css";
 import "./globals.css";
 
 const petrona = localFont({
