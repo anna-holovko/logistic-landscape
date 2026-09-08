@@ -10,8 +10,8 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Left Section: Logo + Newsletter */}
-        <div className={styles.leftSection}>
+        {/* Logo Section */}
+        <div className={styles.logoSection}>
           <div className={styles.logoGroup}>
             <div className={styles.logoIcon}>
               <Image
@@ -28,27 +28,28 @@ export function Footer() {
               height={28}
             />
           </div>
+        </div>
 
-          <div className={styles.newsletterSection}>
-            <h3 className={styles.newsletterTitle}>Never miss an update</h3>
-            <p className={styles.newsletterDescription}>
-              Get weekly logistics articles, videos, and company insights straight to your inbox with our newsletter.
-            </p>
+        {/* Newsletter Section */}
+        <div className={styles.newsletterSection}>
+          <h3 className={styles.newsletterTitle}>Never miss an update</h3>
+          <p className={styles.newsletterDescription}>
+            Get weekly logistics articles, videos, and company insights straight to your inbox with our newsletter.
+          </p>
 
-            <div className={styles.newsletterForm}>
-              <input
-                type="email"
-                placeholder="email.example@gmail.com"
-                className={styles.emailInput}
-                aria-label="Email for newsletter subscription"
-              />
-              <button className={styles.subscribeButton}>Subscribe</button>
-            </div>
+          <div className={styles.newsletterForm}>
+            <input
+              type="email"
+              placeholder="email.example@gmail.com"
+              className={styles.emailInput}
+              aria-label="Email for newsletter subscription"
+            />
+            <button className={styles.subscribeButton}>Subscribe</button>
           </div>
         </div>
 
-        {/* Right Section: Menu Links */}
-        <div className={styles.rightSection}>
+        {/* Links Section */}
+        <div className={styles.linksSection}>
           <nav className={styles.menuColumn}>
             {companyLinks.map((link) => (
               <a key={link} href="#" className={styles.menuLink}>
