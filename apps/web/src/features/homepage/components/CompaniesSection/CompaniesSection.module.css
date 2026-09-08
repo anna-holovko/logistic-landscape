@@ -74,6 +74,7 @@
   opacity: 0.2;
   mix-blend-mode: lighten;
   z-index: 0;
+  animation: fadeIn var(--animation-duration-normal) var(--animation-easing-smooth) forwards;
 }
 
 .companyContent {
