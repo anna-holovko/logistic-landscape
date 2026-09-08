@@ -146,12 +146,13 @@
 
 .subscribeButton:hover {
   opacity: 0.85;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(190, 91, 63, 0.2);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 12px rgba(190, 91, 63, 0.25);
 }
 
 .subscribeButton:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 4px rgba(190, 91, 63, 0.15);
 }
 
 .subscribeButton:focus-visible {
