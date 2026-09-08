@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.sectionBg} />
-      <div className={`container ${styles.heroContent}`}>
+      <div className={styles.heroContent}>
         <div className={styles.topSection}>
           <h1 className={`${styles.heading} hero-heading`}>What do you want to understand?</h1>
           <div className={`${styles.searchBox} hero-search`}>
