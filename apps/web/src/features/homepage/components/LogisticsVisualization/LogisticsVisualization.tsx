@@ -30,11 +30,12 @@ export function LogisticsVisualization() {
             <div
               className={styles.vectorWrapper}
               style={{
-                left: "555px",
+                left: "8px",
                 top: "211px",
                 width: "549px",
                 height: "121.244px",
                 transform: "rotate(90deg)",
+                transformOrigin: "549px 181.162px",
               }}
             >
               <div className={styles.vectorInset}>
