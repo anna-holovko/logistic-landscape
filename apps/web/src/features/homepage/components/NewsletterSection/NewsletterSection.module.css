@@ -1,7 +1,27 @@
 .section {
   padding: 80px 0;
-  background-color: var(--color-navy-main);
+  background-color: var(--color-water);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /></filter></defs><rect width="100" height="100" fill="%231e3c45" filter="url(%23noise)" opacity="0.2" /></svg>');
+  background-size: cover;
+  background-attachment: fixed;
   position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(21, 42, 49, 0.7), rgba(30, 60, 69, 0));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -16,6 +36,8 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .heading {
@@ -45,15 +67,16 @@
 .form {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0;
   background-color: var(--color-water);
   border: 1px solid var(--color-paper);
-  border-radius: var(--radius-lg);
+  border-radius: 8px;
   height: 70px;
   width: 600px;
   max-width: 100%;
   box-sizing: border-box;
-  padding: var(--space-5);
+  padding: 20px 20px 20px 20px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -67,14 +90,17 @@
   background: transparent;
   border: none;
   font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
+  font-size: 16px;
   font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-normal);
+  line-height: 1.5;
   letter-spacing: 0.32px;
   color: var(--color-secondary-border);
   outline: none;
-  padding: 0 var(--space-5);
+  padding: 0;
+  margin-right: 10px;
   transition: color 0.2s ease;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .input::placeholder {
@@ -94,17 +120,21 @@
   background-color: var(--color-brick);
   color: var(--color-paper-light);
   border: none;
-  border-radius: var(--radius-lg);
-  padding: var(--space-2) var(--space-5);
+  border-radius: 8px;
+  padding: 10px 20px;
   font-family: var(--font-family-body);
   font-size: 18px;
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-normal);
+  line-height: 1.5;
   letter-spacing: 0.36px;
   text-transform: uppercase;
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   flex-shrink: 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button:hover {
