@@ -41,7 +41,7 @@ export function FounderSection() {
             <FounderCard
               name="Max Drozhzhin"
               title="Founder and CEO, Expedite All"
-              imageSrc="/assets/preview/frame-15.png"
+              imageSrc="/assets/preview/frame-15.webp"
               imageAlt="Max Drozhzhin"
             />
           </div>
