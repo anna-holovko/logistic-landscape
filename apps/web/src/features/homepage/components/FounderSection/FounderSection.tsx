@@ -34,7 +34,7 @@ export function FounderSection() {
   return (
     <section className={styles.section} ref={scrollRevealRef}>
       <div className={styles.container}>
-        <h2 className={`${styles.heading} scroll-reveal`}>Built from inside the industry</h2>
+        <h2 className={styles.heading}>Built from inside the industry</h2>
 
         <div className={`${styles.grid} scroll-reveal-group`}>
           <div className="scroll-reveal-stagger">
