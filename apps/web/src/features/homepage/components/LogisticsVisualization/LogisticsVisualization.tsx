@@ -31,10 +31,10 @@ export function LogisticsVisualization() {
               className={styles.vector}
               style={{
                 left: "556px",
-                top: "272.88px",
-                width: "549px",
-                height: "121.244px",
-                transform: "scaleX(-1)",
+                top: "0",
+                width: "121.244px",
+                height: "667px",
+                transform: "rotate(90deg)",
               }}
               viewBox="0 0 549 121.244"
             >
