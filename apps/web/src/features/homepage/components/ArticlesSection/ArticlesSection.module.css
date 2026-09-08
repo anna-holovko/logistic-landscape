@@ -107,11 +107,18 @@
   flex-direction: column;
   gap: var(--space-3);
   transition: all var(--animation-duration-fast) var(--animation-easing-smooth);
+  cursor: pointer;
 }
 
 .articleCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.articleCard:focus-visible {
+  outline: 2px solid var(--color-brick);
+  outline-offset: 2px;
 }
 
 .label {

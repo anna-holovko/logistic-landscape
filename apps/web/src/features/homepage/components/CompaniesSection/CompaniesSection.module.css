@@ -177,11 +177,18 @@
   flex-direction: column;
   justify-content: space-between;
   transition: all var(--animation-duration-fast) var(--animation-easing-smooth);
+  cursor: pointer;
 }
 
 .companyCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.companyCard:focus-visible {
+  outline: 2px solid var(--color-brick);
+  outline-offset: 2px;
 }
 
 .cardHeader {
@@ -222,11 +229,30 @@
   color: var(--color-brick);
   cursor: pointer;
   white-space: nowrap;
+  padding: 8px;
+  margin: -8px;
+  border-radius: var(--radius-lg);
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.8;
+  color: var(--color-brick);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-brick);
+  outline-offset: 2px;
 }
 
 .link img {
   width: 16px;
   height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.link:hover img {
+  transform: translateX(2px);
 }
 
 /* ========================================
