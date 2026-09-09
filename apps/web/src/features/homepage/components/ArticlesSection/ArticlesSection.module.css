@@ -1,6 +1,11 @@
+/* ========================================
+   ARTICLES SECTION - "How does it work?"
+   Figma: https://www.figma.com/design/bZAf26vagDGgcNSVsKH8BW/Logistic-Landscape-Website?node-id=349-227
+   ======================================== */
+
 .section {
-  padding: 80px 0;
-  background-color: var(--color-paper);
+  padding: 120px 0;
+  background: linear-gradient(180deg, #f7f2e9 0%, #f4ede0 100%);
   position: relative;
 }
 
@@ -38,143 +43,233 @@
   box-sizing: border-box;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.eyebrow {
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  color: #86918c;
+  margin: 0;
 }
 
 .heading {
   font-family: var(--font-family-display);
   font-size: 40px;
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-bold);
   font-style: italic;
   line-height: 1.5;
   letter-spacing: 0.4px;
-  color: var(--color-text-primary);
-  margin: 0 0 30px 0;
-  position: relative;
-  z-index: 3;
-  opacity: 1 !important;
+  color: #152a31;
+  margin: 0;
 }
+
+/* ========================================
+   FEATURED ARTICLE
+   ======================================== */
 
 .featuredArticle {
-  background-color: var(--color-paper);
-  border: 1px solid var(--color-paper-border);
-  border-radius: 8px;
-  padding: 20px;
   display: flex;
   gap: 35px;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  padding: 30px 0;
+  border-bottom: 1px solid #1e3c45;
+  width: 100%;
 }
 
-.articleImage {
+.featuredContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.badge {
+  background-color: #be5b3f;
+  color: #f7f2e9;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  width: fit-content;
+  margin: 0;
+}
+
+.featuredTitle {
+  font-family: var(--font-family-display);
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.64px;
+  color: #1e3c45;
+  margin: 0;
+}
+
+.featuredDescription {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  color: #1e3c45;
+  margin: 0;
+}
+
+.featuredImage {
   flex: 0 0 auto;
   width: 200px;
   height: 150px;
-  border-radius: var(--radius-lg);
+  border-radius: 8px;
   overflow: hidden;
 }
 
-.articleImage img {
+.featuredImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.articleContent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-3);
-}
+/* ========================================
+   READ TIME LINK
+   ======================================== */
 
-.badge {
-  background-color: var(--color-brick);
-  color: var(--color-paper-light);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-base);
+.readTimeLink {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
+  font-size: 16px;
   font-weight: var(--font-weight-medium);
   font-style: italic;
-  line-height: var(--line-height-normal);
+  line-height: 1.5;
   letter-spacing: 0.32px;
-  width: fit-content;
+  color: #be5b3f;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.articleContent h3 {
-  font-family: var(--font-family-display);
-  font-size: 32px;
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-normal);
-  letter-spacing: 0.64px;
-  color: var(--color-text-primary);
-  margin: 0;
+.readTimeLink:hover {
+  opacity: 0.8;
 }
 
-.articleContent p {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-normal);
-  letter-spacing: 0.32px;
-  color: var(--color-text-primary);
-  margin: 0;
+.readTimeLink img {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
 }
 
-.articlesGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+.readTimeLink:hover img {
+  transform: translateX(2px);
 }
 
-.articleCard {
-  background-color: var(--color-paper);
-  border: 1px solid var(--color-paper-border);
-  border-radius: 8px;
-  padding: 20px 0 20px 20px;
+/* ========================================
+   ARTICLES LIST
+   ======================================== */
+
+.articlesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.articleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 114px;
+  border-bottom: 1px solid #c5c4b7;
+}
+
+.articleRow:last-child {
+  border-bottom: 1px solid #c5c4b7;
+}
+
+.articleContent {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: all var(--animation-duration-fast) var(--animation-easing-smooth);
-  cursor: pointer;
+  flex: 1;
+  min-width: 0;
 }
 
-.articleCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-.articleCard:focus-visible {
-  outline: 2px solid var(--color-brick);
-  outline-offset: 2px;
-}
-
-.label {
+.category {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
+  font-size: 16px;
   font-weight: var(--font-weight-medium);
   font-style: italic;
-  line-height: var(--line-height-normal);
+  line-height: 1.5;
   letter-spacing: 0.32px;
-  color: var(--color-secondary-border);
-}
-
-.articleCard p {
-  font-family: var(--font-family-display);
-  font-size: 25px;
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-normal);
-  letter-spacing: 0.5px;
-  color: var(--color-text-primary);
+  color: #86918c;
   margin: 0;
 }
 
-@media (max-width: 1024px) {
+.articleTitle {
+  font-family: var(--font-family-display);
+  font-size: 25px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: #1e3c45;
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (769px - 1024px)
+   ======================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
   .container {
     padding: 0 100px;
   }
+
+  .featuredArticle {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .featuredImage {
+    width: 100%;
+    height: 200px;
+  }
+
+  .articleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .articleContent {
+    width: 100%;
+  }
 }
+
+/* ========================================
+   RESPONSIVE - MOBILE (max-width: 768px)
+   ======================================== */
 
 @media (max-width: 768px) {
   .section {
@@ -183,6 +278,12 @@
 
   .container {
     padding: 0 32px;
+    gap: 40px;
+  }
+
+  .eyebrow {
+    font-size: 16px;
+    letter-spacing: 0.32px;
   }
 
   .heading {
@@ -193,19 +294,52 @@
   .featuredArticle {
     flex-direction: column;
     gap: 20px;
+    padding: 20px 0;
   }
 
-  .articleImage {
-    width: 100%;
-    height: auto;
-    min-height: 200px;
-  }
-
-  .articleContent h3 {
+  .featuredTitle {
     font-size: 24px;
+    letter-spacing: 0.48px;
   }
 
-  .articlesGrid {
-    grid-template-columns: 1fr;
+  .featuredDescription {
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .featuredImage {
+    width: 100%;
+    height: 160px;
+    order: -1;
+  }
+
+  .readTimeLink {
+    font-size: 14px;
+  }
+
+  .articleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 12px;
+    padding: 16px 16px;
+  }
+
+  .articleContent {
+    width: 100%;
+  }
+
+  .category {
+    font-size: 14px;
+    letter-spacing: 0.28px;
+  }
+
+  .articleTitle {
+    font-size: 18px;
+    letter-spacing: 0.36px;
   }
 }
