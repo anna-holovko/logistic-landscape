@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Topic } from "./types";
-import { useTopicCompositionLayout } from "./useTopicCompositionLayout";
+import { positionTopics } from "./positionTopics";
 import styles from "./TopicsSection.module.css";
 
 const EXAMPLE_TOPICS: Topic[] = [
@@ -24,62 +24,62 @@ interface TopicsSectionProps {
 }
 
 export function TopicsSection({ topics = EXAMPLE_TOPICS }: TopicsSectionProps) {
-  const { containerRef, positions } = useTopicCompositionLayout({ topics });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [positions, setPositions] = useState<ReturnType<typeof positionTopics>>([]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Get container dimensions
+    const width = containerRef.current.offsetWidth || 834;
+    const height = containerRef.current.offsetHeight || 400;
+
+    // Calculate positions
+    const positioned = positionTopics(topics, width, height, 80);
+    setPositions(positioned);
+  }, [topics]);
+
+  // Also recalculate on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (!containerRef.current) return;
+      const width = containerRef.current.offsetWidth || 834;
+      const height = containerRef.current.offsetHeight || 400;
+      const positioned = positionTopics(topics, width, height, 80);
+      setPositions(positioned);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [topics]);
 
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.heading}>Explore what shapes logistics</h2>
         <div className={styles.topicsWrapper} ref={containerRef}>
-          {positions.length > 0 ? (
-            positions.map((positioned) => (
-              <p
-                key={positioned.topic.id}
-                className={`${styles.topic} ${styles[`color-${positioned.colorVariant}`]}`}
-                style={{
-                  position: "absolute",
-                  left: `${positioned.x}px`,
-                  top: `${positioned.y}px`,
-                  fontSize: `${positioned.fontSize}px`,
-                  fontWeight:
-                    positioned.fontSize > 50
-                      ? "bold"
-                      : positioned.fontSize > 30
-                        ? "600"
-                        : "400",
-                }}
-              >
-                {positioned.topic.name}
-              </p>
-            ))
-          ) : (
-            // Fallback: inline-block layout for debugging/fallback
-            topics.map((topic) => {
-              const allCounts = topics.map((t) => t.articleCount);
-              const minCount = Math.min(...allCounts);
-              const maxCount = Math.max(...allCounts);
-              const logMin = Math.log(minCount + 1);
-              const logMax = Math.log(maxCount + 1);
-              const logValue = Math.log(topic.articleCount + 1);
-              const normalized = (logValue - logMin) / (logMax - logMin);
-              const fontSize = 16 + normalized * 64;
-
-              return (
-                <p
-                  key={topic.id}
-                  className={`${styles.topic} ${styles[`color-${topic.colorVariant || "water"}`]}`}
-                  style={{
-                    display: "inline-block",
-                    margin: "8px",
-                    fontSize: `${fontSize}px`,
-                    fontWeight: fontSize > 50 ? "bold" : fontSize > 30 ? "600" : "400",
-                  }}
-                >
-                  {topic.name}
-                </p>
-              );
-            })
-          )}
+          {positions.map((positioned) => (
+            <p
+              key={positioned.topic.id}
+              className={`${styles.topic} ${styles[`color-${positioned.colorVariant}`]}`}
+              style={{
+                position: "absolute",
+                left: `${positioned.x}px`,
+                top: `${positioned.y}px`,
+                fontSize: `${positioned.fontSize}px`,
+                fontWeight:
+                  positioned.fontSize > 50
+                    ? "bold"
+                    : positioned.fontSize > 30
+                      ? "600"
+                      : "400",
+                margin: 0,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {positioned.topic.name}
+            </p>
+          ))}
         </div>
       </div>
     </section>
