@@ -45,19 +45,19 @@ export function CompaniesSection() {
               <div className={styles.attributesRow}>
                 <div className={styles.attributes}>
                   <div className={styles.attribute}>
-                    <div className={styles.attributeLabel}>Mode</div>
+                    <p className={styles.attributeLabel}>Mode</p>
                     <div className={styles.attributeValue}>
                       Small Truck Load
                     </div>
                   </div>
                   <div className={styles.attribute}>
-                    <div className={styles.attributeLabel}>Model</div>
+                    <p className={styles.attributeLabel}>Model</p>
                     <div className={styles.attributeValue}>
                       Carrier Network
                     </div>
                   </div>
                   <div className={styles.attribute}>
-                    <div className={styles.attributeLabel}>Shipments</div>
+                    <p className={styles.attributeLabel}>Shipments</p>
                     <div className={styles.attributeValue}>1-14 pallets</div>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export function CompaniesSection() {
               <div key={company.name} className={styles.companyCard}>
                 <div className={styles.cardHeader}>
                   <h4>{company.name}</h4>
-                  <p>{company.subtitle}</p>
+                  <p className={styles.subLabel}>{company.subtitle}</p>
                 </div>
                 <div className={styles.link}>
                   <span>View Profile</span>

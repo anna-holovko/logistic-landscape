@@ -257,6 +257,17 @@
   margin: 0;
 }
 
+.subLabel {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.32px;
+  color: var(--color-secondary-border);
+  margin: 0;
+}
+
 .link {
   display: flex;
   gap: var(--space-3);
