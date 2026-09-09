@@ -147,15 +147,13 @@
 }
 
 .attribute {
-  background-color: var(--color-water);
-  border: 1px solid var(--color-paper);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3);
+  border-bottom: 1px solid rgba(244, 237, 224, 0.2);
+  padding: 12px 0;
   flex: 1;
 }
 
-.attribute:first-child {
-  flex: 0 0 auto;
+.attribute:last-child {
+  border-bottom: none;
 }
 
 .radarChart {
@@ -344,11 +342,11 @@
 
   .attributes {
     flex: 1;
-    gap: 12px;
+    gap: 0;
   }
 
   .attribute {
-    padding: 16px;
+    padding: 12px 0;
   }
 
   .radarChart {
@@ -416,11 +414,11 @@
 
   .attributes {
     width: 100%;
-    gap: 12px;
+    gap: 0;
   }
 
   .attribute {
-    padding: 12px;
+    padding: 12px 0;
   }
 
   .attributeLabel {
