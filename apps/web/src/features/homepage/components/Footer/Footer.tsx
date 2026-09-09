@@ -31,14 +31,14 @@ export function Footer() {
           <div className={styles.logoGroup}>
             <div className={styles.logoIcon}>
               <Image
-                src="/assets/preview/frame-83.svg"
+                src="/assets/preview/frame-83-light.svg"
                 alt="Logo"
                 width={34}
                 height={34}
               />
             </div>
             <Image
-              src="/assets/preview/logistic-landscape.svg"
+              src="/assets/preview/logistic-landscape-light.svg"
               alt="Logistic Landscape"
               width={242}
               height={28}
