@@ -302,7 +302,7 @@ export function calculateTopicLayout(
       topicAreaTop
     );
 
-    const position = findPosition(
+    let position = findPosition(
       preferredPos.x,
       preferredPos.y,
       width,
@@ -312,25 +312,39 @@ export function calculateTopicLayout(
       topicAreaTop
     );
 
-    if (position) {
-      const box: BoundingBox = {
-        left: position.x,
-        top: position.y,
-        right: position.x + width,
-        bottom: position.y + height,
-      };
-      placedBoxes.push(box);
+    // Fallback: if no position found, place at top-left available space
+    if (!position) {
+      let x = constraints.padding;
+      let y = topicAreaTop + constraints.padding;
 
-      results.push({
-        topic: item.topic,
-        fontSize: item.fontSize,
-        x: position.x,
-        y: position.y,
-        width,
-        height,
-        colorVariant: item.topic.colorVariant || "water",
-      });
+      // Try to find next available row
+      if (placedBoxes.length > 0) {
+        const bottommost = placedBoxes.reduce((max, box) =>
+          box.bottom > max.bottom ? box : max
+        );
+        y = bottommost.bottom + 20;
+      }
+
+      position = { x, y };
     }
+
+    const box: BoundingBox = {
+      left: position.x,
+      top: position.y,
+      right: position.x + width,
+      bottom: position.y + height,
+    };
+    placedBoxes.push(box);
+
+    results.push({
+      topic: item.topic,
+      fontSize: item.fontSize,
+      x: position.x,
+      y: position.y,
+      width,
+      height,
+      colorVariant: item.topic.colorVariant || "water",
+    });
   }
 
   return results;

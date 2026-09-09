@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Topic } from "./types";
 import { calculateTopicLayout, PositionedTopic, LayoutConstraints } from "./topicLayout";
 
@@ -59,40 +59,60 @@ export function useTopicCompositionLayout({
   const [containerWidth, setContainerWidth] = useState(834);
 
   // Recalculate layout
-  const recalculateLayout = () => {
-    if (!containerRef.current) return;
+  const recalculateLayout = useCallback(() => {
+    let width = 834; // Default desktop width
 
-    let width = containerRef.current.offsetWidth;
-    if (width === 0) {
-      width = 834;
+    // Try to get actual width from ref
+    if (typeof document !== "undefined" && containerRef.current) {
+      const actualWidth = containerRef.current.offsetWidth;
+      if (actualWidth > 0) {
+        width = actualWidth;
+      }
     }
 
     setContainerWidth(width);
     const constraints = getConstraintsForWidth(width);
-    const newPositions = calculateTopicLayout(topics, constraints);
-    setPositions(newPositions);
-  };
+    console.log("[TopicsSection] Layout constraints:", constraints);
+    console.log("[TopicsSection] Topics count:", topics.length);
 
-  // Initial layout calculation
-  useEffect(() => {
-    // Calculate immediately on client
-    recalculateLayout();
+    try {
+      const newPositions = calculateTopicLayout(topics, constraints);
+      console.log("[TopicsSection] Calculated positions:", newPositions.length, "topics");
+      if (newPositions.length > 0 && newPositions[0]) {
+        console.log("[TopicsSection] First position:", newPositions[0].topic.name, newPositions[0].x, newPositions[0].y);
+      }
+      setPositions(newPositions);
+    } catch (error) {
+      console.error("[TopicsSection] Layout calculation error:", error);
+    }
   }, [topics]);
 
-  // Setup ResizeObserver
+  // Initial layout calculation with delay to ensure DOM is ready
   useEffect(() => {
-    if (!containerRef.current) return;
+    const timer = setTimeout(() => {
+      recalculateLayout();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [recalculateLayout]);
+
+  // Setup ResizeObserver for responsive recalculation
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const container = containerRef.current;
+    if (!container) return;
 
     const observer = new ResizeObserver(() => {
       recalculateLayout();
     });
 
-    observer.observe(containerRef.current);
+    observer.observe(container);
 
     return () => {
       observer.disconnect();
     };
-  }, [topics]);
+  }, [recalculateLayout]);
 
   return {
     containerRef,
