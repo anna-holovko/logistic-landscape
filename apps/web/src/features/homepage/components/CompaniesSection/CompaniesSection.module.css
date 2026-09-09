@@ -286,6 +286,19 @@
   outline-offset: 2px;
 }
 
+/* Featured company card links are gold */
+.companyContent .link {
+  color: var(--color-gold);
+}
+
+.companyContent .link:hover {
+  color: var(--color-gold);
+}
+
+.companyContent .link:focus-visible {
+  outline: 2px solid var(--color-gold);
+}
+
 .link img {
   width: 16px;
   height: 16px;
