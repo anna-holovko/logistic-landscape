@@ -29,6 +29,7 @@
   letter-spacing: 0.4px;
   color: var(--color-text-primary);
   margin: 0 0 10px 0;
+  opacity: 1 !important;
 }
 
 .subtitle {
