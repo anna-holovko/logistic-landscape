@@ -5,9 +5,6 @@
  * Will be populated with values from Figma design system.
  */
 
-/* Flaticon Icon Font - Free Icon Font */
-@import url("https://cdn.jsdelivr.net/npm/flaticon-uicons@1.0.10/uicons-regular-rounded.css");
-
 :root {
   /* Colors from Figma Design */
   --color-primary: #152a31;

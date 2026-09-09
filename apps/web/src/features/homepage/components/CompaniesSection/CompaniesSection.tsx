@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { RadarChart } from "../RadarChart/RadarChart";
 import styles from "./CompaniesSection.module.css";
 
@@ -86,7 +87,12 @@ export function CompaniesSection() {
                 </p>
                 <div className={styles.link}>
                   <span>Read more about Expedite All</span>
-                  <i className="fi fi-rs-arrow-right"></i>
+                  <Image
+                    src="/assets/preview/arrow-right.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={16}
+                  />
                 </div>
               </div>
             </div>
@@ -102,7 +108,12 @@ export function CompaniesSection() {
                 </div>
                 <div className={styles.link}>
                   <span>View Profile</span>
-                  <i className="fi fi-rs-arrow-right"></i>
+                  <Image
+                    src="/assets/preview/arrow-right-2.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={16}
+                  />
                 </div>
               </div>
             ))}
