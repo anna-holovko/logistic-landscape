@@ -299,13 +299,14 @@
   outline: 2px solid var(--color-gold);
 }
 
-.link img {
-  width: 16px;
-  height: 16px;
+.link i {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
   transition: transform 0.2s ease;
 }
 
-.link:hover img {
+.link:hover i {
   transform: translateX(2px);
 }
 
