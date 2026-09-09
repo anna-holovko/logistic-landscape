@@ -1,23 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence } from "motion/react";
 import { useNewsletterForm } from "@/features/newsletter/client/hooks/useNewsletterForm";
-import { SubscriptionConfirmation } from "@/features/newsletter/client/components/SubscriptionConfirmation";
 import styles from "./NewsletterSection.module.css";
 
 export function NewsletterSection() {
-  const { email, setEmail, success, submit } = useNewsletterForm();
-  const [isOpen, setIsOpen] = useState(false);
+  const { email, setEmail, submit } = useNewsletterForm();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await submit(email);
-    setIsOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsOpen(false);
   };
 
   return (
@@ -44,14 +35,6 @@ export function NewsletterSection() {
           </form>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isOpen && success && (
-          <div onClick={handleCloseModal}>
-            <SubscriptionConfirmation />
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
