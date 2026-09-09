@@ -62,23 +62,37 @@ export function CompaniesSection() {
                 </div>
 
                 <svg className={styles.radarChart} viewBox="0 0 200 200">
-                  <defs>
-                    <polygon id="radar-bg" points="100,30 160,70 140,140 60,140 40,70" fill="#b8a874" opacity="0.3" />
-                  </defs>
-                  <use href="#radar-bg" />
-                  <polygon points="100,30 160,70 140,140 60,140 40,70" fill="none" stroke="#b8a874" strokeWidth="2" />
+                  {/* Concentric hexagon grid rings */}
+                  <polygon points="100,30 160,70 140,140 60,140 40,70" fill="none" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
+                  <polygon points="100,45 140,60 130,120 70,120 60,60" fill="none" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
+                  <polygon points="100,60 120,75 115,105 85,105 80,75" fill="none" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
 
-                  <line x1="100" y1="100" x2="100" y2="30" stroke="#999" strokeWidth="1" opacity="0.3" />
-                  <line x1="100" y1="100" x2="160" y2="70" stroke="#999" strokeWidth="1" opacity="0.3" />
-                  <line x1="100" y1="100" x2="140" y2="140" stroke="#999" strokeWidth="1" opacity="0.3" />
-                  <line x1="100" y1="100" x2="60" y2="140" stroke="#999" strokeWidth="1" opacity="0.3" />
-                  <line x1="100" y1="100" x2="40" y2="70" stroke="#999" strokeWidth="1" opacity="0.3" />
+                  {/* Radial grid lines */}
+                  <line x1="100" y1="100" x2="100" y2="30" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
+                  <line x1="100" y1="100" x2="160" y2="70" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
+                  <line x1="100" y1="100" x2="140" y2="140" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
+                  <line x1="100" y1="100" x2="60" y2="140" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
+                  <line x1="100" y1="100" x2="40" y2="70" stroke="#4a7681" strokeWidth="0.5" opacity="0.5" />
 
-                  <text x="100" y="18" textAnchor="middle" fontSize="11" fill="#fff">Parcel</text>
-                  <text x="165" y="75" fontSize="11" fill="#fff">LTL</text>
-                  <text x="140" y="158" fontSize="11" fill="#fff">FTL</text>
-                  <text x="55" y="158" fontSize="11" fill="#fff">Cold Chain</text>
-                  <text x="25" y="75" fontSize="11" fill="#fff">STL</text>
+                  {/* Filled data polygon */}
+                  <polygon points="100,45 135,68 118,112 82,112 65,68" fill="#c79a3e" opacity="0.4" />
+
+                  {/* Outer polygon border */}
+                  <polygon points="100,30 160,70 140,140 60,140 40,70" fill="none" stroke="#86918c" strokeWidth="1.5" />
+
+                  {/* Vertex dots */}
+                  <circle cx="100" cy="30" r="3" fill="#f4ede0" />
+                  <circle cx="160" cy="70" r="3" fill="#f4ede0" />
+                  <circle cx="140" cy="140" r="3" fill="#f4ede0" />
+                  <circle cx="60" cy="140" r="3" fill="#f4ede0" />
+                  <circle cx="40" cy="70" r="3" fill="#f4ede0" />
+
+                  {/* Labels */}
+                  <text x="100" y="16" textAnchor="middle" fontSize="12" fill="#f4ede0" fontWeight="500">Parcel</text>
+                  <text x="172" y="75" fontSize="12" fill="#f4ede0" fontWeight="500">LTL</text>
+                  <text x="150" y="160" fontSize="12" fill="#f4ede0" fontWeight="500">FTL</text>
+                  <text x="50" y="160" fontSize="12" fill="#f4ede0" fontWeight="500">Cold Chain</text>
+                  <text x="20" y="75" fontSize="12" fill="#f4ede0" fontWeight="500">STL</text>
                 </svg>
               </div>
 
