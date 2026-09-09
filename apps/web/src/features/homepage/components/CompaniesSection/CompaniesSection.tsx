@@ -64,9 +64,14 @@ export function CompaniesSection() {
 
                 <div className={styles.radarChart}>
                   <RadarChart
-                    data={[80, 75, 70, 85, 65]}
-                    labels={["Parcel", "FTL", "Cold Chain", "STL", "LTL"]}
-                    size={160}
+                    data={{
+                      parcel: 80,
+                      ftl: 75,
+                      coldChain: 70,
+                      stl: 85,
+                      ltl: 65,
+                    }}
+                    maxValue={100}
                     fillColor="#c79a3e"
                     strokeColor="#86918c"
                     gridColor="#5a8fa0"
