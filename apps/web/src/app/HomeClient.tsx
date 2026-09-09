@@ -22,8 +22,8 @@ export default function HomeClient() {
       <FounderSection />
       <CompaniesSection />
       <ArticlesSection />
-      <TopicsSection />
       <NewsletterSection />
+      <TopicsSection />
       <LogisticsVisualization />
       <Footer />
     </div>
