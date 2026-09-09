@@ -22,11 +22,11 @@
 
 .label {
   font-family: var(--font-family-body);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: var(--font-weight-normal);
   font-style: normal;
   line-height: 1.5;
-  letter-spacing: 0.28px;
+  letter-spacing: 0.4px;
   color: #86918c;
   margin: 0 0 8px 0;
 }
