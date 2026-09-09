@@ -14,21 +14,6 @@
   position: relative;
 }
 
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("/assets/preview/frame-16.png");
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: exclusion;
-  pointer-events: none;
-  z-index: 0;
-}
-
 .section::after {
   content: "";
   position: absolute;
