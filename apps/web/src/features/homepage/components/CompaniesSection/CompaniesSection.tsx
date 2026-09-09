@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { RadarChart } from "../RadarChart/RadarChart";
 import styles from "./CompaniesSection.module.css";
 
 export function CompaniesSection() {
@@ -61,39 +62,16 @@ export function CompaniesSection() {
                   </div>
                 </div>
 
-                <svg className={styles.radarChart} viewBox="0 0 200 200">
-                  {/* Concentric hexagon grid rings */}
-                  <polygon points="100,30 160,70 140,140 60,140 40,70" fill="none" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-                  <polygon points="100,45 140,60 130,120 70,120 60,60" fill="none" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-                  <polygon points="100,60 120,75 115,105 85,105 80,75" fill="none" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-
-                  {/* Radial grid lines */}
-                  <line x1="100" y1="100" x2="100" y2="30" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-                  <line x1="100" y1="100" x2="160" y2="70" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-                  <line x1="100" y1="100" x2="140" y2="140" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-                  <line x1="100" y1="100" x2="60" y2="140" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-                  <line x1="100" y1="100" x2="40" y2="70" stroke="#5a8fa0" strokeWidth="1.2" opacity="0.6" />
-
-                  {/* Filled data polygon */}
-                  <polygon points="100,45 135,68 118,112 82,112 65,68" fill="#c79a3e" opacity="0.5" />
-
-                  {/* Outer polygon border */}
-                  <polygon points="100,30 160,70 140,140 60,140 40,70" fill="none" stroke="#86918c" strokeWidth="2" />
-
-                  {/* Vertex dots */}
-                  <circle cx="100" cy="30" r="3.5" fill="#f4ede0" />
-                  <circle cx="160" cy="70" r="3.5" fill="#f4ede0" />
-                  <circle cx="140" cy="140" r="3.5" fill="#f4ede0" />
-                  <circle cx="60" cy="140" r="3.5" fill="#f4ede0" />
-                  <circle cx="40" cy="70" r="3.5" fill="#f4ede0" />
-
-                  {/* Labels */}
-                  <text x="100" y="16" textAnchor="middle" fontSize="12" fill="#f4ede0" fontWeight="500">Parcel</text>
-                  <text x="172" y="75" fontSize="12" fill="#f4ede0" fontWeight="500">LTL</text>
-                  <text x="150" y="160" fontSize="12" fill="#f4ede0" fontWeight="500">FTL</text>
-                  <text x="50" y="160" fontSize="12" fill="#f4ede0" fontWeight="500">Cold Chain</text>
-                  <text x="20" y="75" fontSize="12" fill="#f4ede0" fontWeight="500">STL</text>
-                </svg>
+                <div className={styles.radarChart}>
+                  <RadarChart
+                    data={[80, 65, 75, 70, 85]}
+                    labels={["Parcel", "LTL", "FTL", "Cold Chain", "STL"]}
+                    size={160}
+                    fillColor="#c79a3e"
+                    strokeColor="#86918c"
+                    gridColor="#5a8fa0"
+                  />
+                </div>
               </div>
 
               <div className={styles.description}>
