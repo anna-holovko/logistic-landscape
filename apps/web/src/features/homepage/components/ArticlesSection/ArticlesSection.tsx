@@ -64,8 +64,8 @@ export function ArticlesSection() {
             <Image
               src={featuredArticle.image}
               alt={featuredArticle.title}
-              width={200}
-              height={150}
+              width={160}
+              height={120}
               priority
             />
           </div>
