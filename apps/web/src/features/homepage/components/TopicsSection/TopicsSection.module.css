@@ -1,18 +1,54 @@
+/* ========================================
+   TOPICS SECTION - "Explore what shapes logistics"
+   Figma: https://www.figma.com/design/bZAf26vagDGgcNSVsKH8BW/Logistic-Landscape-Website?node-id=382-381&m=dev
+   ======================================== */
+
 .section {
-  padding: 80px 320px;
-  background-color: var(--color-paper);
+  padding: 120px 0;
+  background: linear-gradient(180deg, #f7f2e9 0%, #f4ede0 100%);
   border-top: 1px solid var(--color-tertiary-border);
   border-bottom: 1px solid var(--color-tertiary-border);
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/preview/frame-16.png");
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: exclusion;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(244, 237, 224, 0.9);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .container {
   max-width: 1920px;
   margin: 0 auto;
+  padding: 0 320px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 50px;
 }
 
 .heading {
@@ -26,205 +62,85 @@
   margin: 0;
   width: 100%;
   text-align: center;
-  opacity: 1 !important;
 }
 
 .topicsWrapper {
   position: relative;
   width: 834.147px;
   height: 282.632px;
+  min-height: 282.632px;
 }
 
-/* Customs clearance - Regular, 30.555px, water, right-aligned */
-.customsClearance {
+/* ========================================
+   TOPIC STYLING - Dynamic positioning
+   ======================================== */
+
+.topic {
   position: absolute;
   font-family: var(--font-family-display);
-  font-size: 30.555px;
-  font-weight: var(--font-weight-normal);
-  color: var(--color-water);
-  text-align: right;
-  transform: translateX(-100%);
-  left: 195.07px;
-  top: 52px;
+  font-style: italic;
   margin: 0;
   white-space: nowrap;
-  letter-spacing: 0.6111px;
+  transition: opacity 0.2s ease;
+  pointer-events: auto;
+  z-index: auto;
 }
 
-/* Warehousing - Regular, 39.721px, water */
-.warehousing {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 39.721px;
-  font-weight: var(--font-weight-normal);
+/* Color Variants */
+.color-water {
   color: var(--color-water);
-  left: 178.75px;
-  top: 221.52px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.7944px;
 }
 
-/* Last mile - Bold, 45.832px, brick */
-.lastMile {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 45.832px;
-  font-weight: var(--font-weight-bold);
+.color-brick {
   color: var(--color-brick);
-  left: 592.76px;
-  top: 135.97px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.9166px;
 }
 
-/* AI - Bold, 100.902px, brick */
-.ai {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 100.902px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brick);
-  left: 209.3px;
-  top: 35.14px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 2.018px;
-}
-
-/* Freight Brokerage - Bold, 58.054px, water */
-.freightBrokerage {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 58.054px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-water);
-  left: 342.21px;
-  top: 48.89px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 1.1611px;
-}
-
-/* Ocean Freight - Bold, 67.221px, secondary */
-.oceanFreight {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 67.221px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-secondary-border);
-  left: 119.16px;
-  top: 131.39px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 1.3444px;
-}
-
-/* LTL - Bold, 58.278px, gold */
-.ltl {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 58.278px;
-  font-weight: var(--font-weight-bold);
+.color-gold {
   color: var(--color-gold);
-  left: 456.8px;
-  top: 212.36px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 1.1656px;
 }
 
-/* Cross-border - Semibold, 33.61px, water */
-.crossBorder {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 33.61px;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-water);
-  left: 346.8px;
-  top: 0;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.6722px;
+.color-gray {
+  color: var(--color-secondary-border);
 }
 
-/* Intermodal - Regular, 25.972px, water */
-.intermodal {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 25.972px;
-  font-weight: var(--font-weight-normal);
-  color: var(--color-water);
-  left: 577.49px;
-  top: 209.3px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.5194px;
-}
+/* ========================================
+   RESPONSIVE - TABLET (769px - 1024px)
+   ======================================== */
 
-/* Drayage - Regular, 24.444px, water */
-.drayage {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 24.444px;
-  font-weight: var(--font-weight-normal);
-  color: var(--color-water);
-  left: 577.49px;
-  top: 13.75px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.4889px;
-}
-
-/* Cold chain - Regular, 24.444px, water */
-.coldChain {
-  position: absolute;
-  font-family: var(--font-family-display);
-  font-size: 24.444px;
-  font-weight: var(--font-weight-normal);
-  color: var(--color-water);
-  left: 195.55px;
-  top: 10.69px;
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.4889px;
-}
-
-@media (max-width: 1024px) {
-  .section {
-    padding: 80px 100px;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 100px;
   }
 
   .topicsWrapper {
     width: 100%;
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    min-height: 250px;
   }
 
-  .customsClearance,
-  .warehousing,
-  .lastMile,
-  .ai,
-  .freightBrokerage,
-  .oceanFreight,
-  .ltl,
-  .crossBorder,
-  .intermodal,
-  .drayage,
-  .coldChain {
+  .topic {
     position: static;
-    transform: none;
-    text-align: left;
-    font-size: 24px !important;
+    display: inline-block;
+    margin: 8px;
+  }
+
+  .heading {
+    font-size: 32px;
+    letter-spacing: 0.32px;
   }
 }
 
+/* ========================================
+   RESPONSIVE - MOBILE (max-width: 768px)
+   ======================================== */
+
 @media (max-width: 768px) {
   .section {
-    padding: 60px 32px 50px;
+    padding: 60px 0 50px;
+  }
+
+  .container {
+    padding: 0 32px;
   }
 
   .heading {
@@ -235,25 +151,12 @@
   .topicsWrapper {
     width: 100%;
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    min-height: 200px;
   }
 
-  .customsClearance,
-  .warehousing,
-  .lastMile,
-  .ai,
-  .freightBrokerage,
-  .oceanFreight,
-  .ltl,
-  .crossBorder,
-  .intermodal,
-  .drayage,
-  .coldChain {
+  .topic {
     position: static;
-    transform: none;
-    text-align: left;
-    font-size: 18px !important;
+    display: inline-block;
+    margin: 6px;
   }
 }
