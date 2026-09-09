@@ -157,8 +157,8 @@
 }
 
 .radarChart {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   flex-shrink: 0;
 }
 
@@ -350,8 +350,8 @@
   }
 
   .radarChart {
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
   }
 
   .companiesList {
@@ -430,12 +430,12 @@
   }
 
   .radarChart {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
 
   .radarChart text {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .companiesList {
