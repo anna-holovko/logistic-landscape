@@ -79,8 +79,8 @@ export function RadarChart({
           points={points}
           fill="none"
           stroke={gridColor}
-          strokeWidth="1.2"
-          opacity="0.6"
+          strokeWidth="0.8"
+          opacity="0.5"
         />
       ))}
 
@@ -93,8 +93,8 @@ export function RadarChart({
           x2={point.x}
           y2={point.y}
           stroke={gridColor}
-          strokeWidth="1.2"
-          opacity="0.6"
+          strokeWidth="0.8"
+          opacity="0.5"
         />
       ))}
 
@@ -102,7 +102,7 @@ export function RadarChart({
       <polygon
         points={polygonPoints}
         fill={fillColor}
-        opacity="0.5"
+        opacity="0.45"
       />
 
       {/* Outer border */}
@@ -110,7 +110,7 @@ export function RadarChart({
         points={polygonPoints}
         fill="none"
         stroke={strokeColor}
-        strokeWidth="2"
+        strokeWidth="1.2"
       />
 
       {/* Vertex dots */}
@@ -132,9 +132,10 @@ export function RadarChart({
           y={pos.y}
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="12"
+          fontSize="11"
           fill="#f4ede0"
-          fontWeight="500"
+          fontWeight="400"
+          opacity="0.8"
         >
           {pos.label}
         </text>
