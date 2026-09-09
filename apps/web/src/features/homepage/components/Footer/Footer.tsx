@@ -33,15 +33,15 @@ export function Footer() {
               <Image
                 src="/assets/preview/frame-83-light.svg"
                 alt="Logo"
-                width={34}
-                height={34}
+                width={24}
+                height={24}
               />
             </div>
             <Image
               src="/assets/preview/logistic-landscape-light.svg"
               alt="Logistic Landscape"
-              width={242}
-              height={28}
+              width={173}
+              height={20}
             />
           </div>
         </div>
