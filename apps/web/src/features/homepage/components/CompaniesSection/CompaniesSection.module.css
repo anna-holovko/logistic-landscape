@@ -134,7 +134,7 @@
 
 .attributesRow {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -157,9 +157,12 @@
 }
 
 .radarChart {
-  width: 160px;
-  height: 160px;
-  flex-shrink: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 0;
 }
 
 .attributeLabel {
@@ -332,7 +335,7 @@
 
   .attributesRow {
     flex-direction: row;
-    gap: 24px;
+    gap: 32px;
     margin-bottom: 20px;
   }
 
@@ -346,8 +349,8 @@
   }
 
   .radarChart {
-    width: 140px;
-    height: 140px;
+    flex: 1;
+    aspect-ratio: 1;
   }
 
   .companiesList {
@@ -406,6 +409,7 @@
     flex-direction: column;
     gap: 20px;
     margin-bottom: 16px;
+    align-items: stretch;
   }
 
   .attributes {
@@ -426,12 +430,9 @@
   }
 
   .radarChart {
-    width: 130px;
-    height: 130px;
-  }
-
-  .radarChart text {
-    font-size: 12px;
+    width: 100%;
+    height: 200px;
+    aspect-ratio: auto;
   }
 
   .companiesList {
