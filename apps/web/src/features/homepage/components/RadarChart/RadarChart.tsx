@@ -24,10 +24,11 @@ export function RadarChart({
   const radius = (size / 2) * 0.65;
   const angleSlice = (Math.PI * 2) / points;
 
-  // Calculate polygon points
+  // Calculate polygon points - clockwise from top
   const polygonPoints = data
     .map((value, i) => {
-      const angle = angleSlice * i - Math.PI / 2;
+      // Clockwise rotation: -90° for top, then +angle for each subsequent point
+      const angle = -Math.PI / 2 + angleSlice * i;
       const r = (value / maxValue) * radius;
       const x = center + r * Math.cos(angle);
       const y = center + r * Math.sin(angle);
@@ -39,7 +40,7 @@ export function RadarChart({
   const gridRings = [0.75, 0.5, 0.25].map((scale) => {
     const ringPoints = Array.from({ length: points })
       .map((_, i) => {
-        const angle = angleSlice * i - Math.PI / 2;
+        const angle = -Math.PI / 2 + angleSlice * i;
         const r = radius * scale;
         const x = center + r * Math.cos(angle);
         const y = center + r * Math.sin(angle);
@@ -51,7 +52,7 @@ export function RadarChart({
 
   // Calculate label positions
   const labelPositions = labels.map((_, i) => {
-    const angle = angleSlice * i - Math.PI / 2;
+    const angle = -Math.PI / 2 + angleSlice * i;
     const r = radius * 1.15;
     const x = center + r * Math.cos(angle);
     const y = center + r * Math.sin(angle);
@@ -61,7 +62,7 @@ export function RadarChart({
   // Calculate vertex points
   const vertexPoints = Array.from({ length: points })
     .map((_, i) => {
-      const angle = angleSlice * i - Math.PI / 2;
+      const angle = -Math.PI / 2 + angleSlice * i;
       const x = center + radius * Math.cos(angle);
       const y = center + radius * Math.sin(angle);
       return { x, y };
