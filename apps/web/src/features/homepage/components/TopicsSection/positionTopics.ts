@@ -30,11 +30,16 @@ function measureTextDimensions(text: string, fontSize: number): TextDimensions {
     const ctx = canvas.getContext("2d");
     if (!ctx) throw new Error("No canvas context");
 
-    ctx.font = `italic ${fontSize}px Petrona, serif`;
+    ctx.font = `${fontSize}px Petrona, serif`;
     const metrics = ctx.measureText(text);
+    // account for the 0.02em letter-spacing applied in CSS, which
+    // canvas measureText does not include, plus a safety margin for
+    // metric differences if Petrona hasn't finished loading yet
+    const letterSpacing = fontSize * 0.02 * text.length;
+    const safetyMargin = (metrics.width + letterSpacing) * 0.1;
 
     return {
-      width: Math.ceil(metrics.width),
+      width: Math.ceil(metrics.width + letterSpacing + safetyMargin),
       height: Math.ceil(fontSize * 1.2),
     };
   } catch {
@@ -50,7 +55,7 @@ function calculateFontSize(
   articleCount: number,
   allCounts: number[],
   min: number = 16,
-  max: number = 80
+  max: number = 72
 ): number {
   const minCount = Math.min(...allCounts);
   const maxCount = Math.max(...allCounts);
@@ -107,13 +112,16 @@ export function positionTopics(
     };
   });
 
-  // Sort by width (largest first)
-  const sorted = [...sizes].sort((a, b) => b.width - a.width);
+  // Sort by font size (largest first) so the visually dominant words
+  // (which may be short but very tall, e.g. "AI") claim space before
+  // narrower but wider ones, instead of being squeezed into whatever is
+  // left over once every wide word has already been placed
+  const sorted = [...sizes].sort((a, b) => b.fontSize - a.fontSize);
 
   const positioned: PositionedTopic[] = [];
   const usedAreas: Array<{ x: number; y: number; w: number; h: number }> = [];
 
-  const padding = 12;
+  const padding = 14;
   const topicAreaTop = titleHeight;
   const topicAreaHeight = containerHeight - topicAreaTop;
   const availableWidth = containerWidth - padding * 2;
@@ -125,9 +133,11 @@ export function positionTopics(
     let bestY = topicAreaTop + padding;
     let found = false;
 
-    // Try grid positions
-    const gridStepX = Math.max(40, availableWidth / 6);
-    const gridStepY = Math.max(40, availableHeight / 4);
+    // Try grid positions (fine-grained so tightly-sized words can still
+    // find a free, non-colliding slot instead of falling back to naive
+    // stacking, which does not check collisions at all)
+    const gridStepX = 6;
+    const gridStepY = 6;
 
     for (let gridY = 0; gridY < availableHeight; gridY += gridStepY) {
       for (let gridX = 0; gridX < availableWidth; gridX += gridStepX) {
