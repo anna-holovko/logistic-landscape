@@ -169,6 +169,20 @@
 }
 
 /* ========================================
+   RESPONSIVE - LAPTOP (1025px - 1728px)
+   Covers 13"-16" laptop screens (e.g. 14" MacBook Pro at
+   1512/1728 logical px), where the 320px desktop side padding
+   left too little room for the stats grid and caused values
+   like "US + EU" to wrap.
+   ======================================== */
+
+@media (min-width: 1025px) and (max-width: 1728px) {
+  .container {
+    padding: 0 120px;
+  }
+}
+
+/* ========================================
    RESPONSIVE - TABLET (max-width: 1024px)
    ======================================== */
 

@@ -164,6 +164,12 @@
   outline-offset: 2px;
 }
 
+@media (min-width: 1025px) and (max-width: 1728px) {
+  .container {
+    padding: 0 120px;
+  }
+}
+
 @media (max-width: 1024px) {
   .container {
     padding: 0 100px;
