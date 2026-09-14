@@ -28,7 +28,7 @@ export function Footer() {
       <div className={styles.container}>
         {/* Logo Section */}
         <div className={styles.logoSection}>
-          <div className={styles.logoGroup}>
+          <a href="/" className={styles.logoGroup}>
             <div className={styles.logoIcon}>
               <Image
                 src="/assets/preview/frame-83-light.svg"
@@ -43,7 +43,7 @@ export function Footer() {
               width={242}
               height={28}
             />
-          </div>
+          </a>
         </div>
 
         {/* Newsletter Section */}
@@ -70,19 +70,15 @@ export function Footer() {
         {/* Links Section */}
         <div className={styles.linksSection}>
           <nav className={styles.menuColumn}>
-            {companyLinks.map((link) => (
-              <a key={link} href="#" className={styles.menuLink}>
-                {link}
-              </a>
-            ))}
+            <a href="/" className={styles.menuLink}>Company</a>
+            <a href="/articles/small-truck-load-explained" className={styles.menuLink}>Articles</a>
+            <a href="/" className={styles.menuLink}>Newsletter</a>
           </nav>
 
           <nav className={styles.menuColumn}>
-            {legalLinks.map((link) => (
-              <a key={link} href="#" className={styles.menuLink}>
-                {link}
-              </a>
-            ))}
+            <a href="#" className={styles.menuLink}>Contact Us</a>
+            <a href="#" className={styles.menuLink}>Privacy Policy</a>
+            <a href="#" className={styles.menuLink}>Terms & Conditions</a>
           </nav>
         </div>
       </div>

@@ -26,6 +26,20 @@
   align-items: center;
   gap: var(--space-3);
   flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logoGroup:hover {
+  opacity: 0.8;
+}
+
+.logoGroup:focus-visible {
+  outline: 2px solid var(--color-brick);
+  outline-offset: 2px;
+  border-radius: var(--radius-lg);
 }
 
 .logoIcon {
@@ -68,6 +82,7 @@
   padding: 4px 8px;
   margin: -4px -8px;
   border-radius: var(--radius-lg);
+  text-decoration: none;
 }
 
 .menuItem:hover {
@@ -168,6 +183,8 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  display: block;
 }
 
 .dropdownItem:last-child {

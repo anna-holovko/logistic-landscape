@@ -1,14 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
-  menuItems?: string[];
+  menuItems?: Array<{ label: string; href?: string }>;
 }
 
-export function Header({ menuItems = ["Company", "Articles", "Newsletter"] }: HeaderProps) {
+const defaultMenuItems = [
+  { label: "Company", href: "/" },
+  { label: "Articles", href: "/articles/small-truck-load-explained" },
+  { label: "Newsletter", href: "/" },
+];
+
+export function Header({ menuItems = defaultMenuItems }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,7 +29,7 @@ export function Header({ menuItems = ["Company", "Articles", "Newsletter"] }: He
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.logoGroup}>
+        <Link href="/" className={styles.logoGroup}>
           <div className={styles.logoIcon}>
             <Image
               src="/assets/preview/frame-83.svg"
@@ -38,15 +45,18 @@ export function Header({ menuItems = ["Company", "Articles", "Newsletter"] }: He
             width={173}
             height={20}
           />
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <nav className={styles.menu}>
-          {menuItems.map((item, index) => (
-            <div key={index} className={styles.menuItem}>
-              {item}
-            </div>
-          ))}
+          {menuItems.map((item, index) => {
+            const href = item.href || "/";
+            return (
+              <Link key={index} href={href} className={styles.menuItem}>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Mobile/Tablet Burger Menu */}
@@ -63,15 +73,19 @@ export function Header({ menuItems = ["Company", "Articles", "Newsletter"] }: He
 
           {isMenuOpen && (
             <nav className={styles.dropdown}>
-              {menuItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={styles.dropdownItem}
-                  onClick={closeMenu}
-                >
-                  {item}
-                </div>
-              ))}
+              {menuItems.map((item, index) => {
+                const href = item.href || "/";
+                return (
+                  <Link
+                    key={index}
+                    href={href}
+                    className={styles.dropdownItem}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
           )}
         </div>

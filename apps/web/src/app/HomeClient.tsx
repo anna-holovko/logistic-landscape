@@ -17,7 +17,7 @@ export default function HomeClient() {
 
   return (
     <div className="homepage" ref={textAnimationRef}>
-      <Header menuItems={["Company", "Articles", "Newsletter"]} />
+      <Header />
       <Hero />
       <FounderSection />
       <CompaniesSection />
