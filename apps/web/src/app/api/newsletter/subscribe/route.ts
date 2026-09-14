@@ -5,15 +5,18 @@ import { NewsletterSubscribeResponse } from "@/shared/types/api";
 import { getNewsletterTable } from "@/services/newsletter";
 import { createRateLimiter } from "@/services/rateLimit";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables");
-}
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 const rateLimiter = createRateLimiter(60 * 60 * 1000, 5);
+
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error("Missing Supabase environment variables");
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey);
+}
 
 export async function POST(request: NextRequest): Promise<NextResponse<NewsletterSubscribeResponse>> {
   const rateLimitResponse = await rateLimiter(request);
@@ -56,6 +59,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
 
     const email = validation.data.email.toLowerCase().trim();
     const table = getNewsletterTable();
+    const supabase = getSupabaseClient();
 
     // Upsert subscriber - if exists, update the status; if not, insert
     const { data, error } = await supabase
