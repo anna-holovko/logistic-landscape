@@ -48,7 +48,7 @@
   font-family: var(--font-family-display);
   font-size: 40px;
   line-height: 1.5;
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-bold);
   font-style: italic;
 }
 
@@ -166,7 +166,7 @@
 
 .summaryNumber {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-xl);
+  font-size: 18px;
   font-weight: var(--font-weight-bold);
   color: var(--color-brick);
   flex-shrink: 0;
