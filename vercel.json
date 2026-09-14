@@ -7,5 +7,6 @@
       "main": true,
       "preview": true
     }
-  }
+  },
+  "integrations": []
 }
