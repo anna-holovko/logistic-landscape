@@ -71,7 +71,7 @@ export function Footer() {
         <div className={styles.linksSection}>
           <nav className={styles.menuColumn}>
             <a href="/" className={styles.menuLink}>Company</a>
-            <a href="/articles/small-truck-load-explained" className={styles.menuLink}>Articles</a>
+            <a href="/articles" className={styles.menuLink}>Articles</a>
             <a href="/" className={styles.menuLink}>Newsletter</a>
           </nav>
 

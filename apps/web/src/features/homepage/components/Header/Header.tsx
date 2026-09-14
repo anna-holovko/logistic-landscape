@@ -11,7 +11,7 @@ interface HeaderProps {
 
 const defaultMenuItems = [
   { label: "Company", href: "/" },
-  { label: "Articles", href: "/articles/small-truck-load-explained" },
+  { label: "Articles", href: "/articles" },
   { label: "Newsletter", href: "/" },
 ];
 
