@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${petrona.variable} ${ibmPlexSans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${petrona.variable} ${ibmPlexSans.variable}`}>
       <head>
         <meta charSet="utf-8" />
       </head>
