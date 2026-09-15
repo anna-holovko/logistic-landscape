@@ -15,9 +15,24 @@ export default function NewsletterPage() {
             <AnimatedLogo />
           </div>
 
-          <div className="newsletter-header">
-            <h1>Logistics, decoded.</h1>
-            <p>
+          <div
+            className="newsletter-header"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              padding: "0",
+              opacity: 1,
+              visibility: "visible",
+            }}
+          >
+            <h1 style={{ margin: 0, fontSize: "80px", fontWeight: 600, color: "#EFE6D3", textAlign: "center" }}>
+              Logistics, decoded.
+            </h1>
+            <p style={{ margin: 0, maxWidth: "800px", fontSize: "20px", fontWeight: 400, color: "#EFE6D3", textAlign: "center", lineHeight: "30px" }}>
               A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
               markets. Understand how the logistics landscape really works: from transportation
               modes and technologies to the companies shaping the industry.
