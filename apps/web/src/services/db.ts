@@ -105,6 +105,19 @@ export interface NewsletterSubscriber {
 }
 
 function getTableName(): string {
+  // Allowlist of permitted table names for security
+  const allowedTables = ['newsletter_subscribers', 'newsletter_subscribers_preview'];
+
+  // Primary: Use explicit NEWSLETTER_TABLE env var if set
+  if (process.env.NEWSLETTER_TABLE) {
+    const tableName = process.env.NEWSLETTER_TABLE;
+    if (allowedTables.includes(tableName)) {
+      return tableName;
+    }
+    console.warn(`Invalid NEWSLETTER_TABLE value: ${tableName}. Using default.`);
+  }
+
+  // Fallback: Use VERCEL_ENV for automatic detection
   const env = process.env.VERCEL_ENV || 'production';
   return env === 'preview' ? 'newsletter_subscribers_preview' : 'newsletter_subscribers';
 }
