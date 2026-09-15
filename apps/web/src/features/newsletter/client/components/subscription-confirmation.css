@@ -19,6 +19,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .subscription-confirmation-card {
@@ -29,6 +31,8 @@
   width: 550px;
   max-width: 100%;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .subscription-confirmation-content {
@@ -39,6 +43,8 @@
   width: 100%;
   text-align: center;
   line-height: 1.5;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .subscription-confirmation-text-group {
@@ -47,6 +53,8 @@
   gap: 10px;
   align-items: center;
   width: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .subscription-confirmation-title {
