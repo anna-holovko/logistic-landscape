@@ -6,15 +6,20 @@ import fs from 'fs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Database path configuration
-// Priority: DATABASE_PATH env var > process root > project directory
+// Priority: DATABASE_PATH env var > Vercel /tmp > process root > project directory
 function getDbPath(): string {
   // If DATABASE_PATH is explicitly set, use it
   if (process.env.DATABASE_PATH) {
     return process.env.DATABASE_PATH;
   }
 
-  // For external server deployments (non-Vercel), use a standard path
-  if (process.env.NODE_ENV === 'production' && !process.env.VERCEL) {
+  // For Vercel deployments, use /tmp (ephemeral but writable)
+  if (process.env.VERCEL) {
+    return '/tmp/newsletter.db';
+  }
+
+  // For external server deployments (non-Vercel production), use standard path
+  if (process.env.NODE_ENV === 'production') {
     const dataDir = '/var/lib/logistic-landscape/data';
     // Ensure directory exists for external deployments
     if (!fs.existsSync(dataDir)) {
@@ -28,7 +33,7 @@ function getDbPath(): string {
     return path.join(dataDir, 'newsletter.db');
   }
 
-  // For development and Vercel preview, use project-relative path
+  // For development (local), use project-relative path
   return path.join(__dirname, '../../../newsletter.db');
 }
 
