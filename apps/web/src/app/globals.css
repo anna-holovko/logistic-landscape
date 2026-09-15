@@ -220,9 +220,6 @@ textarea {
    FORM INPUTS
    ======================================== */
 
-.newsletter-section .input-wrapper {
-  display: contents;
-}
 
 .newsletter-section .input-label {
   display: none;
@@ -232,6 +229,7 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   max-width: 800px;
+  margin: 0 auto;
   padding: 20px 100px;
   background-color: transparent;
   border: 1px solid var(--color-paper) !important;
