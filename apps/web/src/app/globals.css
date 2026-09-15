@@ -221,9 +221,7 @@ textarea {
    ======================================== */
 
 .newsletter-section .input-wrapper {
-  display: block;
-  width: 100%;
-  border: none !important;
+  display: contents;
 }
 
 .newsletter-section .input-label {
