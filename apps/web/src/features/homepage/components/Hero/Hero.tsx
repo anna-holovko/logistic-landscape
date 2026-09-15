@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
@@ -29,7 +30,7 @@ export function Hero() {
           <p className={`${styles.description} hero-description`}>
             Companies, business models, transportation modes, technologies, and the connections between them — explained in plain English.
           </p>
-          <a href="https://logistic-landscape-9nb27hrod-annaholovko-3090.vercel.app/#newsletter" target="_blank" rel="noopener noreferrer" className={`${styles.subscribeButton} hero-cta`}>
+          <Link href="/newsletter" className={`${styles.subscribeButton} hero-cta`}>
             <span>Subscribe to our weekly landscape</span>
             <Image
               src="/assets/preview/arrow-right.svg"
@@ -37,7 +38,7 @@ export function Hero() {
               width={16}
               height={16}
             />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
