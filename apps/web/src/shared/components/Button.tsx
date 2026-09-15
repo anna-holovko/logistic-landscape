@@ -31,7 +31,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span style={{ position: 'relative', zIndex: 2 }}>
           {isLoading ? "Loading..." : children}
         </span>
-        {variant === "primary" && size === "lg" && !isLoading && (
+        {variant === "primary" && size === "lg" && (
           <div className="button-decoration">
             <img alt="" src={ellipseImage} />
           </div>
