@@ -1,7 +1,35 @@
 const Database = require('better-sqlite3');
 const path = require('path');
+const fs = require('fs');
 
-const dbPath = path.join(__dirname, 'newsletter.db');
+// Database path configuration
+// Priority: DATABASE_PATH env var > production /var/lib > project directory
+function getDbPath() {
+  // If DATABASE_PATH is explicitly set, use it
+  if (process.env.DATABASE_PATH) {
+    return process.env.DATABASE_PATH;
+  }
+
+  // For external server deployments (non-Vercel), use a standard path
+  if (process.env.NODE_ENV === 'production' && !process.env.VERCEL) {
+    const dataDir = '/var/lib/logistic-landscape/data';
+    // Ensure directory exists
+    if (!fs.existsSync(dataDir)) {
+      try {
+        fs.mkdirSync(dataDir, { recursive: true });
+      } catch {
+        // If we can't create /var/lib, fall back to project directory
+        return path.join(__dirname, 'newsletter.db');
+      }
+    }
+    return path.join(dataDir, 'newsletter.db');
+  }
+
+  // For development and Vercel, use project-relative path
+  return path.join(__dirname, 'newsletter.db');
+}
+
+const dbPath = getDbPath();
 
 // Create or open database
 const db = new Database(dbPath);

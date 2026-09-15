@@ -1,9 +1,38 @@
 import Database, { type Database as DatabaseType } from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dbPath = path.join(__dirname, '../../../newsletter.db');
+
+// Database path configuration
+// Priority: DATABASE_PATH env var > process root > project directory
+function getDbPath(): string {
+  // If DATABASE_PATH is explicitly set, use it
+  if (process.env.DATABASE_PATH) {
+    return process.env.DATABASE_PATH;
+  }
+
+  // For external server deployments (non-Vercel), use a standard path
+  if (process.env.NODE_ENV === 'production' && !process.env.VERCEL) {
+    const dataDir = '/var/lib/logistic-landscape/data';
+    // Ensure directory exists for external deployments
+    if (!fs.existsSync(dataDir)) {
+      try {
+        fs.mkdirSync(dataDir, { recursive: true });
+      } catch {
+        // If we can't create /var/lib, fall back to project directory
+        return path.join(__dirname, '../../../newsletter.db');
+      }
+    }
+    return path.join(dataDir, 'newsletter.db');
+  }
+
+  // For development and Vercel preview, use project-relative path
+  return path.join(__dirname, '../../../newsletter.db');
+}
+
+const dbPath = getDbPath();
 
 let db: DatabaseType | null = null;
 
