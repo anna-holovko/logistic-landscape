@@ -47,7 +47,7 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="newsletter-form" noValidate>
+      <form onSubmit={handleSubmit} className="newsletter-form" noValidate suppressHydrationWarning>
         <input
           type="email"
           className={`input ${error ? "input--error" : ""}`}

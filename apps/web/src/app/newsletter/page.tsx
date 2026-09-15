@@ -7,7 +7,7 @@ import { NewsletterForm } from "@/features/newsletter";
 export default function NewsletterPage() {
   return (
     <main className="page-newsletter">
-      <section className="newsletter-section">
+      <section className="newsletter-section" suppressHydrationWarning>
         <div className="newsletter-loop-mask" />
         <div className="newsletter-overlay" />
 
