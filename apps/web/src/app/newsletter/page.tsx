@@ -5,7 +5,10 @@ import { AnimatedLogo } from "../AnimatedLogo";
 
 const NewsletterForm = dynamic(
   () => import("@/features/newsletter").then((mod) => mod.NewsletterForm),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => <div style={{ minHeight: "400px" }} />
+  }
 );
 
 export default function NewsletterPage() {
