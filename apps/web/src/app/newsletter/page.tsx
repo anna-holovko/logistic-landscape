@@ -1,10 +1,37 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { AnimatedLogo } from "../AnimatedLogo";
 import { NewsletterForm } from "@/features/newsletter";
 
 export default function NewsletterPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <main className="page-newsletter">
+        <section className="newsletter-section">
+          <div className="newsletter-content-wrapper">
+            <div className="newsletter-header">
+              <h1>Logistics, decoded.</h1>
+              <p>
+                A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
+                markets. Understand how the logistics landscape really works: from transportation
+                modes and technologies to the companies shaping the industry.
+              </p>
+            </div>
+            <NewsletterForm />
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="page-newsletter">
       <section className="newsletter-section">
