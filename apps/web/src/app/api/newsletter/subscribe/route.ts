@@ -51,20 +51,10 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     let subscriber;
     try {
       subscriber = upsertNewsletterSubscriber(email);
+      console.log("✓ Newsletter subscriber saved:", { email, subscribedAt: subscriber.subscribed_at });
     } catch (dbError) {
-      console.error("Database error:", dbError);
-      // Fallback: return success even if DB fails (for testing)
-      return NextResponse.json(
-        {
-          success: true,
-          message: "Thanks for subscribing! Check your email for updates.",
-          data: {
-            email,
-            subscribedAt: new Date().toISOString(),
-          },
-        },
-        { status: 200 }
-      );
+      console.error("✗ Database error saving newsletter subscriber:", dbError);
+      throw dbError;
     }
 
     return NextResponse.json(
