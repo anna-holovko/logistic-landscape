@@ -11,8 +11,6 @@ export interface ButtonProps
   children: React.ReactNode;
 }
 
-const ellipseImage = "https://www.figma.com/api/mcp/asset/b5b28f4d-595d-4c34-aa1f-3290d028818e.svg";
-
 /**
  * Button Component
  *
@@ -33,7 +31,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         </span>
         {variant === "primary" && size === "lg" && (
           <div className="button-decoration">
-            <img alt="" src={ellipseImage} />
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="50" fill="#c79a3e" />
+            </svg>
           </div>
         )}
       </button>
