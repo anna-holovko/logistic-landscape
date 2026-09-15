@@ -62,9 +62,14 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
       { status: 200 }
     );
   } catch (error: unknown) {
-    console.error("Subscription error:", error);
-    console.error("Error stack:", error instanceof Error ? error.stack : "No stack");
-    const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : "No stack";
+
+    console.error("=== NEWSLETTER SUBSCRIPTION ERROR ===");
+    console.error("Message:", errorMessage);
+    console.error("Stack:", errorStack);
+    console.error("Full error:", JSON.stringify(error, null, 2));
+    console.error("===================================");
 
     return NextResponse.json(
       {
