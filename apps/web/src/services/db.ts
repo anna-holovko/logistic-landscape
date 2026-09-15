@@ -48,7 +48,7 @@ function initializeSchema(database: DatabaseType): void {
       CREATE TABLE IF NOT EXISTS newsletter_subscribers (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT NOT NULL UNIQUE,
-        status TEXT NOT NULL DEFAULT 'subscribed' CHECK (status IN ('subscribed', 'unsubscribed', 'pending')),
+        status TEXT NOT NULL DEFAULT 'subscribed' CHECK (status IN ('subscribed', 'unsubscribed')),
         agreed_to_terms BOOLEAN NOT NULL DEFAULT 1,
         subscription_count INTEGER NOT NULL DEFAULT 1,
         subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -66,7 +66,7 @@ function initializeSchema(database: DatabaseType): void {
       CREATE TABLE IF NOT EXISTS newsletter_subscribers_preview (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT NOT NULL UNIQUE,
-        status TEXT NOT NULL DEFAULT 'subscribed' CHECK (status IN ('subscribed', 'unsubscribed', 'pending')),
+        status TEXT NOT NULL DEFAULT 'subscribed' CHECK (status IN ('subscribed', 'unsubscribed')),
         agreed_to_terms BOOLEAN NOT NULL DEFAULT 1,
         subscription_count INTEGER NOT NULL DEFAULT 1,
         subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -108,7 +108,7 @@ function getDatabase(): DatabaseType {
 export interface NewsletterSubscriber {
   id: number;
   email: string;
-  status: 'subscribed' | 'unsubscribed' | 'pending';
+  status: 'subscribed' | 'unsubscribed';
   agreed_to_terms: boolean;
   subscription_count: number;
   subscribed_at: string;
