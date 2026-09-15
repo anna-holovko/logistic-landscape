@@ -142,7 +142,7 @@ export function upsertNewsletterSubscriber(email: string): NewsletterSubscriber 
 
   // Use a transaction to ensure atomicity
   const upsert = database.transaction(() => {
-    // Try to update existing subscriber
+    // Try to update existing subscriber (repeat subscription)
     const updateStmt = database.prepare(`
       UPDATE ${table}
       SET status = ?, agreed_to_terms = ?, subscribed_at = ?, updated_at = ?, subscription_count = subscription_count + 1
@@ -156,7 +156,7 @@ export function upsertNewsletterSubscriber(email: string): NewsletterSubscriber 
       return updated as NewsletterSubscriber;
     }
 
-    // If no update, insert new subscriber
+    // If no update, insert new subscriber (first subscription)
     const insertStmt = database.prepare(`
       INSERT INTO ${table} (email, status, agreed_to_terms, subscribed_at, updated_at, created_at)
       VALUES (?, ?, ?, ?, ?, ?)
