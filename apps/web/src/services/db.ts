@@ -51,6 +51,7 @@ function initializeSchema(database: DatabaseType): void {
         status TEXT NOT NULL DEFAULT 'subscribed' CHECK (status IN ('subscribed', 'unsubscribed', 'pending')),
         value TEXT,
         agreed_to_terms BOOLEAN NOT NULL DEFAULT 1,
+        subscription_count INTEGER NOT NULL DEFAULT 1,
         subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
         unsubscribed_at DATETIME,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -69,6 +70,7 @@ function initializeSchema(database: DatabaseType): void {
         status TEXT NOT NULL DEFAULT 'subscribed' CHECK (status IN ('subscribed', 'unsubscribed', 'pending')),
         value TEXT,
         agreed_to_terms BOOLEAN NOT NULL DEFAULT 1,
+        subscription_count INTEGER NOT NULL DEFAULT 1,
         subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
         unsubscribed_at DATETIME,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -111,6 +113,7 @@ export interface NewsletterSubscriber {
   status: 'subscribed' | 'unsubscribed' | 'pending';
   value: string | null;
   agreed_to_terms: boolean;
+  subscription_count: number;
   subscribed_at: string;
   unsubscribed_at: string | null;
   updated_at: string;
@@ -145,7 +148,7 @@ export function upsertNewsletterSubscriber(email: string): NewsletterSubscriber 
     // Try to update existing subscriber
     const updateStmt = database.prepare(`
       UPDATE ${table}
-      SET status = ?, agreed_to_terms = ?, subscribed_at = ?, updated_at = ?
+      SET status = ?, agreed_to_terms = ?, subscribed_at = ?, updated_at = ?, subscription_count = subscription_count + 1
       WHERE email = ?
       RETURNING *
     `);
