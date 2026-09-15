@@ -446,6 +446,7 @@ textarea {
 }
 
 .button--primary:hover .button-decoration {
+  opacity: 1 !important;
   animation: ellipse-expand 0.2s ease-in-out forwards;
 }
 
