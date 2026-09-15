@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { NewsletterForm } from "@/features/newsletter/client/components/NewsletterForm";
-import styles from "./newsletter.module.css";
+import { NewsletterSection } from "@/features/homepage/components/NewsletterSection";
 
 export const metadata: Metadata = {
   title: "Newsletter | Logistic Landscape",
@@ -8,17 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function NewsletterPage() {
-  return (
-    <main className={styles.page}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <h1 className={styles.heading}>Keep reading the landscape.</h1>
-          <p className={styles.description}>
-            One email a week — new companies, useful explanations, market shifts, and the context behind them.
-          </p>
-          <NewsletterForm />
-        </div>
-      </div>
-    </main>
-  );
+  return <NewsletterSection />;
 }
