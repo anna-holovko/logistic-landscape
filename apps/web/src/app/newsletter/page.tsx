@@ -10,25 +10,29 @@ export default function NewsletterPage() {
       justifyContent: "center"
     }}>
       <h1 style={{
-        color: "#EFE6D3",
+        color: "#00FF00",
+        backgroundColor: "yellow",
+        border: "3px solid red",
         fontSize: "48px",
+        padding: "20px",
         marginBottom: "20px",
         textAlign: "center"
       }}>
-        Logistics, decoded.
+        LOGISTICS DECODED TEST
       </h1>
 
       <p style={{
-        color: "#EFE6D3",
+        color: "#00FF00",
+        backgroundColor: "blue",
+        border: "2px solid white",
         fontSize: "16px",
         maxWidth: "600px",
+        padding: "20px",
         textAlign: "center",
         marginBottom: "40px",
         lineHeight: "1.6"
       }}>
         A monthly newsletter for logistics professionals navigating the U.S. &amp; Global markets.
-        Understand how the logistics landscape really works: from transportation modes and technologies
-        to the companies shaping the industry.
       </p>
 
       <form style={{
@@ -64,7 +68,7 @@ export default function NewsletterPage() {
             name="agree"
             required
           />
-          <span>I agree to receive marketing emails. <a href="/privacy" style={{ color: "#EFE6D3", textDecoration: "underline" }}>Privacy Policy</a></span>
+          <span>I agree to receive marketing emails</span>
         </label>
 
         <button
@@ -83,19 +87,6 @@ export default function NewsletterPage() {
           SUBSCRIBE
         </button>
       </form>
-
-      <footer style={{
-        marginTop: "60px",
-        display: "flex",
-        gap: "30px",
-        justifyContent: "center",
-        color: "#EFE6D3",
-        fontSize: "14px"
-      }}>
-        <a href="/terms" style={{ color: "#EFE6D3", textDecoration: "none" }}>Terms &amp; Conditions</a>
-        <a href="/privacy" style={{ color: "#EFE6D3", textDecoration: "none" }}>Privacy Policy</a>
-        <a href="/cookies" style={{ color: "#EFE6D3", textDecoration: "none" }}>Cookie Policy</a>
-      </footer>
     </div>
   );
 }
