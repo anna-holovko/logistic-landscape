@@ -8,7 +8,6 @@ export default function NewsletterPage() {
   return (
     <main className="page-newsletter">
       <section className="newsletter-section">
-        <div className="newsletter-loop-mask" />
         <div className="newsletter-overlay" />
 
         <div className="newsletter-content-wrapper">
@@ -29,8 +28,8 @@ export default function NewsletterPage() {
           {/* Main Content Animation */}
           <motion.div
             className="newsletter-form-container"
-            initial={{ opacity: 1, scaleX: 0, scaleY: 0, y: 231 }}
-            animate={{ opacity: [1, 1, 1, 1], scaleX: [0, 0, 1, 1], scaleY: [0, 0, 1, 1], y: [231, 231, 0, 0] }}
+            initial={{ opacity: 0, scaleX: 0, scaleY: 0, y: 231 }}
+            animate={{ opacity: [0, 0, 1, 1], scaleX: [0, 0, 1, 1], scaleY: [0, 0, 1, 1], y: [231, 231, 0, 0] }}
             transition={{
               opacity: { duration: 3.872, times: [0, 0.7686, 0.8352, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"] },
               scaleX: { duration: 3.872, times: [0, 0.7206, 0.8352, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"] },
