@@ -313,7 +313,7 @@ textarea {
   display: flex;
   gap: 10px;
   width: 100%;
-  max-width: 750px;
+  max-width: 850px;
   align-items: flex-start;
   justify-content: flex-start;
   font-family: var(--font-family-body);
