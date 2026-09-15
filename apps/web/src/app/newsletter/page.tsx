@@ -1,7 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { AnimatedLogo } from "../AnimatedLogo";
-import { NewsletterForm } from "@/features/newsletter";
+
+const NewsletterForm = dynamic(
+  () => import("@/features/newsletter").then((mod) => mod.NewsletterForm),
+  { ssr: false }
+);
 
 export default function NewsletterPage() {
   return (
