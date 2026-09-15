@@ -197,6 +197,8 @@ textarea {
   letter-spacing: 0.8px;
   color: var(--color-hero-text);
   text-align: center;
+  transform: scaleX(1) scaleY(1);
+  opacity: 1;
 }
 
 .newsletter-header p {
