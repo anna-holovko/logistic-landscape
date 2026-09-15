@@ -26,6 +26,16 @@ export default function NewsletterPage() {
             <AnimatedLogo />
           </motion.div>
 
+          {/* Header - Always Visible */}
+          <div className="newsletter-header">
+            <h1>Logistics, decoded.</h1>
+            <p>
+              A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
+              markets. Understand how the logistics landscape really works: from transportation
+              modes and technologies to the companies shaping the industry.
+            </p>
+          </div>
+
           {/* Main Content Animation */}
           <motion.div
             className="newsletter-form-container"
@@ -38,15 +48,6 @@ export default function NewsletterPage() {
               y: { duration: 3.872, times: [0, 0.7206, 0.8352, 1], ease: "linear" },
             }}
           >
-            <div className="newsletter-header">
-              <h1>Logistics, decoded.</h1>
-              <p>
-                A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
-                markets. Understand how the logistics landscape really works: from transportation
-                modes and technologies to the companies shaping the industry.
-              </p>
-            </div>
-
             <NewsletterForm />
           </motion.div>
         </div>
