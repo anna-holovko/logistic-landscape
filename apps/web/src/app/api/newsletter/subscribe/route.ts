@@ -1,22 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { newsletterSubscribeRequestSchema } from "@/shared/validation/newsletter";
 import { NewsletterSubscribeResponse } from "@/shared/types/api";
-import { getNewsletterTable } from "@/services/newsletter";
 import { createRateLimiter } from "@/services/rateLimit";
+import { upsertNewsletterSubscriber } from "@/services/db";
 
 const rateLimiter = createRateLimiter(60 * 60 * 1000, 5);
-
-function getSupabaseClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error("Missing Supabase environment variables");
-  }
-
-  return createClient(supabaseUrl, supabaseAnonKey);
-}
 
 export async function POST(request: NextRequest): Promise<NextResponse<NewsletterSubscribeResponse>> {
   const rateLimitResponse = await rateLimiter(request);
@@ -58,43 +46,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
     }
 
     const email = validation.data.email.toLowerCase().trim();
-    const table = getNewsletterTable();
-    const supabase = getSupabaseClient();
 
     // Upsert subscriber - if exists, update the status; if not, insert
-    const { data, error } = await supabase
-      .from(table)
-      .upsert(
-        {
-          email,
-          status: "subscribed",
-          agreed_to_terms: true,
-          subscribed_at: new Date().toISOString(),
-        },
-        { onConflict: "email" }
-      )
-      .select()
-      .single();
-
-    if (error) {
-      console.error("Supabase error:", error);
-      console.error("Error details:", {
-        message: error.message,
-        code: error.code,
-        details: error.details,
-      });
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Failed to process subscription",
-          error: {
-            code: "PROVIDER_ERROR",
-            message: error.message || "An unexpected error occurred. Please try again later.",
-          },
-        },
-        { status: 500 }
-      );
-    }
+    const subscriber = upsertNewsletterSubscriber(email);
 
     return NextResponse.json(
       {
@@ -102,7 +56,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Newslette
         message: "Thanks for subscribing! Check your email for updates.",
         data: {
           email,
-          subscribedAt: data.subscribed_at,
+          subscribedAt: subscriber.subscribed_at,
         },
       },
       { status: 200 }

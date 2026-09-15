@@ -38,3 +38,11 @@ coverage/
 tmp/
 .vercel
 .env*
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+newsletter.db
+newsletter.db-shm
+newsletter.db-wal

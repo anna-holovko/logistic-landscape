@@ -26,6 +26,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.109.0"
+    "better-sqlite3": "^12.11.1"
   }
 }
