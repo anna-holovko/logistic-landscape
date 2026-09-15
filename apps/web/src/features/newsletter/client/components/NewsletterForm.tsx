@@ -8,7 +8,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { Button, Input } from "@/shared/components";
+import { Button } from "@/shared/components";
 import { useNewsletterForm } from "../hooks/useNewsletterForm";
 import { SubscriptionConfirmation } from "./SubscriptionConfirmation";
 
@@ -48,16 +48,17 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
   return (
     <>
       <form onSubmit={handleSubmit} className="newsletter-form" noValidate>
-        <Input
+        <input
           type="email"
+          className={`input ${error ? "input--error" : ""}`}
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          error={error || undefined}
           disabled={isLoading}
           required
           autoComplete="email"
         />
+        {error && <span className="input-error">{error}</span>}
 
         <div className="newsletter-form__agreement">
           <input
