@@ -7,6 +7,15 @@ import { upsertNewsletterSubscriber } from "@/services/db";
 const rateLimiter = createRateLimiter(60 * 60 * 1000, 5);
 
 export async function POST(request: NextRequest): Promise<NextResponse<NewsletterSubscribeResponse>> {
+  console.log('[Newsletter API] Incoming subscription request');
+  console.log('[Newsletter API] Environment:', {
+    VERCEL: process.env.VERCEL,
+    VERCEL_ENV: process.env.VERCEL_ENV,
+    NODE_ENV: process.env.NODE_ENV,
+    DATABASE_PATH: process.env.DATABASE_PATH,
+    NEWSLETTER_TABLE: process.env.NEWSLETTER_TABLE,
+  });
+
   const rateLimitResponse = await rateLimiter(request);
   if (rateLimitResponse) return rateLimitResponse;
 
