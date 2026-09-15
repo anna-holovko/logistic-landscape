@@ -87,11 +87,19 @@ function initializeSchema(database: DatabaseType): void {
 
 function getDatabase(): DatabaseType {
   if (!db) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    db = Database(dbPath) as any;
-    if (db) {
-      db.pragma('journal_mode = WAL');
-      initializeSchema(db);
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      db = Database(dbPath) as any;
+      if (db) {
+        db.pragma('journal_mode = WAL');
+        initializeSchema(db);
+      }
+      console.log('✓ Database initialized at:', dbPath);
+    } catch (error) {
+      console.error('✗ Failed to initialize database:', error);
+      console.error('  Path:', dbPath);
+      console.error('  Environment:', { VERCEL: process.env.VERCEL, NODE_ENV: process.env.NODE_ENV });
+      throw new Error(`Database initialization failed: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
   return db as DatabaseType;
