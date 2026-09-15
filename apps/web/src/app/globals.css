@@ -542,7 +542,8 @@ textarea {
   .newsletter-form {
     width: 100%;
     max-width: 100%;
-    padding: 0;
+    padding: 0 20px;
+    gap: 20px;
     overflow: hidden;
   }
 
@@ -558,7 +559,7 @@ textarea {
   .newsletter-section .input {
     width: 100%;
     max-width: 100%;
-    padding: 16px 32px;
+    padding: 12px 20px;
     box-sizing: border-box;
     display: block;
   }
