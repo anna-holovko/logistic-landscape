@@ -236,7 +236,7 @@ textarea {
   max-width: 800px;
   padding: 20px 100px;
   background-color: transparent;
-  border: 1px solid var(--color-paper);
+  border: 1px solid var(--color-paper) !important;
   border-radius: 8px;
   color: var(--color-hero-text);
   font-family: var(--font-family-body);
@@ -246,6 +246,8 @@ textarea {
   letter-spacing: 0.32px;
   text-align: center;
   transition: all 0.3s ease;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .newsletter-section .input::placeholder {
@@ -258,10 +260,10 @@ textarea {
 }
 
 .newsletter-section .input:focus {
-  outline: none;
+  outline: none !important;
   background-color: rgb(255 255 255 / 0.08);
   border-color: rgb(239 230 211 / 0.5);
-  box-shadow: 0 0 0 4px rgb(190 91 63 / 0.15);
+  box-shadow: none !important;
 }
 
 .newsletter-section .input--error {
@@ -288,6 +290,7 @@ textarea {
   padding: 0 80px;
   align-items: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .newsletter-form__field {
