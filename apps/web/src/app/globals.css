@@ -212,6 +212,8 @@ textarea {
   letter-spacing: 0.4px;
   text-align: center;
   color: var(--color-hero-text);
+  transform: scaleX(1) scaleY(1) !important;
+  opacity: 1 !important;
 }
 
 /* ========================================
