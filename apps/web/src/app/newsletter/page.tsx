@@ -61,4 +61,3 @@ export default function NewsletterPage() {
     </main>
   );
 }
-// Verified: Newsletter page matches main exactly
