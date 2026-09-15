@@ -48,18 +48,16 @@ export function NewsletterForm({ onSuccess }: NewsletterFormProps) {
   return (
     <>
       <form onSubmit={handleSubmit} className="newsletter-form" noValidate>
-        <div className="newsletter-form__field">
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            error={error || undefined}
-            disabled={isLoading}
-            required
-            autoComplete="email"
-          />
-        </div>
+        <Input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          error={error || undefined}
+          disabled={isLoading}
+          required
+          autoComplete="email"
+        />
 
         <div className="newsletter-form__agreement">
           <input
