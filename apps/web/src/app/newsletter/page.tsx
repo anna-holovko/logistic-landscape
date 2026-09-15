@@ -1,55 +1,24 @@
-"use client";
+import { NewsletterSection } from "@/features/homepage/components/NewsletterSection";
 
-import { AnimatedLogo } from "@/app/AnimatedLogo";
-import { NewsletterForm } from "@/features/newsletter";
+export const metadata = {
+  title: "Newsletter | Logistic Landscape",
+  description: "Subscribe to our weekly newsletter for logistics industry insights.",
+};
 
 export default function NewsletterPage() {
   return (
-    <main className="page-newsletter">
-      <section className="newsletter-section">
-        <div className="newsletter-loop-mask" />
-        <div className="newsletter-overlay" />
-
-        <div className="newsletter-content-wrapper">
-          <div className="newsletter-logo-center">
-            <AnimatedLogo />
-          </div>
-
-          <div
-            className="newsletter-header"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-              padding: "0",
-              opacity: 1,
-              visibility: "visible",
-            }}
-          >
-            <h1 style={{ margin: 0, fontSize: "80px", fontWeight: 600, color: "#EFE6D3", textAlign: "center" }}>
-              Logistics, decoded.
-            </h1>
-            <p style={{ margin: 0, maxWidth: "800px", fontSize: "20px", fontWeight: 400, color: "#EFE6D3", textAlign: "center", lineHeight: "30px" }}>
-              A monthly newsletter for logistics professionals navigating the U.S. &amp; Global
-              markets. Understand how the logistics landscape really works: from transportation
-              modes and technologies to the companies shaping the industry.
-            </p>
-          </div>
-
-          <div className="newsletter-form-container">
-            <NewsletterForm />
-          </div>
-        </div>
-
-        <footer className="newsletter-footer">
-          <a href="/terms">Terms &amp; Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/cookies">Cookie Policy</a>
-        </footer>
-      </section>
-    </main>
+    <div style={{ minHeight: "100vh", padding: "40px 20px", background: "#1a1a1a" }}>
+      <h1 style={{ color: "#EFE6D3", textAlign: "center", marginBottom: "20px", fontSize: "48px" }}>
+        Logistics, decoded.
+      </h1>
+      <p style={{ color: "#EFE6D3", textAlign: "center", maxWidth: "600px", margin: "0 auto 40px", fontSize: "16px" }}>
+        A monthly newsletter for logistics professionals navigating the U.S. &amp; Global markets.
+        Understand how the logistics landscape really works: from transportation modes and technologies
+        to the companies shaping the industry.
+      </p>
+      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <NewsletterSection />
+      </div>
+    </div>
   );
 }
