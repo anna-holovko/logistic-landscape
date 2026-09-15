@@ -12,7 +12,7 @@ interface HeaderProps {
 const defaultMenuItems = [
   { label: "Company", href: "/" },
   { label: "Articles", href: "/articles" },
-  { label: "Newsletter", href: "/" },
+  { label: "Newsletter", href: "/#newsletter" },
 ];
 
 export function Header({ menuItems = defaultMenuItems }: HeaderProps) {

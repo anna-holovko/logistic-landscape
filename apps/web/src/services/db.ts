@@ -79,7 +79,7 @@ export function upsertNewsletterSubscriber(email: string): NewsletterSubscriber 
       RETURNING *
     `);
 
-    const updated = updateStmt.get('subscribed', true, now, now, email);
+    const updated = updateStmt.get('subscribed', 1, now, now, email);
 
     if (updated) {
       return updated as NewsletterSubscriber;
@@ -92,7 +92,7 @@ export function upsertNewsletterSubscriber(email: string): NewsletterSubscriber 
       RETURNING *
     `);
 
-    return insertStmt.get(email, 'subscribed', true, now, now, now) as NewsletterSubscriber;
+    return insertStmt.get(email, 'subscribed', 1, now, now, now) as NewsletterSubscriber;
   });
 
   return upsert();

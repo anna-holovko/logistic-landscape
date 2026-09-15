@@ -12,7 +12,7 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className={styles.section}>
+    <section id="newsletter" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
           <h2 className={styles.heading}>Keep reading the landscape.</h2>
